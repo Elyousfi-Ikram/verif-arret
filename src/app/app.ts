@@ -1,0 +1,12 @@
+import { Component, signal } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';;
+
+@Component({
+  selector: 'app-root',
+  imports: [],
+  templateUrl: './app.html',
+  styleUrl: './app.scss'
+})
+export class App {
+  constructor(private router: Router) { }
+}
