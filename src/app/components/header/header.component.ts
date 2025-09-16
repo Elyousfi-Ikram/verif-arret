@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 export interface MenuConfig {
   title: string;
@@ -138,5 +139,17 @@ export class HeaderComponent {
 
   trackByKey(index: number, item: NavigationItem): string {
     return item.key;
+  }
+  
+  constructor(private router: Router) {}
+  
+  // Méthode pour naviguer vers la page decouvrir
+  navigateToDecouvrir(): void {
+    this.router.navigate(['/decouvrir']);
+  }
+  
+  // Ou si vous utilisez déjà un système de navigation
+  onNavigate(page: string): void {
+    this.router.navigate([`/${page}`]);
   }
 }

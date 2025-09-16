@@ -27,9 +27,7 @@ $z-index-hamburger: 1001;
     font-family: math;
 
     &-actions {
-        display: flex;
         justify-content: center;
-        padding: 10px 24px 10px;
         border-bottom: 2px solid #e74c3c;
         gap: 30px;
 
@@ -42,7 +40,6 @@ $z-index-hamburger: 1001;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             outline: none;
-            padding: 5px;
             width: 45%;
 
             &.btn-outline {
@@ -59,26 +56,21 @@ $z-index-hamburger: 1001;
     }
 
     &-container {
-        display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 2rem;
         min-height: $header-height-desktop;
         position: relative;
     }
 
     &-logo-container {
         flex: 0 0 auto;
-        display: flex;
         align-items: center;
         justify-content: center;
         height: 100%;
     }
 
     &-logo {
-        padding: 0.5rem;
         cursor: pointer;
-        display: flex;
         align-items: center;
         justify-content: center;
         transition: transform 0.2s ease;
@@ -97,7 +89,6 @@ $z-index-hamburger: 1001;
 
     &-controls {
         flex: 1;
-        display: flex;
         align-items: center;
         justify-content: flex-end;
         gap: 1rem;
@@ -105,14 +96,9 @@ $z-index-hamburger: 1001;
     }
 
     &-nav {
-        display: flex;
-
         .nav-list {
-            display: flex;
             flex-direction: row;
             justify-content: space-between;
-            margin: 0;
-            padding: 0;
             list-style: none;
 
             .nav-item {
@@ -122,14 +108,13 @@ $z-index-hamburger: 1001;
                     color: $text-light;
                     text-decoration: none;
                     font-weight: 500;
+                    font-size: large;
                     border-radius: $border-radius-sm;
                     transition: $transition-smooth;
                     text-transform: uppercase;
                     letter-spacing: 0.5px;
                     position: relative;
                     outline: none;
-                    display: block;
-                    padding: 12px 24px;
 
                     &:focus {
                         outline: 2px solid $accent-color;
@@ -164,13 +149,11 @@ $z-index-hamburger: 1001;
     }
 
     .hamburger-btn {
-        display: none !important;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 60px;
         height: 60px;
-        padding: 8px;
         background: none;
         border: none;
         cursor: pointer;
@@ -206,7 +189,6 @@ $z-index-hamburger: 1001;
             transition: $transition-smooth;
             transform-origin: center;
             border-radius: 2px;
-            margin: 3px 0;
 
             &.active {
                 background-color: $accent-color;
@@ -250,13 +232,18 @@ $z-index-hamburger: 1001;
 @media (max-width: 768px) {
     .header {
         &-container {
-            padding: 0 1rem;
             min-height: $header-height-mobile;
         }
 
-        &-logo {
-            padding: 0.25rem;
+        .hamburger-btn {
+            display: flex !important;
+        }
 
+        .header-nav {
+            display: none !important;
+        }
+
+        &-logo {
             .logo-img {
                 height: 60px;
                 max-width: 150px;
@@ -267,12 +254,7 @@ $z-index-hamburger: 1001;
             gap: 0.5rem;
         }
 
-        .hamburger-btn {
-            display: flex !important;
-        }
-
         &-nav {
-            display: block !important;
             position: fixed;
             left: 0;
             right: 0;
@@ -294,10 +276,8 @@ $z-index-hamburger: 1001;
             }
 
             .nav-list {
-                display: flex;
                 flex-direction: column;
                 gap: 0;
-                padding: 20px 0;
 
                 .nav-item {
                     width: 100%;
@@ -308,8 +288,6 @@ $z-index-hamburger: 1001;
                     }
 
                     .nav-link {
-                        display: block;
-                        padding: 18px 24px;
                         text-align: left;
                         font-size: 16px;
                         transition: $transition-fast;
@@ -338,11 +316,9 @@ $z-index-hamburger: 1001;
             visibility: hidden;
             transition: $transition-smooth;
             z-index: $z-index-header;
-            display: flex;
             flex-direction: column;
             bottom: 0;
             top: auto;
-            padding: 20px 24px 30px;
             border-top: 2px solid $accent-color;
             box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
             gap: 16px;
@@ -355,7 +331,6 @@ $z-index-hamburger: 1001;
 
             .btn {
                 width: 100%;
-                padding: 16px 24px;
                 font-size: 16px;
                 border-radius: $border-radius-md;
 
@@ -364,34 +339,6 @@ $z-index-hamburger: 1001;
                     color: $text-light;
                     border-color: $text-light;
                 }
-            }
-        }
-    }
-}
-
-@media (max-width: 480px) {
-    .header {
-        &-container {
-            padding: 0 0.75rem;
-            min-height: $header-height-small;
-        }
-
-        &-logo {
-            .logo-img {
-                height: 45px;
-                max-width: 120px;
-            }
-        }
-
-        &-nav {
-            top: $header-height-small;
-            max-height: calc(100vh - #{$header-height-small});
-        }
-
-        &-actions {
-            .btn {
-                font-size: 14px;
-                padding: 12px 16px;
             }
         }
     }

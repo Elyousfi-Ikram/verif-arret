@@ -50,7 +50,8 @@
     </div>
 
     <!-- Overlay mobile -->
-    <div class="mobile-overlay" [class.active]="isMobileMenuOpen()" (click)="closeMobileMenu()"
-        *ngIf="isMobileMenuOpen()" aria-hidden="true">
+    @if (isMobileMenuOpen()) {
+    <div class="mobile-overlay" [class.active]="isMobileMenuOpen()" (click)="closeMobileMenu()" aria-hidden="true">
     </div>
+    }
 </header>
