@@ -1,0 +1,56 @@
+<header class="header" role="banner">
+    <!-- Boutons d'action -->
+    <div class="header-actions d-flex py-2 px-4" [class.mobile-open]="isMobileMenuOpen()">
+        <button class="btn btn-outline" type="button" aria-label="Demander à être rappelé" (click)="onCallbackClick()">
+            Être rappelé
+        </button>
+        <button class="btn btn-outline" type="button" aria-label="Demander un contrôle" (click)="onControlClick()">
+            Demander un contrôle terrain
+        </button>
+    </div>
+
+    <div class="header-container d-flex px-4">
+        <!-- Logo -->
+        <div class="header-logo-container d-flex">
+            <div class="header-logo p-2">
+                <img src="assets/header/logo-verif.webp" alt="VERIF-ARRET - Contrôle médical professionnel"
+                    class="logo-img" loading="eager" (click)="onLogoClick($event)" (keydown)="onLogoKeyDown($event)"
+                    tabindex="0" role="button" aria-label="Retour à l'accueil" />
+            </div>
+        </div>
+
+        <!-- Conteneur pour navigation et boutons hamburger -->
+        <div class="header-controls d-flex">
+            <!-- Bouton Hamburger -->
+            <button class="hamburger-btn d-flex d-md-none p-2" [class.active]="isMobileMenuOpen()" type="button"
+                [attr.aria-expanded]="isMobileMenuOpen()" aria-label="Menu de navigation" (click)="toggleMobileMenu()">
+                <span class="hamburger-line my-1" [class.active]="isMobileMenuOpen()"></span>
+                <span class="hamburger-line my-1" [class.active]="isMobileMenuOpen()"></span>
+                <span class="hamburger-line my-1" [class.active]="isMobileMenuOpen()"></span>
+            </button>
+
+            <!-- Navigation -->
+            <nav class="header-nav d-none d-md-flex" [class.mobile-open]="isMobileMenuOpen()" role="navigation"
+                aria-label="Navigation principale">
+                <ul class="nav-list d-flex m-0 p-0" role="menubar">
+                    <li class="nav-item" *ngFor="let item of NAVIGATION_ITEMS; trackBy: trackByKey">
+                        <a [href]="'#' + item.key" [class]="getNavLinkClasses(item.key, item.config)"
+                            class="nav-link d-block py-3 px-4"
+                            [attr.aria-current]="isNavItemActive(item.key) ? 'page' : null"
+                            [attr.tabindex]="item.config.navigable ? 0 : -1"
+                            [attr.aria-disabled]="!item.config.navigable"
+                            (click)="onNavClick(item.key, $event); closeMobileMenu()"
+                            (keydown)="onNavKeyDown($event, item.key)" role="menuitem">
+                            {{ item.config.title || item.key.toUpperCase() }}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Overlay mobile -->
+    <div class="mobile-overlay" [class.active]="isMobileMenuOpen()" (click)="closeMobileMenu()"
+        *ngIf="isMobileMenuOpen()" aria-hidden="true">
+    </div>
+</header>
