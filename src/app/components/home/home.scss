@@ -4,7 +4,6 @@
     color: #2c3e50;
     overflow-x: hidden;
     background: #ffffff;
-    margin-top: 140px;
 
     .container {
         max-width: 1300px;
@@ -113,7 +112,6 @@
     background: #ffffff;
 
     .absenteeism-content {
-        gap: clamp(60px, 10vw, 100px);
         max-width: 1300px;
     }
 
@@ -129,6 +127,7 @@
 
     .absenteeism-text {
         max-width: 650px;
+        padding-left: 2%;
 
         p {
             font-size: 1.4rem;
@@ -190,10 +189,6 @@
                 height: 5px;
                 background: linear-gradient(90deg, #e74c3c, #ec7063);
                 border-radius: 3px;
-            }
-
-            .highlight-text {
-                font-weight: 700;
             }
         }
 
@@ -326,7 +321,9 @@
     }
 
     .detective-text {
-        .detective-capabilities {
+
+        .detective-capabilities,
+        .detective-legal {
             h3 {
                 font-size: 1.2rem;
                 font-weight: 600;
@@ -455,13 +452,9 @@
 }
 
 @media (max-width: 768px) {
-    .home {
-        margin-top: 75px;
-    }
-
     .hero-section {
         .hero-content {
-            flex-direction: column;
+            flex-direction: column !important;
         }
     }
 

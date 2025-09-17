@@ -123,7 +123,7 @@
         <div class="container px-3">
             <h2 class="text-center position-relative">Quand un arrêt de travail devient suspect</h2>
             <p class="my-3 text-justify">
-                Un arrêt de travail – qu'il s'agisse d'un arrêt maladie ou d'un accident du travail –
+                Un arrêt de travail - qu'il s'agisse d'un arrêt maladie ou d'un accident du travail -
                 est un droit, sous réserve qu'il repose sur des éléments médicaux justifiés.
             </p>
 
@@ -148,8 +148,9 @@
                     </span> </em> .
             </p>
 
-            <div class="article-content p-4 my-3 position-relative bg-white rounded border-start border-danger border-4 shadow-sm"
-                *ngIf="showCodeTravailArticles">
+            @if (showCodeTravailArticles)
+            { <div
+                class="article-content p-4 my-3 position-relative bg-white rounded border-start border-danger border-4 shadow-sm">
                 <strong>Article L8221-1</strong><br />
                 Sont interdits :<br />
                 1 - Le travail totalement ou partiellement dissimulé, défini et exercé dans les conditions prévues
@@ -205,7 +206,7 @@
                 3 - Soit de se soustraire intentionnellement aux déclarations relatives aux salaires ou aux
                 cotisations sociales assises sur ceux-ci auprès des organismes de recouvrement des contributions et
                 cotisations sociales ou de l'administration fiscale en vertu des dispositions légales.
-            </div>
+            </div>}
         </div>
     </section>
 
@@ -269,20 +270,25 @@
                                         <span class="clickable-article position-relative" (click)="toggleArticle368()">
                                             Article 368 du Code pénal
                                         </span>
-                                        <div class="article-content p-4 my-3 position-relative bg-white rounded border-start border-danger border-4 shadow-sm"
-                                            *ngIf="showArticle9">
+                                        @if (showArticle9)
+                                        { <div
+                                            class="article-content p-4 my-3 position-relative bg-white rounded border-start border-danger border-4 shadow-sm">
                                             "Chacun a droit au respect de sa vie privée. Les juges peuvent, sans
                                             préjudice de la réparation du dommage subi, prescrire toutes mesures,
                                             telles que séquestre, saisie et autres, propres à empêcher ou faire
                                             cesser une atteinte à l'intimité de la vie privée : ces mesures peuvent,
                                             s'il y a urgence, être ordonnées en référé."
                                         </div>
-                                        <div class="article-content p-4 my-3 position-relative bg-white rounded border-start border-danger border-4 shadow-sm"
-                                            *ngIf="showArticle368">
+                                        }
+
+                                        @if (showArticle368) {
+                                        <div
+                                            class="article-content p-4 my-3 position-relative bg-white rounded border-start border-danger border-4 shadow-sm">
                                             "Aucune personne acquittée légalement ne peut plus être reprise ou
                                             accusée à raison des mêmes faits, même sous une qualification
                                             différente."
                                         </div>
+                                        }
                                     </em>
                                 </li>
                                 <li class="ps-4 py-1 mb-2 position-relative">constater des activités incompatibles
