@@ -1,47 +1,61 @@
-<header class="header" role="banner">
+<header class="header fixed-top" role="banner">
     <!-- Boutons d'action -->
-    <div class="header-actions d-flex py-2 px-4" [class.mobile-open]="isMobileMenuOpen()">
-        <button class="btn btn-outline" type="button" aria-label="Demander à être rappelé" (click)="onCallbackClick()">
+    <div class="header-actions d-flex justify-content-center py-2 px-4 border-bottom"
+        [class.mobile-open]="isMobileMenuOpen()">
+        <button class="btn btn-outline-light rounded-pill me-3 text-uppercase fw-semibold" type="button"
+            aria-label="Demander à être rappelé" (click)="onCallbackClick()">
             Être rappelé
         </button>
-        <button class="btn btn-outline" type="button" aria-label="Demander un contrôle" (click)="onControlClick()">
+        <button class="btn btn-outline-light rounded-pill text-uppercase fw-semibold" type="button"
+            aria-label="Demander un contrôle" (click)="onControlClick()">
             Demander un contrôle terrain
         </button>
     </div>
 
-    <div class="header-container d-flex px-4">
+    <div class="header-container d-flex align-items-center justify-content-between px-4">
         <!-- Logo -->
-        <div class="header-logo-container d-flex">
-            <div class="header-logo p-2">
+        <div class="header-logo-container d-flex align-items-center justify-content-center h-100">
+            <a href="/" class="header-logo p-2 d-flex align-items-center justify-content-center">
                 <img src="assets/header/logo-verif.webp" alt="VERIF-ARRET - Contrôle médical professionnel"
-                    class="logo-img" loading="eager" (click)="onLogoClick($event)" (keydown)="onLogoKeyDown($event)"
-                    tabindex="0" role="button" aria-label="Retour à l'accueil" />
-            </div>
+                    class="logo-img" loading="eager" tabindex="0" role="button" aria-label="Retour à l'accueil" />
+            </a>
         </div>
 
         <!-- Conteneur pour navigation et boutons hamburger -->
-        <div class="header-controls d-flex">
+        <div class="header-controls d-flex align-items-center justify-content-end h-100">
             <!-- Bouton Hamburger -->
-            <button class="hamburger-btn d-flex d-md-none p-2" [class.active]="isMobileMenuOpen()" type="button"
-                [attr.aria-expanded]="isMobileMenuOpen()" aria-label="Menu de navigation" (click)="toggleMobileMenu()">
-                <span class="hamburger-line my-1" [class.active]="isMobileMenuOpen()"></span>
-                <span class="hamburger-line my-1" [class.active]="isMobileMenuOpen()"></span>
-                <span class="hamburger-line my-1" [class.active]="isMobileMenuOpen()"></span>
+            <button
+                class="hamburger-btn d-flex d-md-none flex-column justify-content-center align-items-center p-2 border-0 bg-transparent rounded"
+                [class.active]="isMobileMenuOpen()" type="button" [attr.aria-expanded]="isMobileMenuOpen()"
+                aria-label="Menu de navigation" (click)="toggleMobileMenu()">
+                <span class="hamburger-line my-1 rounded" [class.active]="isMobileMenuOpen()"></span>
+                <span class="hamburger-line my-1 rounded" [class.active]="isMobileMenuOpen()"></span>
+                <span class="hamburger-line my-1 rounded" [class.active]="isMobileMenuOpen()"></span>
             </button>
 
             <!-- Navigation -->
-            <nav class="header-nav d-none d-md-flex" [class.mobile-open]="isMobileMenuOpen()" role="navigation"
+            <nav class="header-nav d-none d-md-flex" role="navigation" [class.mobile-open]="isMobileMenuOpen()"
                 aria-label="Navigation principale">
-                <ul class="nav-list d-flex m-0 p-0" role="menubar">
-                    <li class="nav-item" *ngFor="let item of NAVIGATION_ITEMS; trackBy: trackByKey">
-                        <a [href]="'#' + item.key" [class]="getNavLinkClasses(item.key, item.config)"
-                            class="nav-link d-block py-3 px-4"
-                            [attr.aria-current]="isNavItemActive(item.key) ? 'page' : null"
-                            [attr.tabindex]="item.config.navigable ? 0 : -1"
-                            [attr.aria-disabled]="!item.config.navigable"
-                            (click)="onNavClick(item.key, $event); closeMobileMenu()"
-                            (keydown)="onNavKeyDown($event, item.key)" role="menuitem">
-                            {{ item.config.title || item.key.toUpperCase() }}
+                <ul class="nav-list d-flex m-0 p-0 list-unstyled" role="menubar">
+                    <li class="nav-item">
+                        <a href="/decouvrir"
+                            class="nav-link d-block py-3 px-4 text-decoration-none fw-medium text-uppercase rounded"
+                            role="menuitem">
+                            DÉCOUVREZ-NOUS
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/prestations"
+                            class="nav-link d-block py-3 px-4 text-decoration-none fw-medium text-uppercase rounded"
+                            role="menuitem">
+                            NOS SERVICES
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/engagements"
+                            class="nav-link d-block py-3 px-4 text-decoration-none fw-medium text-uppercase rounded"
+                            role="menuitem">
+                            NOS ENGAGEMENTS
                         </a>
                     </li>
                 </ul>
@@ -51,7 +65,8 @@
 
     <!-- Overlay mobile -->
     @if (isMobileMenuOpen()) {
-    <div class="mobile-overlay" [class.active]="isMobileMenuOpen()" (click)="closeMobileMenu()" aria-hidden="true">
+    <div class="mobile-overlay position-fixed top-0 start-0 end-0 bottom-0" [class.active]="isMobileMenuOpen()"
+        (click)="closeMobileMenu()" aria-hidden="true">
     </div>
     }
 </header>
