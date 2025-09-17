@@ -1,0 +1,210 @@
+// ===== STYLES PERSONNALISÉS UNIQUEMENT =====
+.decouvrir-page {
+    font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+
+    // Couleurs personnalisées Bootstrap
+    --bs-primary: #051039;
+    --bs-danger: #e74c3c;
+    --bs-secondary: #5d6d7e;
+    --bs-light: #f8f9fa;
+
+    h1, h2, h3, h4, h5, h6 {
+        text-transform: uppercase;
+    }
+
+    h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--bs-danger) 0%, #ec7063 100%);
+        border-radius: 8px;
+    }
+
+    strong {
+        color: var(--bs-primary);
+        font-weight: 600;
+    }
+}
+
+// Hero Section - styles spécifiques
+.decouvrir-hero {
+    background-image: url('/assets/decouvrir/header-decouvrir.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 75vh;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(5, 16, 57, 0.5);
+        pointer-events: none;
+    }
+
+    .container {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    h1 {
+        background: linear-gradient(135deg, #ffffff 0%, #ec7063 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-highlight strong {
+        color: #ec7063;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+}
+
+// Timeline personnalisée
+.parcours-timeline {
+    &::before {
+        content: '';
+        position: absolute;
+        left: 2rem;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, var(--bs-danger) 0%, #ec7063 100%);
+        border-radius: 8px;
+    }
+}
+
+.parcours-item {
+    &::before {
+        content: '';
+        position: absolute;
+        left: 1.3rem;
+        top: 0.75rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        background: var(--bs-danger);
+        border-radius: 50%;
+        border: 4px solid #ffffff;
+        box-shadow: 0 8px 25px rgba(5, 16, 57, 0.12);
+        z-index: 10;
+    }
+}
+
+// Image métier
+.metier-image {
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(5, 16, 57, 0.1) 0%, rgba(231, 76, 60, 0.1) 100%);
+        z-index: 1;
+    }
+}
+
+// Definition box avec gradient
+.definition-box {
+    background: linear-gradient(135deg, var(--bs-primary) 0%, #0a1f5c 100%) !important;
+    
+    &::before {
+        content: '"';
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        font-size: 5rem;
+        color: var(--bs-danger);
+        font-family: serif;
+        z-index: 1;
+    }
+
+    &::after {
+        content: '"';
+        position: absolute;
+        bottom: -40px;
+        right: 20px;
+        font-size: 5rem;
+        color: var(--bs-danger);
+        font-family: serif;
+        z-index: 1;
+    }
+}
+
+// Texte avec gradient
+.verif-arret-brand {
+    background: linear-gradient(135deg, var(--bs-danger) 0%, #ec7063 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.engagement-text strong,
+.engagement-highlight strong {
+    background: linear-gradient(135deg, var(--bs-danger) 0%, #ec7063 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+// Focus states
+.ville-item:focus-visible,
+.valeur-item:focus-visible,
+.regle-item:focus-visible {
+    outline: 2px solid var(--bs-danger);
+    outline-offset: 2px;
+}
+
+// Media queries optimisées avec breakpoints Bootstrap
+@media (max-width: 991.98px) { // Bootstrap lg breakpoint
+    .decouvrir-hero {
+        background-attachment: scroll;
+        min-height: 50vh;
+    }
+    
+    .parcours-timeline::before {
+        left: 1rem;
+    }
+    
+    .parcours-item::before {
+        left: 0.55rem;
+        width: 1rem;
+        height: 1rem;
+    }
+    
+    .parcours-content {
+        margin-left: 3rem;
+    }
+}
+
+@media (max-width: 767.98px) { // Bootstrap md breakpoint
+    .decouvrir-hero {
+        min-height: 45vh;
+    }
+    
+    .hero-highlight {
+        width: 95% !important;
+    }
+    
+    .definition-box {
+        max-width: 95% !important;
+    }
+}
+
+@media (max-width: 575.98px) { // Bootstrap sm breakpoint
+    .decouvrir-hero {
+        min-height: 40vh;
+    }
+    
+    h2::after {
+        width: 50px !important;
+    }
+}
