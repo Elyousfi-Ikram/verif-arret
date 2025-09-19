@@ -1,0 +1,366 @@
+// ===== STYLES GLOBAUX =====
+.engagement-page {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    background: #ffffff;
+
+    h2 {
+        font-size: clamp(2rem, 5vw, 2.6rem);
+        font-weight: 700;
+        color: #051039;
+        margin-bottom: 40px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #e74c3c;
+            border-radius: 2px;
+        }
+    }
+
+    .engagement {
+        font-style: italic;
+        font-weight: 600;
+        color: #e74c3c;
+        text-align: center;
+        font-size: clamp(1.1rem, 3vw, 1.3rem);
+        padding: 25px;
+        background: rgba(231, 76, 60, 0.1);
+        /* margin: 30px 0; */
+        border: 1px solid rgba(231, 76, 60, 0.3);
+        border-radius: 12px;
+        transition: 0.3s ease;
+        width: 90%;
+        margin: 2rem auto;
+    }
+}
+
+// ===== SECTIONS =====
+// ===== STYLES PERSONNALISÉS MINIMAUX =====
+.engagement-page {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    
+    // Styles pour les titres avec ligne décorative
+    h2.position-relative::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: #e74c3c;
+        border-radius: 2px;
+    }
+}
+
+// ===== HERO SECTION =====
+.engagement-hero {
+    background: linear-gradient(135deg, #051039 0%, #0a1f5c 100%) !important;
+}
+
+// ===== SECTIONS AVEC LIGNE DÉCORATIVE =====
+.engagements-section::after,
+.prevention-section::after,
+.certification-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #e74c3c, transparent);
+    border-radius: 2px;
+    z-index: 2;
+}
+
+// ===== COULEURS PERSONNALISÉES =====
+.text-primary {
+    color: #051039 !important;
+}
+
+.bg-primary {
+    background-color: #051039 !important;
+}
+
+.border-primary {
+    border-color: #0a1f5c !important;
+}
+
+.text-danger {
+    color: #e74c3c !important;
+}
+
+.border-danger {
+    border-color: #e74c3c !important;
+}
+
+.bg-danger {
+    background-color: #e74c3c !important;
+}
+
+// ===== ACCESSIBILITÉ =====
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+// ===== PRINT STYLES =====
+@media print {
+    .engagement-page {
+        * {
+            background: transparent !important;
+            color: black !important;
+            box-shadow: none !important;
+        }
+        
+        .engagement-hero {
+            background: none !important;
+            color: black !important;
+        }
+        
+        .engagement-item,
+        .certification-badge {
+            border: 1px solid #ccc !important;
+            break-inside: avoid;
+        }
+        
+        .engagement {
+            border: 2px solid #000 !important;
+            background: #f0f0f0 !important;
+        }
+    }
+}
+
+.prevention-section {
+    padding: clamp(30px, 10vw, 50px) 0;
+    position: relative;
+
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, transparent, #e74c3c, transparent);
+        border-radius: 2px;
+        z-index: 2;
+    }
+
+    .container {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .prevention-content {
+        max-width: 100%;
+        width: 90%;
+        margin: 0 auto;
+
+        p {
+            font-size: clamp(1.1rem, 3vw, 1.25rem);
+            line-height: 1.8;
+            color: #051039;
+            margin-bottom: 25px;
+            background: #fafbfc;
+            border-radius: 12px;
+            padding: clamp(20px, 4vw, 30px);
+            box-shadow: 0 2px 8px rgba(5, 16, 57, 0.08);
+            border-left: 3px solid #e74c3c;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.expertise-section {
+    background: #ecf0f1;
+
+    .container {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .expertise-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .expertise-item {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(5, 16, 57, 0.08);
+        padding: 30px 20px;
+        border: 1px solid #ecf0f1;
+        text-align: center;
+        transition: 0.3s ease;
+
+        h3 {
+            color: #051039;
+            font-size: clamp(1.3rem, 3vw, 1.5rem);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            color: #051039;
+            margin: 0;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+        }
+    }
+}
+
+.certification-section {
+    padding: clamp(30px, 10vw, 50px) 0;
+    background: #fafbfc;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, transparent, #e74c3c, transparent);
+        border-radius: 2px;
+        z-index: 2;
+    }
+
+    .container {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .certification-content {
+        max-width: 100%;
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+
+        p {
+            font-size: clamp(1.1rem, 3vw, 1.25rem);
+            line-height: 1.8;
+            color: #051039;
+            margin-bottom: 40px;
+            background: #fff;
+            border-radius: 12px;
+            padding: clamp(20px, 4vw, 30px);
+            box-shadow: 0 2px 8px rgba(5, 16, 57, 0.08);
+            border-left: 3px solid #e74c3c;
+            text-align: justify;
+
+            @media (max-width: 768px) {
+                text-align: left;
+            }
+        }
+    }
+
+    .certification-badge {
+        background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(5, 16, 57, 0.12);
+        padding: 30px;
+        border: 2px solid #0a1f5c;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        max-width: 500px;
+        margin: 0 auto;
+        transition: 0.3s ease;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .badge-icon {
+            font-size: 3rem;
+            color: #051039;
+        }
+
+        .badge-content {
+            h3 {
+                color: #051039;
+                font-size: clamp(1.3rem, 3vw, 1.5rem);
+                margin-bottom: 8px;
+                font-weight: 600;
+            }
+
+            p {
+                color: #2c3e50;
+                margin: 0;
+                font-size: clamp(1rem, 2.5vw, 1.1rem);
+                background: none;
+                padding: 0;
+                box-shadow: none;
+                border: none;
+                text-align: left;
+
+                @media (max-width: 768px) {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+// ===== ACCESSIBILITÉ =====
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+// ===== PRINT STYLES =====
+@media print {
+    .engagement-page {
+        * {
+            background: transparent !important;
+            color: black !important;
+            box-shadow: none !important;
+        }
+
+        .engagement-hero {
+            background: none !important;
+            color: black !important;
+        }
+
+        .engagement-item,
+        .expertise-item,
+        .certification-badge {
+            border: 1px solid #ccc !important;
+            break-inside: avoid;
+        }
+
+        .engagement {
+            border: 2px solid #000 !important;
+            background: #f0f0f0 !important;
+        }
+    }
+}
