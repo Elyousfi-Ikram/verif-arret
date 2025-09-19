@@ -1,30 +1,33 @@
 <div class="prestations">
   <!-- Hero Section -->
-  <section 
-    class="d-flex align-items-center justify-content-center text-center position-relative overflow-hidden" 
-    style="background-image: url('assets/prestation/header-prestations.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; min-height: 70vh;">
-    <!-- Overlay -->
-    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(5, 16, 57, 0.2); z-index: 1;"></div>
-    
-    <div class="container position-relative" style="z-index: 2;">
-      <h1 class="text-white mb-4 display-4 fw-bold lh-1" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); letter-spacing: -0.02em;">Nos Services d'Investigations</h1>
-      <p class="text-white mb-0 fs-5 mx-auto" style="max-width: 600px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); line-height: 1.7;">
-        Enquêtes professionnelles sur les arrêts de travail par des enquêteurs privés agréés et expérimentés
-      </p>
+  <section class="prestations-hero py-5 d-flex align-items-center min-vh-75 position-relative" role="banner"
+    aria-labelledby="hero-title">
+    <div class="container text-center py-5">
+      <h1 id="hero-title" class="mb-4 display-4 fw-bold text-white">Nos Services d'Investigations</h1>
+      <div class="hero-highlight mx-auto">
+        <strong>Enquêtes professionnelles</strong> sur les arrêts de travail par des enquêteurs privés 
+        <strong>agréés et expérimentés</strong> de <strong class="verif-arret-brand">VERIF-ARRÊT</strong>.
+      </div>
     </div>
   </section>
 
   <!-- Network Section -->
-  <section class="py-5">
+  <section class="py-5 position-relative">
+    <div class="position-absolute top-0 start-50 translate-middle-x"
+      style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;">
+    </div>
+
     <div class="container">
       <div class="text-center">
         <div class="mx-auto" style="max-width: 1000px;">
           <h2 class="mb-4 h2 fw-bold position-relative pb-3">
             <span class="text-danger fw-bold">VERIF-ARRÊT</span> intervient partout en France
-            <span class="position-absolute bottom-0 start-50 translate-middle-x bg-danger rounded" style="width: 60px; height: 3px;"></span>
+            <span class="position-absolute bottom-0 start-50 translate-middle-x bg-danger rounded"
+              style="width: 60px; height: 3px;"></span>
           </h2>
           <p class="fs-5 mb-4 text-start text-md-justify">
-            La société <span class="text-danger fw-bold">VERIF-ARRÊT</span> vous garantit une intervention professionnelle
+            La société <span class="text-danger fw-bold">VERIF-ARRÊT</span> vous garantit une intervention
+            professionnelle
             et discrète, quel que soit votre secteur d'activité. Présents dans toutes
             les régions de France, nos professionnels assurent une surveillance légale et efficace
             dans le respect de la vie privée et de la déontologie.
@@ -37,90 +40,106 @@
   <!-- Process Section -->
   <section class="py-5 position-relative bg-white shadow-lg" aria-labelledby="process-title">
     <!-- Decorative line -->
-    <div class="position-absolute top-0 start-50 translate-middle-x" style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;"></div>
-    
+    <div class="position-absolute top-0 start-50 translate-middle-x"
+      style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;">
+    </div>
+
     <div class="container position-relative">
       <h2 id="process-title" class="text-center mb-5 h2 fw-bold position-relative pb-3">
         L'enquête sur arrêt de travail en 4 étapes
-        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-danger rounded" style="width: 60px; height: 3px;"></span>
+        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-danger rounded"
+          style="width: 60px; height: 3px;"></span>
       </h2>
       <div class="process-steps" role="list">
         <!-- Étape 1 -->
         <div role="listitem" class="mb-4">
-          <div class="d-flex align-items-center gap-4 p-4 bg-white rounded-4 border-start border-4 shadow-sm flex-column flex-md-row text-center text-md-start" style="border-left-color: #051039 !important; transition: 0.3s ease;">
-            <div class="d-flex align-items-center justify-content-center text-white rounded-circle flex-shrink-0 shadow" style="width: 60px; height: 60px; font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, #e74c3c, #c0392b);">
+          <div
+            class="d-flex align-items-center gap-4 p-4 bg-white rounded-4 border-start border-4 shadow-sm flex-column flex-md-row text-center text-md-start"
+            style="border-left-color: #051039 !important; transition: 0.3s ease;">
+            <div class="d-flex align-items-center justify-content-center text-white rounded-circle flex-shrink-0 shadow"
+              style="width: 60px; height: 60px; font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, #e74c3c, #c0392b);">
               1
             </div>
             <div class="flex-grow-1">
               <h3 class="h5 mb-2 fw-semibold">Demande d'enquête confidentielle</h3>
-              <p class="mb-0 text-start text-md-justify">Vous nous transmettez votre demande d'investigation en précisant vos coordonnées et les éléments suspects. L'employeur peut demander une enquête dès le premier jour d'arrêt en cas de doute légitime sur la justification médicale.</p>
+              <p class="mb-0 text-start text-md-justify">Vous nous transmettez votre demande d'investigation en
+                précisant vos coordonnées et les éléments suspects. L'employeur peut demander une enquête dès le premier
+                jour d'arrêt en cas de doute légitime sur la justification médicale.</p>
             </div>
-            <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white rounded-3 shadow-sm" style="width: 150px; height: 120px;">
-              <img
-                src="assets/prestation/step1.png"
-                alt="Illustration de l'étape 1: Demande d'enquête confidentielle"
-                loading="eager"
-                class="img-fluid">
+            <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white rounded-3 shadow-sm"
+              style="width: 150px; height: 120px;">
+              <img src="assets/prestation/step1.png" alt="Illustration de l'étape 1: Demande d'enquête confidentielle"
+                loading="eager" class="img-fluid">
             </div>
           </div>
         </div>
-        
+
         <!-- Étape 2 -->
         <div role="listitem" class="mb-4">
-          <div class="d-flex align-items-center gap-4 p-4 bg-white rounded-4 border-start border-4 shadow-sm flex-column flex-md-row text-center text-md-start" style="border-left-color: #051039 !important; transition: 0.3s ease;">
-            <div class="d-flex align-items-center justify-content-center text-white rounded-circle flex-shrink-0 shadow" style="width: 60px; height: 60px; font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, #e74c3c, #c0392b);">
+          <div
+            class="d-flex align-items-center gap-4 p-4 bg-white rounded-4 border-start border-4 shadow-sm flex-column flex-md-row text-center text-md-start"
+            style="border-left-color: #051039 !important; transition: 0.3s ease;">
+            <div class="d-flex align-items-center justify-content-center text-white rounded-circle flex-shrink-0 shadow"
+              style="width: 60px; height: 60px; font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, #e74c3c, #c0392b);">
               2
             </div>
             <div class="flex-grow-1">
               <h3 class="h5 mb-2 fw-semibold">Surveillance discrète par enquêteur agréé</h3>
-              <p class="mb-0 text-start text-md-justify">Un enquêteur privé professionnel de notre réseau effectue une surveillance discrète du salarié(e) en arrêt de travail, dans le respect total de la légalité et de la vie privée, pour constater d'éventuelles activités incompatibles.</p>
+              <p class="mb-0 text-start text-md-justify">Un enquêteur privé professionnel de notre réseau effectue une
+                surveillance discrète du salarié(e) en arrêt de travail, dans le respect total de la légalité et de la
+                vie privée, pour constater d'éventuelles activités incompatibles.</p>
             </div>
-            <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white rounded-3 shadow-sm" style="width: 150px; height: 120px;">
-              <img
-                src="assets/prestation/step2.png"
-                alt="Illustration de l'étape 2: Surveillance discrète par enquêteur agréé"
-                loading="eager"
+            <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white rounded-3 shadow-sm"
+              style="width: 150px; height: 120px;">
+              <img src="assets/prestation/step2.png"
+                alt="Illustration de l'étape 2: Surveillance discrète par enquêteur agréé" loading="eager"
                 class="img-fluid">
             </div>
           </div>
         </div>
-        
+
         <!-- Étape 3 -->
         <div role="listitem" class="mb-4">
-          <div class="d-flex align-items-center gap-4 p-4 bg-white rounded-4 border-start border-4 shadow-sm flex-column flex-md-row text-center text-md-start" style="border-left-color: #051039 !important; transition: 0.3s ease;">
-            <div class="d-flex align-items-center justify-content-center text-white rounded-circle flex-shrink-0 shadow" style="width: 60px; height: 60px; font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, #e74c3c, #c0392b);">
+          <div
+            class="d-flex align-items-center gap-4 p-4 bg-white rounded-4 border-start border-4 shadow-sm flex-column flex-md-row text-center text-md-start"
+            style="border-left-color: #051039 !important; transition: 0.3s ease;">
+            <div class="d-flex align-items-center justify-content-center text-white rounded-circle flex-shrink-0 shadow"
+              style="width: 60px; height: 60px; font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, #e74c3c, #c0392b);">
               3
             </div>
             <div class="flex-grow-1">
               <h3 class="h5 mb-2 fw-semibold">Rapport d'enquête détaillé</h3>
-              <p class="mb-0 text-start text-md-justify">L'enquêteur établit un rapport circonstancié avec preuves photographiques et/ou vidéo si nécessaire, utilisable devant les tribunaux. Ce rapport détaille les observations et constatations effectuées pendant la mission de surveillance et prépare la future intervention d'un Commissaire de Justice munit d'une Ordonnance du Tribunal.</p>
+              <p class="mb-0 text-start text-md-justify">L'enquêteur établit un rapport circonstancié avec preuves
+                photographiques et/ou vidéo si nécessaire, utilisable devant les tribunaux. Ce rapport détaille les
+                observations et constatations effectuées pendant la mission de surveillance et prépare la future
+                intervention d'un Commissaire de Justice munit d'une Ordonnance du Tribunal.</p>
             </div>
-            <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white rounded-3 shadow-sm" style="width: 150px; height: 120px;">
-              <img
-                src="assets/prestation/step3.png"
-                alt="Illustration de l'étape 3: Rapport d'enquête détaillé"
-                loading="lazy"
-                class="img-fluid">
+            <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white rounded-3 shadow-sm"
+              style="width: 150px; height: 120px;">
+              <img src="assets/prestation/step3.png" alt="Illustration de l'étape 3: Rapport d'enquête détaillé"
+                loading="lazy" class="img-fluid">
             </div>
           </div>
         </div>
-        
+
         <!-- Étape 4 -->
         <div role="listitem" class="mb-4">
-          <div class="d-flex align-items-center gap-4 p-4 bg-white rounded-4 border-start border-4 shadow-sm flex-column flex-md-row text-center text-md-start" style="border-left-color: #051039 !important; transition: 0.3s ease;">
-            <div class="d-flex align-items-center justify-content-center text-white rounded-circle flex-shrink-0 shadow" style="width: 60px; height: 60px; font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, #e74c3c, #c0392b);">
+          <div
+            class="d-flex align-items-center gap-4 p-4 bg-white rounded-4 border-start border-4 shadow-sm flex-column flex-md-row text-center text-md-start"
+            style="border-left-color: #051039 !important; transition: 0.3s ease;">
+            <div class="d-flex align-items-center justify-content-center text-white rounded-circle flex-shrink-0 shadow"
+              style="width: 60px; height: 60px; font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, #e74c3c, #c0392b);">
               4
             </div>
             <div class="flex-grow-1">
               <h3 class="h5 mb-2 fw-semibold">Accompagnement juridique</h3>
-              <p class="mb-0 text-start text-md-justify">Notre équipe vous accompagne dans l'exploitation des résultats et vous conseille sur les démarches à effectuer en partenariat avec votre cabinet d'avocat.</p>
+              <p class="mb-0 text-start text-md-justify">Notre équipe vous accompagne dans l'exploitation des résultats
+                et vous conseille sur les démarches à effectuer en partenariat avec votre cabinet d'avocat.</p>
             </div>
-            <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white rounded-3 shadow-sm" style="width: 150px; height: 120px;">
-              <img
-                src="assets/prestation/step4.png"
-                alt="Illustration de l'étape 4: Accompagnement juridique"
-                loading="lazy"
-                class="img-fluid">
+            <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white rounded-3 shadow-sm"
+              style="width: 150px; height: 120px;">
+              <img src="assets/prestation/step4.png" alt="Illustration de l'étape 4: Accompagnement juridique"
+                loading="lazy" class="img-fluid">
             </div>
           </div>
         </div>
@@ -131,37 +150,48 @@
   <!-- Expertise Section -->
   <section class="py-5 position-relative bg-white shadow-lg">
     <!-- Decorative line -->
-    <div class="position-absolute top-0 start-50 translate-middle-x" style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;"></div>
-    
+    <div class="position-absolute top-0 start-50 translate-middle-x"
+      style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;">
+    </div>
+
     <div class="container position-relative">
       <h2 class="text-center mb-5 h2 fw-bold position-relative pb-3">
         Notre expertise au service de votre entreprise
-        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-danger rounded" style="width: 60px; height: 3px;"></span>
+        <span class="position-absolute bottom-0 start-50 translate-middle-x bg-danger rounded"
+          style="width: 60px; height: 3px;"></span>
       </h2>
       <div class="d-flex justify-content-between gap-4 flex-column flex-lg-row">
         <!-- Item 1 -->
-        <div class="text-center p-4 bg-white rounded-4 shadow-sm border-top border-4 flex-fill position-relative overflow-hidden" style="min-width: 250px; border-top-color: #051039 !important; transition: 0.3s ease;">
+        <div
+          class="text-center p-4 bg-white rounded-4 shadow-sm border-top border-4 flex-fill position-relative overflow-hidden"
+          style="min-width: 250px; border-top-color: #051039 !important; transition: 0.3s ease;">
           <div class="fs-1 mb-3" style="color: #051039;">🔍</div>
           <h3 class="h5 mb-3 fw-semibold">Surveillance discrète</h3>
           <p class="mb-0">Observation professionnelle des déplacements et activités du salarié(e) en arrêt</p>
         </div>
-        
+
         <!-- Item 2 -->
-        <div class="text-center p-4 bg-white rounded-4 shadow-sm border-top border-4 flex-fill position-relative overflow-hidden" style="min-width: 250px; border-top-color: #051039 !important; transition: 0.3s ease;">
+        <div
+          class="text-center p-4 bg-white rounded-4 shadow-sm border-top border-4 flex-fill position-relative overflow-hidden"
+          style="min-width: 250px; border-top-color: #051039 !important; transition: 0.3s ease;">
           <div class="fs-1 mb-3" style="color: #051039;">📋</div>
           <h3 class="h5 mb-3 fw-semibold">Preuves juridiques</h3>
           <p class="mb-0">Constitution de dossiers avec preuves photographiques et vidéo exploitables en justice</p>
         </div>
-        
+
         <!-- Item 3 -->
-        <div class="text-center p-4 bg-white rounded-4 shadow-sm border-top border-4 flex-fill position-relative overflow-hidden" style="min-width: 250px; border-top-color: #051039 !important; transition: 0.3s ease;">
+        <div
+          class="text-center p-4 bg-white rounded-4 shadow-sm border-top border-4 flex-fill position-relative overflow-hidden"
+          style="min-width: 250px; border-top-color: #051039 !important; transition: 0.3s ease;">
           <div class="fs-1 mb-3" style="color: #051039;">⚖️</div>
           <h3 class="h5 mb-3 fw-semibold">Respect de la légalité</h3>
           <p class="mb-0">Intervention dans le strict respect du cadre légal et de la vie privée</p>
         </div>
-        
+
         <!-- Item 4 -->
-        <div class="text-center p-4 bg-white rounded-4 shadow-sm border-top border-4 flex-fill position-relative overflow-hidden" style="min-width: 250px; border-top-color: #051039 !important; transition: 0.3s ease;">
+        <div
+          class="text-center p-4 bg-white rounded-4 shadow-sm border-top border-4 flex-fill position-relative overflow-hidden"
+          style="min-width: 250px; border-top-color: #051039 !important; transition: 0.3s ease;">
           <div class="fs-1 mb-3" style="color: #051039;">🚀</div>
           <h3 class="h5 mb-3 fw-semibold">Intervention rapide</h3>
           <p class="mb-0">Déploiement de nos enquêteurs dans les 24h suivant votre demande</p>

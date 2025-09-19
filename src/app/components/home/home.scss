@@ -1,507 +1,108 @@
-// ===== COMPOSANT HOME =====
+// ===== STYLES SPÉCIFIQUES AU COMPOSANT HOME =====
 .home {
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  // Article content styles
+  .article-content {
+    z-index: 2;
+    font-size: 1rem;
+    line-height: 1.6;
     color: #2c3e50;
-    overflow-x: hidden;
-    background: #ffffff;
 
-    .container {
-        max-width: 1300px;
-        width: 100%;
+    br {
+      margin-bottom: 8px;
     }
+  }
 
-    // Style unifié pour tous les h2
-    h2 {
-        font-size: 2.2rem;
-        font-weight: 800;
-        color: #051039;
-        padding-bottom: 15px;
+  // Clickable articles
+  .clickable-article {
+    z-index: 2;
+    cursor: pointer;
+    color: var(--bs-danger);
+    text-decoration: underline;
 
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: #e74c3c;
-            border-radius: 2px;
-        }
+    &:hover {
+      color: #c0392b;
     }
+  }
 
-    // Style global pour article-content
-    .article-content {
-        z-index: 2;
-        font-size: 1rem;
-        line-height: 1.6;
-        color: #2c3e50;
+  // Brand styling
+  .verif-arret-brand {
+    color: var(--bs-danger);
+    font-weight: bold;
+  }
 
-        strong {
-            color: #e74c3c;
-            font-weight: 600;
-        }
-
-        br {
-            margin-bottom: 8px;
-        }
-    }
-
-    .clickable-article {
-        z-index: 2;
-        cursor: pointer;
-        color: #e74c3c;
-        text-decoration: underline;
-
-        &:hover {
-            color: #c0392b;
-        }
-    }
-
-    .verif-arret-brand {
-        font-weight: 700;
-        color: #e74c3c;
-    }
-}
-
-// ===== SECTIONS SPÉCIFIQUES =====
-
-// 1. Hero Section
-.hero-section {
+  // Hero Section
+  .hero-section {
     background: url('/assets/home/header-home.webp') center/cover no-repeat fixed;
     min-height: 70vh;
 
     &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(5, 16, 57, 0.4);
-        z-index: 1;
-        height: 100%;
-    }
-
-    .container {
-        z-index: 2;
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(5, 16, 57, 0.4);
+      z-index: 1;
     }
 
     .hero-content {
-        gap: clamp(60px, 10vw, 100px);
-        width: 100%;
-        z-index: 2;
+      z-index: 2;
     }
 
-    .hero-text {
-        h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            line-height: 1.1;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            letter-spacing: -0.02em;
-        }
-
-        .text-description {
-            font-size: 1rem;
-            line-height: 1.7;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
+    h1 {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
+  }
+
+  // Suspect section specific styles
+  .suspect-section {
+    .medecin-prescriptions ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      color: var(--bs-danger);
+      font-weight: bold;
+    }
+  }
 }
 
-// 2. Absenteeism Section
-.absenteeism-section {
-    background: #ffffff;
-
-    .absenteeism-content {
-        max-width: 1300px;
+// Media Queries optimisées
+@media (max-width: 768px) {
+  .home .hero-section {
+    background-attachment: scroll;
+    
+    .hero-content {
+      flex-direction: column !important;
     }
+  }
 
-    .absenteeism-image {
-        width: min(500px, 90vw);
-        transition: 0.6s ease;
+  .absenteeism-section .absenteeism-content {
+    flex-direction: column !important;
+  }
 
-        img {
-            box-shadow: 0 8px 25px rgba(5, 16, 57, 0.12);
-            transition: 0.6s ease;
-        }
-    }
+  .cpam-section .cpam-content {
+    flex-direction: column-reverse !important;
+  }
 
-    .absenteeism-text {
-        max-width: 650px;
-        padding-left: 2%;
-
-        p {
-            font-size: 1.4rem;
-            line-height: 1.8;
-            color: #5d6d7e;
-        }
-    }
-}
-
-// 3. Prevention Section
-.prevention-section {
-    background: #ffffff;
-    box-shadow: 0 20px 60px rgba(5, 16, 57, 0.15);
-    overflow: hidden;
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #e74c3c 0%, #ec7063 50%, #e74c3c 100%);
-        opacity: 0.9;
-    }
-
-    .prevention-text {
-        font-size: 1rem;
-        line-height: 1.8;
-        color: #5d6d7e;
-        transition: 0.3s ease;
-    }
-}
-
-// 4. Intro Section
-.intro-section {
-    background: #ffffff;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(5, 16, 57, 0.15);
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #e74c3c 0%, #ec7063 50%, #e74c3c 100%);
-        opacity: 0.9;
-    }
-
-    .decouvrir-hero {
-        h2 {
-            font-size: 2.5rem;
-            font-weight: 900;
-
-            &::after {
-                width: 80px;
-                height: 5px;
-                background: linear-gradient(90deg, #e74c3c, #ec7063);
-                border-radius: 3px;
-            }
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: #5d6d7e;
-            font-weight: 600;
-            padding-bottom: 0;
-
-            &::after {
-                display: none;
-            }
-        }
-    }
-
-    p {
-        font-size: 1rem;
-        line-height: 1.8;
-        color: #5d6d7e;
-        transition: 0.3s ease;
-    }
-}
-
-// 5. Suspect Section
-.suspect-section {
-    background: #ffffff;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #e74c3c 0%, #ec7063 50%, #e74c3c 100%);
-        opacity: 0.9;
-    }
-
-    p {
-        font-size: 1rem;
-        line-height: 1.8;
-        color: #5d6d7e;
-    }
-
-    .medecin-prescriptions {
-        h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        ul {
-            li {
-                font-size: 1rem;
-                line-height: 1.7;
-                transition: 0.3s ease;
-                color: #5d6d7e;
-
-                &::before {
-                    content: '✓';
-                    position: absolute;
-                    left: 0;
-                    top: 7px;
-                    color: #e74c3c;
-                    font-weight: bold;
-                    width: 25px;
-                    height: 25px;
-                    font-size: 0.9rem;
-                }
-            }
-        }
-    }
-}
-
-// 6. CPAM Section
-.cpam-section {
-    background: #ffffff;
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #e74c3c 0%, #ec7063 50%, #e74c3c 100%);
-        opacity: 0.9;
-    }
-
-    .cpam-text {
-        p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #5d6d7e;
-            transition: 0.3s ease;
-        }
-    }
-
-    .cpam-image {
-        width: min(650px, 100%);
-
-        .detective-img {
-            border: 3px solid #ffffff;
-        }
-    }
-}
-
-// 7. Detective Section
-.detective-section {
-    background: #ffffff;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(5, 16, 57, 0.15);
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #e74c3c 0%, #ec7063 50%, #e74c3c 100%);
-        opacity: 0.9;
-    }
-
-    .detective-content {
-        gap: 1%;
-    }
-
-    .detective-text {
-
-        .detective-capabilities,
-        .detective-legal {
-            h3 {
-                font-size: 1.2rem;
-                font-weight: 600;
-                color: #2c3e50;
-            }
-
-            p {
-                font-size: 1rem;
-                line-height: 1.8;
-                color: #5d6d7e;
-            }
-
-            ul {
-                li {
-                    font-size: 1rem;
-                    line-height: 1.7;
-                    transition: 0.3s ease;
-                    color: #5d6d7e;
-
-                    &::before {
-                        content: '✓';
-                        position: absolute;
-                        left: 0;
-                        top: 7px;
-                        color: #e74c3c;
-                        font-weight: bold;
-                        width: 25px;
-                        height: 25px;
-                        font-size: 0.9rem;
-                    }
-                }
-            }
-        }
-    }
+  .detective-section .detective-content {
+    flex-direction: column-reverse !important;
+    max-width: 100%;
 
     .detective-image {
-        width: 40%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
 
-        .detective-img {
-            border: 3px solid #ffffff;
-        }
+      .detective-img {
+        height: 350px;
+        width: 90%;
+        object-fit: cover;
+      }
     }
+  }
 }
 
-// Boutons CTA personnalisés
-.cta-button {
-    border: none;
-    cursor: pointer;
-    font-weight: 700;
-    border-radius: 50px;
-    transition: 0.3s ease;
-    text-decoration: none;
-    overflow: hidden;
-    background: #e74c3c !important;
-    color: #ffffff !important;
-    font-size: 1rem;
-    box-shadow: 0 8px 25px rgba(5, 16, 57, 0.12);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    width: fit-content;
-    border-color: #e74c3c !important;
-
-    &:hover {
-        background: #c0392b !important;
-        border-color: #c0392b !important;
-        transform: translateY(-2px);
-        box-shadow: 0 12px 30px rgba(5, 16, 57, 0.2);
-    }
-
-    &:active {
-        transform: translateY(-1px) scale(0.98);
-        transition: 0.2s ease;
-    }
-
-    &:focus-visible {
-        outline: 3px solid #ec7063;
-        outline-offset: 3px;
-    }
-}
-
-// ===== MEDIA QUERIES =====
 @media (min-width: 1024px) {
-    .home {
-        h2 {
-            font-size: 2.6rem;
-        }
-    }
-
-    .hero-section {
-        .hero-text {
-            h1 {
-                font-size: 2.8rem;
-            }
-        }
-    }
-
-    .intro-section {
-        .decouvrir-hero {
-            h2 {
-                font-size: 2.6rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.6rem;
-            }
-        }
-    }
-
-    .suspect-section {
-        .medecin-prescriptions {
-            h3 {
-                font-size: 1.4rem;
-            }
-        }
-    }
-
-    .detective-section {
-        .detective-text {
-            .detective-capabilities {
-                h3 {
-                    font-size: 1.4rem;
-                }
-            }
-        }
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-section {
-        .hero-content {
-            flex-direction: column !important;
-        }
-    }
-
-    .absenteeism-section {
-        .absenteeism-content {
-            flex-direction: column !important;
-        }
-    }
-
-    .cpam-section {
-        .cpam-content {
-            flex-direction: column-reverse !important;
-        }
-    }
-
-    .detective-section {
-        .detective-content {
-            flex-direction: column-reverse !important;
-            max-width: 100%;
-
-            .detective-image {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-
-                .detective-img {
-                    height: 350px;
-                    width: 90%;
-                    object-fit: cover;
-                }
-            }
-        }
-
-        .detective-text {
-            .detective-capabilities {
-                ul {
-                    flex-direction: column;
-                }
-            }
-        }
-    }
-
-    .suspect-section {
-        .medecin-prescriptions {
-            ul {
-                flex-direction: column;
-            }
-        }
-    }
+  .home .hero-section .hero-text h1 {
+    font-size: 2.8rem;
+  }
 }

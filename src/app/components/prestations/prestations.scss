@@ -1,125 +1,81 @@
 // ===== COMPOSANT PRESTATIONS - VERSION OPTIMISÉE =====
 .prestations {
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-    line-height: 1.6;
+  line-height: 1.6;
+  color: #051039;
+  overflow-x: hidden;
+  background: #ffffff;
+  animation: fadeInUp 0.6s ease-out;
+
+  // Styles pour les titres
+  h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
     color: #051039;
-    overflow-x: hidden;
-    background: #ffffff;
-    animation: fadeInUp 0.6s ease-out;
+    position: relative;
+    padding-bottom: 15px;
+  }
 
-    // Styles pour les titres (conservés comme demandé)
-    h2 {
-        font-size: 2.2rem;
-        font-weight: 800;
-        color: #051039;
-        position: relative;
-        padding-bottom: 15px;
-
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: #e74c3c;
-            border-radius: 2px;
-        }
-    }
+  // Style pour la marque
+  .verif-arret-brand {
+    color: #e74c3c;
+    font-weight: bold;
+  }
 }
 
-// ===== EFFETS INTERACTIFS CONSERVÉS =====
+// Hero section
+.prestations-hero {
+  background-image: url('/assets/prestation/header-prestations.png');;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 70vh;
 
-// Effets de hover pour les étapes
-.step:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 25px rgba(5, 16, 57, 0.15) !important;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 16, 57, 0.5);
+  }
+
+  .container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-highlight {
+    max-width: 600px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+
+    strong {
+      color: #ec7063;
+    }
+  }
 }
 
-// Effets de hover pour les items d'expertise
-.expertise-item {
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: #051039;
-        transform: scaleX(0);
-        transition: 0.3s ease;
-    }
-
-    &:hover {
-        transform: translateY(-5px) !important;
-        box-shadow: 0 15px 35px rgba(5, 16, 57, 0.15) !important;
-
-        &::before {
-            transform: scaleX(1);
-        }
-    }
-}
-
-// ===== RESPONSIVE AVEC CLASSES BOOTSTRAP =====
-
-// Ajustements pour mobile uniquement (les autres breakpoints sont gérés par Bootstrap)
+// Responsive
 @media (max-width: 767.98px) {
-    .prestations {
-        // Hero section mobile
-        .min-vh-100 {
-            min-height: 60vh !important;
-            background-attachment: scroll !important;
-        }
-
-        // Steps responsive
-        .step {
-            gap: 1.5rem !important;
-
-            .step-number {
-                width: 50px !important;
-                height: 50px !important;
-                font-size: 1.5rem !important;
-            }
-
-            .step-image {
-                width: 100px !important;
-                height: 80px !important;
-            }
-        }
-    }
+  .prestations-hero {
+    min-height: 60vh !important;
+    background-attachment: scroll !important;
+  }
 }
 
-@media (max-width: 575.98px) {
-    .prestations {
-        .step {
-            .step-number {
-                width: 45px !important;
-                height: 45px !important;
-                font-size: 1.3rem !important;
-            }
-
-            .step-image {
-                width: 80px !important;
-                height: 70px !important;
-            }
-        }
-
-        .expertise-item {
-            min-width: 100% !important;
-        }
-    }
-}
-
-// ===== ANIMATIONS =====
+// Animation
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
