@@ -1,0 +1,145 @@
+<footer class="footer">
+  <!-- Image de la carte - visible seulement quand le contenu est masqué -->
+  <div [class]="'footer-background ' + (!isContentVisible() ? 'map-visible' : 'map-hidden')">
+    <div class="carte-container">
+      <img src="assets/footer/carte.png" alt="Carte de France" class="carte-france" />
+      <!-- Points sur la carte -->
+      <div *ngFor="let location of locations; trackBy: trackByLocationId" class="map-point"
+        [class.headquarters-point]="location.isHeadquarters"
+        [class.selected-point]="selectedLocation()?.id === location.id" [style.left.%]="location.mapPosition.x"
+        [style.top.%]="location.mapPosition.y" [title]="location.city" (click)="handlePointClick(location)">
+        <span class="point-tooltip">{{ location.city }}</span>
+      </div>
+    </div>
+
+    <!-- Système de cartes interactives -->
+    <div class="address-cards-container">
+      <h4 class="cards-title">Nos implantations</h4>
+      <div class="address-cards-grid">
+        <div *ngFor="let address of locations; let i = index" [id]="'location-' + address.id" class="address-card"
+          [class.highlighted]="address.isHeadquarters" [class.selected]="selectedCard() === i"
+          [class.highlighted-card]="selectedLocation()?.id === address.id"
+          [class.point-selected]="selectedLocation()?.id === address.id" (click)="selectCard(i)"
+          [attr.aria-label]="'Bureau de ' + address.city">
+
+          <div class="card-header">
+            <h5 class="city-name">
+              {{ address.city }}
+            </h5>
+            <span class="region-badge" *ngIf="address.isHeadquarters">Siège social</span>
+          </div>
+
+          <div class="card-content" [class.expanded]="selectedCard() === i">
+            <p class="address-text">{{ address.address }}</p>
+            <a [href]="getPhoneHref(address.phone)" class="phone-link" (click)="$event.stopPropagation()">
+              <span class="phone-icon">📞</span>
+              {{ address.displayPhone }}
+            </a>
+          </div>
+
+          <div class="card-indicator">
+            <span class="expand-icon" [class.rotated]="selectedCard() === i">▼</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bouton emplacement avec indicateur visuel -->
+  <div class="toggle-section">
+    <button [class]="'btn-emplacement ' + (!isContentVisible() ? 'rotated' : '')" (click)="toggleFooterContent()"
+      [attr.aria-label]="isContentVisible() ? 'Afficher la carte' : 'Afficher le contenu'">
+      <img src="assets/footer/emplacement.png" alt="emplacement" class="emplacement" />
+      <span class="toggle-hint">
+        <span class="chevron-icon">▼</span>
+      </span>
+    </button>
+  </div>
+
+  <!-- Contenu du footer - visible seulement quand isContentVisible est true -->
+  <div [class]="'container ' + (isContentVisible() ? 'content-visible' : 'content-hidden')">
+    <div *ngIf="isContentVisible()">
+      <div class="footer-content">
+        <!-- Section Logo et Description -->
+        <div class="footer-section footer-about">
+          <!-- En-tête avec logo et titre -->
+          <div class="footer-header">
+            <div class="footer-logo">
+              <img src="assets/footer/logo.png" alt="VERIF-ARRET Logo" class="logo" />
+              <div class="logo-text">
+                <h3>VERIF-ARRET</h3>
+                <span class="tagline">Expertise & Discrétion</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description principale -->
+          <div class="footer-description-section">
+            <p class="footer-description">
+              Votre partenaire de confiance pour la vérification d'arrêts de travail et maladie.
+              Enquêtes professionnelles et discrètes sur tout le territoire français.
+            </p>
+          </div>
+        </div>
+
+        <!-- Section Contact -->
+        <div class="footer-section footer-contact">
+          <h4><span class="icon-contact"></span>Contact</h4>
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-details">
+                <a href="tel:+33607257427" class="contact-link">📞 06 07 25 74 27</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-details">
+                <span class="contact-link">✉️ verifarret@gmail.fr</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-details">
+                <span class="contact-link">📍 4 boulevard Louis Tardy, 79000 Niort</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-details">
+                <span class="contact-link">🕒 Lundi au Samedi : 9h-21h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isContentVisible()">
+    <div class="footer-bottom">
+      <div class="footer-copyright">
+        <div>
+          <p>&copy; {{ currentYear }} VERIF-ARRET. Tous droits réservés.</p>
+          <p class="footer-subtitle">
+            Enquêteur privé agréé - Respect de la vie privée - Interventions légales
+          </p>
+        </div>
+
+        <div class="footer-section footer-legal">
+          <ul>
+            <li>Mentions Légales</li>
+            <li>Politique de Confidentialité</li>
+            <li> Politique de Cookies</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-certifications">
+        <span class="certification-badge">
+          <span class="badge-icon">Agrément C.N.A.P.S (France)</span>
+          <span>NUM : AGD – 013 – 2112 – 10 – 10 – 20130336981</span>
+        </span>
+        <span class="certification-badge">
+          <span class="badge-icon">Agrément C.N.A.P.S (Corse)</span>
+          <span>NUM : AUT – 02A – 2112 – 12 – 01 – 20130349120</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
