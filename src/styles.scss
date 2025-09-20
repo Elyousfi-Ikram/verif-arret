@@ -24,9 +24,13 @@ body {
 }
 
 // ===== STYLES DE TITRES UNIFIÉS =====
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
-  color: var(--bs-white);
   text-transform: uppercase;
   margin-bottom: 1.5rem;
   line-height: 1.2;
@@ -90,6 +94,7 @@ h6 {
   max-width: 1300px;
   width: 100%;
   margin: 0 auto;
+  z-index: 2;
 }
 
 // ===== STYLES DE TEXTE UNIFIÉS =====
@@ -187,6 +192,7 @@ strong {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -220,7 +226,7 @@ strong {
     color: black !important;
     box-shadow: none !important;
   }
-  
+
   .cta-button {
     border: 2px solid #000 !important;
     background: #f0f0f0 !important;
@@ -233,20 +239,20 @@ strong {
   body {
     margin-top: 75px !important;
   }
-  
+
   h1 {
     font-size: clamp(2rem, 5vw, 2.5rem);
   }
-  
+
   h2 {
     font-size: clamp(1.8rem, 4vw, 2.2rem);
-    
+
     &::after {
       width: 60px;
       height: 3px;
     }
   }
-  
+
   h3 {
     font-size: clamp(1.3rem, 3.5vw, 1.6rem);
   }
@@ -257,8 +263,36 @@ strong {
     padding-left: 15px;
     padding-right: 15px;
   }
-  
+
   h2::after {
     width: 50px !important;
   }
+}
+
+// ===== STYLES DE SCROLLBAR GLOBAUX =====
+* {
+  // Pour Firefox
+  scrollbar-width: auto;
+  scrollbar-color: #e74c3c #051039;
+}
+
+// Pour WebKit (Chrome, Safari, Edge)
+*::-webkit-scrollbar {
+  width: 15px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #e74c3c;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #c0392b;
 }
