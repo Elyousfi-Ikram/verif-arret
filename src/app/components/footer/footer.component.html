@@ -1,51 +1,71 @@
 <footer class="footer">
-  <!-- Image de la carte - visible seulement quand le contenu est masqué -->
+  <!-- Image de la carte -->
   <div [class]="'footer-background ' + (!isContentVisible() ? 'map-visible' : 'map-hidden')">
-    <div class="carte-container">
-      <img src="assets/footer/carte.png" alt="Carte de France" class="carte-france" />
-      <!-- Points sur la carte -->
-      <div *ngFor="let location of locations; trackBy: trackByLocationId" class="map-point"
-        [class.headquarters-point]="location.isHeadquarters"
-        [class.selected-point]="selectedLocation()?.id === location.id" [style.left.%]="location.mapPosition.x"
-        [style.top.%]="location.mapPosition.y" [title]="location.city" (click)="handlePointClick(location)">
-        <span class="point-tooltip">{{ location.city }}</span>
+    <!-- Container responsive pour mobile/tablet -->
+    <div class="map-section-container">
+      <!-- Carte en haut pour mobile/tablet -->
+      <div class="carte-container">
+        <img src="assets/footer/carte.png" alt="Carte de France" class="carte-france" />
+        <!-- Points sur la carte -->
+        <div *ngFor="let location of locations; trackBy: trackByLocationId" class="map-point"
+          [class.headquarters-point]="location.isHeadquarters"
+          [class.selected-point]="selectedLocation()?.id === location.id" [style.--point-x]="location.mapPosition.x"
+          [style.--point-y]="location.mapPosition.y" [title]="location.city" (click)="handlePointClick(location)">
+          <div class="point-inner"></div>
+          <div class="point-ripple"></div>
+          <div class="point-label">{{ location.city }}</div>
+        </div>
       </div>
-    </div>
 
-    <!-- Système de cartes interactives -->
-    <div class="address-cards-container">
-      <h4 class="cards-title">Nos implantations</h4>
-      <div class="address-cards-grid">
-        <div *ngFor="let address of locations; let i = index" [id]="'location-' + address.id" class="address-card"
-          [class.highlighted]="address.isHeadquarters" [class.selected]="selectedCard() === i"
-          [class.highlighted-card]="selectedLocation()?.id === address.id"
-          [class.point-selected]="selectedLocation()?.id === address.id" (click)="selectCard(i)"
-          [attr.aria-label]="'Bureau de ' + address.city">
+      <!-- Liste des implantations avec design amélioré -->
+      <div class="address-cards-container">
+        <div class="cards-header">
+          <h4 class="cards-title">
+            <span class="title-icon">📍</span>
+            Nos implantations
+            <div class="title-underline"></div>
+          </h4>
+        </div>
 
-          <div class="card-header">
-            <h5 class="city-name">
-              {{ address.city }}
-            </h5>
-            <span class="region-badge" *ngIf="address.isHeadquarters">Siège social</span>
-          </div>
+        <div class="address-cards-grid">
+          <div *ngFor="let address of locations; let i = index" [id]="'location-' + address.id" class="address-card"
+            [class.highlighted]="address.isHeadquarters" [class.selected]="selectedCard() === i"
+            [class.highlighted-card]="selectedLocation()?.id === address.id"
+            [class.point-selected]="selectedLocation()?.id === address.id" (click)="selectCard(i)"
+            [attr.aria-label]="'Bureau de ' + address.city">
 
-          <div class="card-content" [class.expanded]="selectedCard() === i">
-            <p class="address-text">{{ address.address }}</p>
-            <a [href]="getPhoneHref(address.phone)" class="phone-link" (click)="$event.stopPropagation()">
-              <span class="phone-icon">📞</span>
-              {{ address.displayPhone }}
-            </a>
-          </div>
+            <div class="card-header">
+              <div class="city-info">
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                  <h5 class="city-name">{{ address.city }}</h5>
+                  <span><i class="fas fa-chevron-down pe-5"></i></span>
+                </div>
+                <span class="region-badge" *ngIf="address.isHeadquarters">
+                  Siège social
+                </span>
+              </div>
+            </div>
 
-          <div class="card-indicator">
-            <span class="expand-icon" [class.rotated]="selectedCard() === i">▼</span>
+            <div class="card-content" [class.expanded]="selectedCard() === i">
+              <div class="address-info">
+                <span class="address-icon">📍</span>
+                <p class="address-text">{{ address.address }}</p>
+              </div>
+
+              <div class="contact-info">
+                <a [href]="getPhoneHref(address.phone)" class="phone-link" (click)="$event.stopPropagation()">
+                  <span class="phone-icon">📞</span>
+                  <span class="phone-text">{{ address.displayPhone }}</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Bouton emplacement avec indicateur visuel -->
+  <!-- Bouton emplacement -->
   <div class="toggle-section">
     <button [class]="'btn-emplacement ' + (!isContentVisible() ? 'rotated' : '')" (click)="toggleFooterContent()"
       [attr.aria-label]="isContentVisible() ? 'Afficher la carte' : 'Afficher le contenu'">
@@ -56,13 +76,12 @@
     </button>
   </div>
 
-  <!-- Contenu du footer - visible seulement quand isContentVisible est true -->
+  <!-- Contenu du footer -->
   <div [class]="'container ' + (isContentVisible() ? 'content-visible' : 'content-hidden')">
     <div *ngIf="isContentVisible()">
       <div class="footer-content">
         <!-- Section Logo et Description -->
         <div class="footer-section footer-about">
-          <!-- En-tête avec logo et titre -->
           <div class="footer-header">
             <div class="footer-logo">
               <img src="assets/footer/logo.png" alt="VERIF-ARRET Logo" class="logo" />
@@ -71,75 +90,108 @@
                 <span class="tagline">Expertise & Discrétion</span>
               </div>
             </div>
-          </div>
 
-          <!-- Description principale -->
-          <div class="footer-description-section">
-            <p class="footer-description">
-              Votre partenaire de confiance pour la vérification d'arrêts de travail et maladie.
-              Enquêtes professionnelles et discrètes sur tout le territoire français.
-            </p>
+            <!-- Section Avis déplacée pour mobile -->
+            <div class="footer-reviews-section">
+              <div class="reviews-header">
+                <h4>Avis Clients <span class="rating-mobile">{{ getFormattedRating() }}/5</span></h4>
+                <div class="ig-stars-container">
+                  <div class="d-flex gap-1">
+                    <span *ngFor="let star of [0,1,2,3,4]; let i = index" class="ig-star ig-star-enhanced"
+                      [ngStyle]="getStarStyle(i, averageRating)">★</span>
+                  </div>
+                  <button class="btn-view-all-reviews" (click)="openReviewsModal()">
+                    Voir tous les avis →
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Section Contact -->
-        <div class="footer-section footer-contact">
-          <h4><span class="icon-contact"></span>Contact</h4>
-          <div class="contact-info">
-            <div class="contact-item">
-              <div class="contact-details">
-                <a href="tel:+33607257427" class="contact-link">📞 06 07 25 74 27</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-details">
-                <span class="contact-link">✉️ verifarret@gmail.fr</span>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-details">
-                <span class="contact-link">📍 4 boulevard Louis Tardy, 79000 Niort</span>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-details">
-                <span class="contact-link">🕒 Lundi au Samedi : 9h-21h</span>
-              </div>
-            </div>
+        <!-- Description principale -->
+        <div class="footer-description-section">
+          <p class="footer-description py-4 text-center">
+            Votre partenaire de confiance pour la vérification d'arrêts de travail et maladie.
+            Enquêtes professionnelles et discrètes sur tout le territoire français.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section Contact -->
+      <div class="footer-section footer-contact">
+        <h4><span class="icon-contact"></span>Contact</h4>
+        <div class="contact-info">
+          <div class="contact-item">
+            <a href="tel:+33607257427" class="contact-link">
+              <span class="contact-icon">📞</span>
+              <span class="contact-text">06 07 25 74 27</span>
+            </a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-link">
+              <span class="contact-icon">✉️</span>
+              <span class="contact-text">verifarret@gmail.fr</span>
+            </span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-link">
+              <span class="contact-icon">📍</span>
+              <span class="contact-text">4 boulevard Louis Tardy, 79000 Niort</span>
+            </span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-link">
+              <span class="contact-icon">🕒</span>
+              <span class="contact-text">Lundi au Samedi : 9h-21h</span>
+            </span>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Footer bottom -->
   <div *ngIf="isContentVisible()">
     <div class="footer-bottom">
       <div class="footer-copyright">
-        <div>
+        <div class="copyright-content">
           <p>&copy; {{ currentYear }} VERIF-ARRET. Tous droits réservés.</p>
           <p class="footer-subtitle">
             Enquêteur privé agréé - Respect de la vie privée - Interventions légales
           </p>
         </div>
-
         <div class="footer-section footer-legal">
-          <ul>
-            <li>Mentions Légales</li>
-            <li>Politique de Confidentialité</li>
-            <li> Politique de Cookies</li>
-          </ul>
+          <div class="footer-legal">
+            <button type="button" class="legal-btn" (click)="onLegalClick('mentions')"
+              title="Mentions Légales VERIF-ARRÊT" aria-label="Mentions Légales cabinet généalogie">
+              Mentions Légales
+            </button>
+            <span class="separator" aria-hidden="true">|</span>
+            <button type="button" class="legal-btn" (click)="onLegalClick('confidentialite')"
+              title="Politique de Confidentialité VERIF-ARRÊT" aria-label="Politique de Confidentialité généalogiste">
+              Politique de Confidentialité
+            </button>
+            <span class="separator" aria-hidden="true">|</span>
+            <button type="button" class="legal-btn" (click)="onLegalClick('cookies')"
+              title="Politique de Cookies VERIF-ARRÊT" aria-label="Politique de Cookies cabinet généalogie">
+              Politique de Cookies
+            </button>
+          </div>
         </div>
       </div>
       <div class="footer-certifications">
         <span class="certification-badge">
           <span class="badge-icon">Agrément C.N.A.P.S (France)</span>
-          <span>NUM : AGD – 013 – 2112 – 10 – 10 – 20130336981</span>
+          <span class="badge-number">NUM : AGD – 013 – 2112 – 10 – 10 – 20130336981</span>
         </span>
         <span class="certification-badge">
           <span class="badge-icon">Agrément C.N.A.P.S (Corse)</span>
-          <span>NUM : AUT – 02A – 2112 – 12 – 01 – 20130349120</span>
+          <span class="badge-number">NUM : AUT – 02A – 2112 – 12 – 01 – 20130349120</span>
         </span>
       </div>
     </div>
   </div>
 </footer>
+
+<app-modal></app-modal>
