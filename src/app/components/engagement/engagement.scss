@@ -7,9 +7,14 @@
   line-height: 1.6;
   color: #2c3e50;
   background: #ffffff;
+  
+  // Optimisation CLS (Cumulative Layout Shift)
+  contain: layout style;
 
   h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
+    // Optimisation pour éviter les reflows
+    font-display: swap;
   }
 
   h2 {
@@ -20,6 +25,8 @@
     text-align: center;
     position: relative;
     padding-bottom: 15px;
+    // Optimisation CLS
+    min-height: 3.2rem;
 
     &::after {
       content: '';
@@ -31,6 +38,8 @@
       height: 4px;
       background: linear-gradient(90deg, var(--bs-danger) 0%, #ec7063 100%);
       border-radius: 8px;
+      // Optimisation GPU
+      will-change: transform;
     }
   }
 
@@ -48,12 +57,18 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 70vh;
+  // Optimisation LCP (Largest Contentful Paint)
+  contain: layout;
+  // Préchargement de l'image critique
+  image-rendering: optimizeQuality;
 
   &::before {
     content: '';
     position: absolute;
     inset: 0;
     background: rgba(5, 16, 57, 0.5);
+    // Optimisation GPU
+    will-change: opacity;
   }
 
   .container {
@@ -63,6 +78,8 @@
     border-radius: 12px;
     position: relative;
     z-index: 2;
+    // Optimisation CLS
+    min-height: 200px;
   }
 
   .hero-highlight {
@@ -82,6 +99,8 @@
 .prevention-section {
   position: relative;
   padding: clamp(30px, 10vw, 50px) 0;
+  // Optimisation CLS
+  contain: layout;
 }
 
 // Section Prévention
@@ -96,10 +115,32 @@
     box-shadow: 0 2px 8px rgba(5, 16, 57, 0.08);
     padding: clamp(20px, 4vw, 30px);
     border-left: 3px solid var(--bs-danger);
+    // Optimisation CLS
+    min-height: 120px;
 
     &:last-child {
       margin-bottom: 0;
     }
+  }
+}
+
+// Optimisation des éléments d'engagement
+.engagement-item {
+  // Optimisation CLS
+  min-height: 150px;
+  contain: layout;
+  // Optimisation des interactions
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(5, 16, 57, 0.15) !important;
+  }
+  
+  &:focus-within {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 2px;
   }
 }
 
@@ -116,6 +157,9 @@
   max-width: 500px;
   margin: 0 auto;
   transition: 0.3s ease;
+  // Optimisation CLS
+  min-height: 120px;
+  contain: layout;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -125,6 +169,8 @@
   .badge-icon {
     font-size: 3rem;
     color: var(--bs-primary);
+    // Optimisation CLS
+    min-width: 60px;
   }
 
   .badge-content {
@@ -159,6 +205,8 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 700;
+  // Fallback pour les navigateurs non compatibles
+  color: var(--bs-danger);
 }
 
 // Citation d'engagement
@@ -175,6 +223,8 @@
   transition: 0.3s ease;
   width: 90%;
   margin: 2rem auto;
+  // Optimisation CLS
+  min-height: 100px;
 }
 
 // Surcharges Bootstrap
@@ -198,11 +248,33 @@
   border-color: var(--bs-danger) !important;
 }
 
+// Optimisations pour les Core Web Vitals
+// Préchargement des polices critiques
+@font-face {
+  font-family: 'Critical-Font';
+  font-display: swap;
+  src: local('system-ui'), local('-apple-system');
+}
+
+// Optimisation FID (First Input Delay)
+.engagement-item,
+.certification-badge {
+  touch-action: manipulation;
+}
+
 // Accessibilité
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
     transform: none !important;
+    animation: none !important;
+  }
+}
+
+// Optimisation pour les écrans haute densité
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .engagement-hero {
+    background-image: url('/assets/engagements/hero-bg@2x.jpeg');
   }
 }
 
@@ -212,21 +284,45 @@
     * {
       color: black !important;
       box-shadow: none !important;
+      background: white !important;
     }
 
     .engagement-hero {
       color: black !important;
+      background: white !important;
+      min-height: auto;
     }
 
     .engagement-item,
     .certification-badge {
       border: 1px solid #ccc !important;
       break-inside: avoid;
+      background: white !important;
     }
 
     .engagement {
       border: 2px solid #000 !important;
       background: #f0f0f0 !important;
     }
+    
+    // Masquer les éléments décoratifs en impression
+    .position-absolute {
+      display: none !important;
+    }
+  }
+}
+
+// Optimisation du lazy loading pour les images
+.engagement-hero {
+  &[data-loaded="false"] {
+    background-image: none;
+    background-color: #f8f9fa;
+  }
+}
+
+// Optimisation des animations pour la performance
+@supports (will-change: transform) {
+  .engagement-item:hover {
+    will-change: transform, box-shadow;
   }
 }

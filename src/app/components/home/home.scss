@@ -1,5 +1,6 @@
 // ===== STYLES SPÉCIFIQUES AU COMPOSANT HOME =====
 .home {
+
   // Article content styles
   .article-content {
     z-index: 2;
@@ -34,6 +35,7 @@
   .hero-section {
     background: url('/assets/home/header-home.webp') center/cover no-repeat fixed;
     min-height: 70vh;
+    padding: 3rem 1rem;
 
     &::before {
       content: '';
@@ -53,8 +55,9 @@
   }
 
   // Suspect section specific styles
-  .suspect-section {
-    .medecin-prescriptions ul li::before {
+  .suspect-section,
+  .detective-section {
+    ul li::before {
       content: '✓';
       position: absolute;
       left: 0;
@@ -69,7 +72,7 @@
 @media (max-width: 768px) {
   .home .hero-section {
     background-attachment: scroll;
-    
+
     .hero-content {
       flex-direction: column !important;
     }
@@ -77,10 +80,34 @@
 
   .absenteeism-section .absenteeism-content {
     flex-direction: column !important;
+    
+    .absenteeism-image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      
+      img {
+        height: 350px;
+        width: 90%;
+        object-fit: cover;
+      }
+    }
   }
 
   .cpam-section .cpam-content {
     flex-direction: column-reverse !important;
+    
+    .cpam-image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      
+      .detective-img {
+        height: 350px;
+        width: 90%;
+        object-fit: cover;
+      }
+    }
   }
 
   .detective-section .detective-content {
@@ -91,6 +118,7 @@
       width: 100%;
       display: flex;
       justify-content: center;
+      margin-bottom: 1rem;
 
       .detective-img {
         height: 350px;

@@ -1,26 +1,22 @@
-<div class="home">
+<div class="home" itemscope itemtype="https://schema.org/WebPage">
     <!-- Hero Section -->
     <section class="hero-section d-flex align-items-center justify-content-center position-relative"
-        aria-label="Section principale">
+        aria-label="Section principale" itemscope itemtype="https://schema.org/Organization">
         <div class="container">
             <div class="hero-content d-flex align-items-center justify-content-between flex-column flex-md-row">
                 <div class="hero-text flex-fill">
                     <header class="hero-header">
-                        <h1 class="mb-4 text-justify text-white">
-                            Chefs d'entreprises, service des Ressources Humaines, vous souhaitez lever un doute sur un
-                            arrêt-maladie ou un accident de travail sur lequel vous suspecter une complaisance où un
-                            abus de la part de votre employé(e) ?
+                        <h1 class="mb-4 text-white" itemprop="name">
+                            Enquêteur privé agréé pour vérification d'arrêts maladie et accidents du travail - VERIF-ARRÊT
                         </h1>
                     </header>
                     <div class="hero-description d-flex justify-content-center">
-                        <p class="text-description text-justify text-white m-0">
-                            En choisissant <strong class="verif-arret-brand">VERIF-ARRÊT</strong>, vous
+                        <p class="text-description text-center text-white m-0" itemprop="description">
+                            En choisissant <strong class="verif-arret-brand" itemprop="brand">VERIF-ARRÊT</strong>, vous
                             bénéficiez d'un partenaire reconnu et certifié dans le domaine de l'investigation,
-                            afin d'effectuer des contrôles sur l'arrêt de travail (arrêt maladie ou accident de travail)
-                            sur votre employé(e).
-                            Notre procédure sur le terrain est totalement légale puisqu'elle respecte l'atteinte à la
-                            vie privée de votre salarié(e)
-                            et nous intervenons dans les délais prescrits par le médecin dans l'arrêt de travail.
+                            afin d'effectuer des contrôles légaux sur l'arrêt de travail (arrêt maladie ou accident de travail)
+                            sur votre employé(e). Notre procédure respecte totalement la vie privée de votre salarié(e)
+                            et nous intervenons dans les délais prescrits par le médecin.
                         </p>
                     </div>
                 </div>
@@ -29,38 +25,41 @@
     </section>
 
     <!-- Absenteeism Section -->
-    <section class="absenteeism-section position-relative py-5" aria-labelledby="absenteeism-title">
+    <section class="absenteeism-section position-relative py-5" aria-labelledby="absenteeism-title"
+        itemscope itemtype="https://schema.org/Service">
         <div class="position-absolute top-0 start-50 translate-middle-x"
             style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;">
         </div>
         <div class="container">
-            <h2 id="absenteeism-title" class="mb-4 text-center position-relative">
+            <h2 id="absenteeism-title" class="mb-4 text-center position-relative" itemprop="name">
                 Absentéisme abusif : Comment réagir efficacement ?
             </h2>
-            <div
-                class="absenteeism-content d-flex my-5 align-items-center justify-content-center flex-column flex-md-row">
+            <div class="absenteeism-content d-flex my-5 align-items-center justify-content-center flex-column flex-md-row">
                 <div class="absenteeism-image mb-4 mb-md-0">
-                    <img src="/assets/home/arret-travail.webp" alt="Arrêt de travail" loading="lazy"
-                        class="img-fluid rounded" />
+                    <img src="/assets/home/arret-travail.webp" 
+                         alt="Enquêteur privé vérifiant un arrêt de travail - Service VERIF-ARRÊT" 
+                         loading="lazy"
+                         class="img-fluid rounded" 
+                         width="400" 
+                         height="300"
+                         itemprop="image" />
                 </div>
                 <div class="absenteeism-text flex-fill ms-md-4">
-                    <div>
-                        <p class="m-0 text-justify" style="font-size: 1.4rem;">
+                    <div itemprop="description">
+                        <p class="m-0 text-justify">
                             Face à un doute légitime concernant le respect d'un arrêt de travail,
-                            l'employeur a le droit de faire appel à un enquêteur professionnel agréé.
+                            l'employeur a le droit de faire appel à un enquêteur professionnel agréé CNAPS.
                             Notre mission consiste à vérifier discrètement et en toute confidentialité si votre
-                            salarié(e)
-                            en arrêt maladie ou accident de travail respecte bien les
+                            salarié(e) en arrêt maladie ou accident de travail respecte bien les
                             prescriptions médicales et les restrictions d'activité imposées.
-                            Cette démarche répond à un objectif fondamental qui consiste à protéger votre entreprise de
-                            toute tentative de fraude.
+                            Cette démarche légale protège votre entreprise contre la fraude aux arrêts de travail.
                         </p>
                     </div>
                 </div>
             </div>
             <button type="button"
                 class="cta-button d-block mx-auto position-relative btn btn-primary rounded-pill px-4 py-3 text-uppercase fw-bold"
-                (click)="onNavigateToServices()"
+                (click)="onNavigateToServices(); trackUserInteraction('cta_services', 'button_click')"
                 aria-label="Découvrir nos services de vérification d'arrêts de travail">
                 Découvrir nos services
             </button>
@@ -138,7 +137,7 @@
                 est un droit, sous réserve qu'il repose sur des éléments médicaux justifiés.
             </p>
 
-            <div class="medecin-prescriptions p-3 my-3 ms-5 position-relative bg-white rounded">
+            <div class="medecin-prescriptions d-flex flex-column align-items-center p-3 my-3 position-relative bg-white rounded">
                 <h3 class="mb-3">Le médecin prescripteur peut :</h3>
                 <ul class="my-4 ps-0 d-flex flex-column align-items-start justify-content-start list-unstyled">
                     <li class="ps-4 py-1 mb-2 position-relative">autoriser ou restreindre les sorties du salarié,</li>
@@ -222,37 +221,39 @@
     </section>
 
     <!-- Section Limites CPAM -->
-    <section class="cpam-section position-relative py-5">
+    <section class="cpam-section position-relative py-5" itemscope itemtype="https://schema.org/Article">
         <div class="position-absolute top-0 start-50 translate-middle-x"
             style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;">
         </div>
         <div class="container">
             <div class="cpam-container">
-                <h2 class="mb-5 text-center position-relative">Les limites du contrôle par la CPAM <br>(Caisse Primaire
-                    d'Arrêt Maladie)</h2>
-                <div
-                    class="cpam-content d-flex align-items-center justify-content-between flex-column flex-md-row gap-md-4 gap-sm-4">
-                    <div class="cpam-text flex-fill mb-4 mb-md-0">
-                        <p
-                            class="p-3 mb-3 position-relative text-justify bg-white rounded border border-light border-start border-danger border-4 shadow-sm">
+                <h2 class="mb-5 text-center position-relative" itemprop="headline">
+                    Les limites du contrôle par la CPAM <br>(Caisse Primaire d'Assurance Maladie)
+                </h2>
+                <div class="cpam-content d-flex align-items-center justify-content-between flex-column flex-md-row gap-md-4 gap-sm-4">
+                    <div class="cpam-text flex-fill mb-4 mb-md-0" itemprop="articleBody">
+                        <p class="p-3 mb-3 text-justify bg-white rounded shadow-sm">
                             La Caisse Primaire d'Assurance Maladie (CPAM) peut effectuer un contrôle médical,
                             mais cela reste rare, notamment pour les arrêts de courte durée.
                         </p>
-                        <p
-                            class="p-3 mb-3 text-justify bg-white rounded border border-light border-start border-danger border-4 shadow-sm">
+                        <p class="p-3 mb-3 text-justify bg-white rounded shadow-sm">
                             De plus, lorsque le salarié est prévenu du contrôle à l'avance, il peut facilement
                             se "mettre en condition" pour paraître conforme, rendant l'évaluation inefficace.
                         </p>
-                        <p
-                            class="highlight p-3 text-justify bg-danger bg-opacity-10 rounded border-start border-danger border-4 fw-semibold">
-                            C'est pourquoi une surveillance discrète par un enquêteur privé s'impose souvent
+                        <p class="highlight p-3 text-justify bg-danger bg-opacity-10 rounded border-start border-danger border-4 fw-semibold">
+                            C'est pourquoi une surveillance discrète par un enquêteur privé agréé s'impose souvent
                             comme la solution la plus fiable pour identifier un abus réel. Notre objectif
                             prioritaire est de vous apporter des preuves irréfutables.
                         </p>
                     </div>
                     <div class="cpam-image ms-md-4">
-                        <img src="/assets/home/arret-maladie.webp" alt="arret maladie"
-                            class="detective-img img-fluid rounded shadow" />
+                        <img src="/assets/home/arret-maladie.webp" 
+                             alt="Contrôle arrêt maladie par enquêteur privé agréé CNAPS"
+                             class="detective-img img-fluid rounded shadow" 
+                             width="350" 
+                             height="350"
+                             loading="lazy"
+                             itemprop="image" />
                     </div>
                 </div>
             </div>
@@ -269,7 +270,7 @@
                 <h2 class="mb-5 text-center position-relative">Ce que permet un Enquêteur Privé</h2>
                 <div
                     class="detective-content d-flex align-items-center justify-content-between flex-column flex-md-row gap-md-4 gap-sm-4">
-                    <div class="detective-text flex-fill mb-4 mb-md-0 ms-5">
+                    <div class="detective-text flex-fill mb-4 mb-md-0 ms-3">
                         <div class="detective-capabilities mb-4">
                             <h3 class="mb-3">Un enquêteur privé agréé & certifié est habilité à :</h3>
                             <ul
@@ -349,3 +350,45 @@
         </div>
     </section>
 </div>
+
+<!-- Données structurées JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "VERIF-ARRÊT",
+  "description": "Enquêteur privé agréé CNAPS spécialisé dans la vérification d'arrêts maladie et accidents du travail",
+  "url": "https://verif-arret.fr",
+  "logo": "https://verif-arret.fr/assets/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+33-X-XX-XX-XX-XX",
+    "contactType": "Service client",
+    "availableLanguage": "French"
+  },
+  "areaServed": "France",
+  "serviceType": "Investigation privée",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services d'enquête privée",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Vérification arrêt maladie",
+          "description": "Contrôle légal du respect des prescriptions médicales lors d'un arrêt maladie"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Vérification accident du travail",
+          "description": "Investigation sur la légitimité d'un arrêt pour accident du travail"
+        }
+      }
+    ]
+  }
+}
+</script>

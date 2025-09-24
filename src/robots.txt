@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://verif-arret.fr/sitemap.xml
+
+# Optimisation pour les moteurs de recherche
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Bloquer les ressources non essentielles
+Disallow: /assets/temp/
+Disallow: /*.json$
+Disallow: /api/internal/
+
+# Permettre l'accès aux ressources importantes
+Allow: /assets/header/
+Allow: /assets/images/
+Allow: /*.css$
+Allow: /*.js$

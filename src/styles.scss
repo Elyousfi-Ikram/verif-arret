@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  margin-top: 140px;
+  margin-top: 155px;
   font-family: math;
   line-height: 1.6;
   color: #2c3e50;
@@ -66,7 +66,7 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(1.5rem, 4vw, 1.8rem);
+  font-size: clamp(1.5rem, 4vw, 1.7rem);
   font-weight: 600;
   margin-bottom: 1.5rem;
 }
@@ -237,16 +237,15 @@ strong {
 // ===== RESPONSIVE GLOBAL =====
 @media (max-width: 768px) {
   body {
-    margin-top: 75px !important;
+    margin-top: 90px !important;
   }
 
   h1 {
-    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
   }
 
   h2 {
-    font-size: clamp(1.8rem, 4vw, 2.2rem);
-
+    font-size: clamp(1.3rem, 4vw, 2.2rem);
     &::after {
       width: 60px;
       height: 3px;
@@ -254,7 +253,7 @@ strong {
   }
 
   h3 {
-    font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+    font-size: clamp(1rem, 3.5vw, 1.6rem);
   }
 }
 

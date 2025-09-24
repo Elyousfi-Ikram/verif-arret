@@ -1,4 +1,6 @@
 import { Component, signal } from '@angular/core';
+import { CallbackModalService } from '../../services/callback-modal.service';
+import { ControlModalService } from '../../services/control-modal.service';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +13,11 @@ export class HeaderComponent {
   // État du menu mobile
   protected readonly isMobileMenuOpen = signal(false);
 
+  constructor(
+    private callbackModalService: CallbackModalService,
+    private controlModalService: ControlModalService
+  ) {}
+
   // Gestionnaire pour le menu hamburger
   toggleMobileMenu(): void {
     this.isMobileMenuOpen.set(!this.isMobileMenuOpen());
@@ -22,10 +29,10 @@ export class HeaderComponent {
 
   // Gestionnaires pour les boutons d'action
   onCallbackClick(): void {
-    // Logique à implémenter
+    this.callbackModalService.openModal();
   }
 
   onControlClick(): void {
-    // Logique à implémenter
+    this.controlModalService.openModal();
   }
 }

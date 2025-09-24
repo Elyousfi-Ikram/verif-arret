@@ -1,72 +1,144 @@
-<header class="header fixed-top" role="banner">
-    <!-- Boutons d'action -->
-    <div class="header-actions d-flex justify-content-center py-2 px-4 border-bottom"
-        [class.mobile-open]="isMobileMenuOpen()">
-        <button class="btn btn-outline-light rounded-pill me-3 text-uppercase fw-semibold w-50" type="button"
-            aria-label="Demander à être rappelé" (click)="onCallbackClick()">
+<header class="header" role="banner">
+    <!-- Boutons d'action - cachés sur mobile -->
+    <div class="header-actions">
+        <button class="action-btn" type="button"
+            aria-label="Demander à être rappelé par un expert VERIF-ARRET" 
+            title="Service de rappel gratuit - Contrôle médical professionnel"
+            (click)="onCallbackClick()">
             Être rappelé
         </button>
-        <button class="btn btn-outline-light rounded-pill text-uppercase fw-semibold w-50" type="button"
-            aria-label="Demander un contrôle" (click)="onControlClick()">
+        <button class="action-btn" type="button"
+            aria-label="Demander un contrôle médical terrain professionnel" 
+            title="Demande de contrôle médical sur site - Expert arrêt maladie"
+            (click)="onControlClick()">
             Demander un contrôle terrain
         </button>
     </div>
 
-    <div class="header-container d-flex align-items-center justify-content-between px-4">
-        <!-- Logo -->
-        <div class="header-logo-container d-flex align-items-center justify-content-center h-100">
-            <a href="/" class="header-logo p-2 d-flex align-items-center justify-content-center">
-                <img src="assets/header/logo-verif.webp" alt="VERIF-ARRET - Contrôle médical professionnel"
-                    class="logo-img" loading="eager" tabindex="0" role="button" aria-label="Retour à l'accueil" />
+    <div class="header-container">
+        <!-- Logo avec optimisation SEO complète -->
+        <div class="header-logo-container">
+            <a href="/" class="header-logo" 
+               title="VERIF-ARRET - Accueil du site de contrôle médical professionnel"
+               aria-label="Retour à l'accueil VERIF-ARRET">
+                <img src="assets/header/logo-verif.webp" 
+                     alt="Logo VERIF-ARRET - Spécialiste du contrôle médical professionnel, expertise arrêt maladie et contre-expertise médicale"
+                     class="logo-img" 
+                     loading="eager" 
+                     width="200" 
+                     height="75"
+                     decoding="async"
+                     fetchpriority="high"
+                     tabindex="0" 
+                     role="img" />
             </a>
         </div>
 
         <!-- Conteneur pour navigation et boutons hamburger -->
-        <div class="header-controls d-flex align-items-center justify-content-end h-100">
-            <!-- Bouton Hamburger -->
-            <button
-                class="hamburger-btn d-flex d-md-none flex-column justify-content-center align-items-center p-2 border-0 bg-transparent rounded"
-                [class.active]="isMobileMenuOpen()" type="button" [attr.aria-expanded]="isMobileMenuOpen()"
-                aria-label="Menu de navigation" (click)="toggleMobileMenu()">
-                <span class="hamburger-line my-1 rounded" [class.active]="isMobileMenuOpen()"></span>
-                <span class="hamburger-line my-1 rounded" [class.active]="isMobileMenuOpen()"></span>
-                <span class="hamburger-line my-1 rounded" [class.active]="isMobileMenuOpen()"></span>
+        <div class="header-controls">
+            <!-- Bouton Hamburger avec amélioration SEO -->
+            <button class="hamburger-btn" [class.active]="isMobileMenuOpen()" type="button" 
+                [attr.aria-expanded]="isMobileMenuOpen()" 
+                aria-label="Ouvrir le menu de navigation principal VERIF-ARRET" 
+                title="Menu de navigation - Services de contrôle médical"
+                aria-controls="main-navigation"
+                (click)="toggleMobileMenu()">
+                <span class="hamburger-line" [class.active]="isMobileMenuOpen()" aria-hidden="true"></span>
+                <span class="hamburger-line" [class.active]="isMobileMenuOpen()" aria-hidden="true"></span>
+                <span class="hamburger-line" [class.active]="isMobileMenuOpen()" aria-hidden="true"></span>
             </button>
 
-            <!-- Navigation -->
-            <nav class="header-nav d-none d-md-flex" role="navigation" [class.mobile-open]="isMobileMenuOpen()"
-                aria-label="Navigation principale">
-                <ul class="nav-list d-flex m-0 p-0 list-unstyled" role="menubar">
-                    <li class="nav-item">
-                        <a href="/decouvrir"
-                            class="nav-link d-block py-3 px-4 text-decoration-none fw-medium text-uppercase rounded fs-5"
-                            role="menuitem">
-                            DÉCOUVREZ-NOUS
+            <!-- Navigation avec structure SEO optimisée -->
+            <nav class="header-nav" 
+                 role="navigation" 
+                 [class.mobile-open]="isMobileMenuOpen()"
+                 aria-label="Navigation principale VERIF-ARRET"
+                 id="main-navigation">
+                <ul class="nav-list" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="/decouvrir" 
+                           class="nav-link" 
+                           role="menuitem"
+                           title="Découvrez VERIF-ARRET, expert en contrôle médical professionnel depuis 2010"
+                           aria-label="Découvrir VERIF-ARRET - Expertise contrôle médical et arrêt maladie">
+                            <span>DÉCOUVREZ-NOUS</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/prestations"
-                            class="nav-link d-block py-3 px-4 text-decoration-none fw-medium text-uppercase rounded fs-5"
-                            role="menuitem">
-                            NOS SERVICES
+                    <li class="nav-item" role="none">
+                        <a href="/prestations" 
+                           class="nav-link" 
+                           role="menuitem"
+                           title="Services de contrôle médical, expertise arrêt maladie et contre-expertise"
+                           aria-label="Nos prestations - Contrôle médical professionnel et arrêt maladie">
+                            <span>NOS SERVICES</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/engagements"
-                            class="nav-link d-block py-3 px-4 text-decoration-none fw-medium text-uppercase rounded fs-5"
-                            role="menuitem">
-                            NOS ENGAGEMENTS
+                    <li class="nav-item" role="none">
+                        <a href="/engagements" 
+                           class="nav-link" 
+                           role="menuitem"
+                           title="Engagements qualité VERIF-ARRET - Contrôle médical professionnel certifié"
+                           aria-label="Nos engagements qualité en contrôle médical et expertise médicale">
+                            <span>NOS ENGAGEMENTS</span>
                         </a>
                     </li>
                 </ul>
+                
+                <!-- Boutons d'action dans le menu mobile avec SEO -->
+                <div class="mobile-actions">
+                    <button class="mobile-action-btn" type="button"
+                        aria-label="Demander à être rappelé par un expert VERIF-ARRET" 
+                        title="Service de rappel gratuit - Contrôle médical professionnel"
+                        (click)="onCallbackClick(); closeMobileMenu()">
+                        <span>Être rappelé</span>
+                    </button>
+                    <button class="mobile-action-btn" type="button"
+                        aria-label="Demander un contrôle médical terrain professionnel" 
+                        title="Demande de contrôle médical sur site - Expert arrêt maladie"
+                        (click)="onControlClick(); closeMobileMenu()">
+                        <span>Demander un contrôle terrain</span>
+                    </button>
+                </div>
             </nav>
         </div>
     </div>
 
-    <!-- Overlay mobile -->
+    <!-- Overlay mobile avec amélioration accessibilité -->
     @if (isMobileMenuOpen()) {
-    <div class="mobile-overlay position-fixed top-0 start-0 end-0 bottom-0" [class.active]="isMobileMenuOpen()"
-        (click)="closeMobileMenu()" aria-hidden="true">
+    <div class="mobile-overlay" 
+         [class.active]="isMobileMenuOpen()"
+         (click)="closeMobileMenu()" 
+         (keydown.escape)="closeMobileMenu()"
+         aria-hidden="true"
+         role="presentation"
+         tabindex="-1">
     </div>
     }
 </header>
+
+<!-- Données structurées JSON-LD pour le SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "VERIF-ARRET",
+  "description": "Expert en contrôle médical professionnel, expertise arrêt maladie et contre-expertise médicale. Services de contrôle médical pour entreprises et particuliers.",
+  "url": "https://verif-arret.fr",
+  "logo": "https://verif-arret.fr/assets/header/logo-verif.webp",
+  "image": "https://verif-arret.fr/assets/header/logo-verif.webp",
+  "telephone": "+33-X-XX-XX-XX-XX",
+  "email": "contact@verif-arret.fr",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "FR",
+    "addressRegion": "France"
+  },
+  "serviceType": ["Contrôle médical professionnel", "Expertise arrêt maladie", "Contre-expertise médicale"],
+  "areaServed": "France",
+  "knowsAbout": ["Contrôle médical", "Arrêt maladie", "Expertise médicale", "Contre-expertise"],
+  "sameAs": [
+    "https://www.linkedin.com/company/verif-arret",
+    "https://www.facebook.com/verif-arret"
+  ]
+}
+</script>
