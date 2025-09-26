@@ -14,7 +14,7 @@ on:
         type: string
 
 env:
-  DEPLOYMENT_FOLDER: dist/verif-arret/browser
+  DEPLOYMENT_FOLDER: dist/verif-arret-angular/browser
 
 jobs:
 # Please do not rename this job
