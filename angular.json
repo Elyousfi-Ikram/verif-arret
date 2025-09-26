@@ -4,6 +4,9 @@
   "newProjectRoot": "projects",
   "projects": {
     "verif-arret-angular": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -61,10 +64,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "VERIF-ARRET-Angular:build:production"
+              "buildTarget": "verif-arret-angular:build:production"
             },
             "development": {
-              "buildTarget": "VERIF-ARRET-Angular:build:development"
+              "buildTarget": "verif-arret-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
