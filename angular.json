@@ -35,7 +35,7 @@
             ],
             "outputMode": "static",
             "prerender": false,
-            "ssr": false
+            "ssr": true
           },
           "configurations": {
             "production": {
