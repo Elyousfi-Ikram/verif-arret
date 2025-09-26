@@ -46,15 +46,15 @@ export class EngagementComponent implements OnInit {
     this.meta.updateTag({ property: 'og:title', content: 'Nos Engagements - VERIF-ARRÊT | Enquêtes Légales sur Arrêts de Travail' });
     this.meta.updateTag({ property: 'og:description', content: 'Enquêtes légales sur arrêts de travail avec agrément CNAPS. Confidentialité, professionnalisme et respect de la déontologie garantis.' });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
-    this.meta.updateTag({ property: 'og:url', content: 'https://verif-arret.fr/engagement' });
-    this.meta.updateTag({ property: 'og:image', content: 'https://verif-arret.fr/assets/engagements/hero-bg.jpeg' });
+    this.meta.updateTag({ property: 'og:url', content: 'https://verifarret.com/engagement' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://verifarret.com/assets/engagements/hero-bg.jpeg' });
     this.meta.updateTag({ property: 'og:image:alt', content: 'Engagements VERIF-ARRÊT - Enquêtes professionnelles' });
     
     // Twitter Cards
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.meta.updateTag({ name: 'twitter:title', content: 'Nos Engagements - VERIF-ARRÊT' });
     this.meta.updateTag({ name: 'twitter:description', content: 'Enquêtes légales sur arrêts de travail avec agrément CNAPS' });
-    this.meta.updateTag({ name: 'twitter:image', content: 'https://verif-arret.fr/assets/engagements/hero-bg.jpeg' });
+    this.meta.updateTag({ name: 'twitter:image', content: 'https://verifarret.com/assets/engagements/hero-bg.jpeg' });
     
     // Balises techniques
     this.meta.updateTag({ name: 'robots', content: 'index, follow' });
@@ -71,7 +71,7 @@ export class EngagementComponent implements OnInit {
         "@type": "ProfessionalService",
         "name": "VERIF-ARRÊT",
         "description": "Service d'enquêtes légales sur les arrêts de travail avec agrément CNAPS",
-        "url": "https://verif-arret.fr/engagement",
+        "url": "https://verifarret.com/engagement",
         "serviceType": "Investigation privée",
         "areaServed": {
           "@type": "Country",

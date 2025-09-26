@@ -43,14 +43,14 @@ export class DecouvrirComponent implements OnInit {
     this.meta.updateTag({ name: 'author', content: 'Olivier Lagarde - VERIF-ARRÊT' });
     
     // Canonical URL
-    this.meta.updateTag({ name: 'canonical', content: 'https://verif-arret.fr/decouvrir' });
+    this.meta.updateTag({ name: 'canonical', content: 'https://verifarret.com/decouvrir' });
     
     // Open Graph pour les réseaux sociaux
     this.meta.updateTag({ property: 'og:title', content: 'Olivier Lagarde - Enquêteur Privé Agréé CNAPS | VERIF-ARRÊT' });
     this.meta.updateTag({ property: 'og:description', content: 'Découvrez le parcours d\'Olivier Lagarde, enquêteur privé avec 30 ans d\'expérience, ancien des Forces Spéciales, fondateur de VERIF-ARRÊT.' });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
-    this.meta.updateTag({ property: 'og:url', content: 'https://verif-arret.fr/decouvrir' });
-    this.meta.updateTag({ property: 'og:image', content: 'https://verif-arret.fr/assets/decouvrir/og-image-decouvrir.webp' });
+    this.meta.updateTag({ property: 'og:url', content: 'https://verifarret.com/decouvrir' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://verifarret.com/assets/decouvrir/og-image-decouvrir.webp' });
     
     // Twitter Cards
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });

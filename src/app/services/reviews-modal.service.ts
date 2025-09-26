@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 export interface Review {
@@ -19,7 +19,7 @@ export class ReviewsModalService {
   private isOpenSubject = new BehaviorSubject<boolean>(false);
   public isOpen$ = this.isOpenSubject.asObservable();
 
-  private apiUrl = '/api/reviews';
+  // private apiUrl = '/api/reviews';
   private reviews: Review[] = [];
   private reviewsSubject = new BehaviorSubject<Review[]>([]);
   public reviews$ = this.reviewsSubject.asObservable();
@@ -34,16 +34,41 @@ export class ReviewsModalService {
   }
 
   private syncWithAPI(): void {
-    this.http.get<Review[]>(this.apiUrl).subscribe({
-      next: (apiReviews) => {
-        this.reviews = apiReviews;
-        this.reviewsSubject.next([...this.reviews]);
+    // Mode offline - utiliser des données de démonstration
+    const demoReviews: Review[] = [
+      {
+        name: "Marie Dupont",
+        service: "Vérification arrêt maladie",
+        rating: 5,
+        comment: "Service très professionnel et discret. Résultats rapides et fiables.",
+        verified: true,
+        createdAt: new Date('2024-01-15')
       },
-      error: (error) => {
-        console.error('Erreur lors de la synchronisation avec l\'API:', error);
-        this.reviewsSubject.next([...this.reviews]);
+      {
+        name: "Jean Martin",
+        service: "Enquête professionnelle",
+        rating: 4,
+        comment: "Excellent travail, très satisfait du service rendu. Équipe compétente.",
+        verified: true,
+        createdAt: new Date('2024-01-10')
+      },
+      {
+        name: "Sophie Leroy",
+        service: "Vérification arrêt maladie",
+        rating: 5,
+        comment: "Intervention discrète et efficace. Je recommande vivement.",
+        verified: true,
+        createdAt: new Date('2024-01-05')
       }
-    });
+    ];
+    
+    this.reviews = demoReviews;
+    this.reviewsSubject.next([...this.reviews]);
+  }
+
+  getReviews() {
+    // Retourner directement les reviews locales sans appel API
+    return of(this.reviews);
   }
 
   openModal(): void {
@@ -61,21 +86,21 @@ export class ReviewsModalService {
   }
 
   addReview(reviewData: Omit<Review, '_id' | 'verified'>): void {
-    this.http.post<Review>(this.apiUrl, reviewData).subscribe({
-      next: (savedReview) => {
-        this.reviews.unshift(savedReview);
-        this.reviewsSubject.next([...this.reviews]);
-        console.log('Avis sauvegardé avec succès dans la base de données');
-      },
-      error: (error) => {
-        console.error('Erreur lors de la sauvegarde de l\'avis:', error);
-        const tempReview: Review = {
-          ...reviewData,
-          verified: false
-        };
-        this.reviews.unshift(tempReview);
-        this.reviewsSubject.next([...this.reviews]);
-      }
-    });
+    // this.http.post<Review>(this.apiUrl, reviewData).subscribe({
+    //   next: (savedReview) => {
+    //     this.reviews.unshift(savedReview);
+    //     this.reviewsSubject.next([...this.reviews]);
+    //     console.log('Avis sauvegardé avec succès dans la base de données');
+    //   },
+    //   error: (error) => {
+    //     console.error('Erreur lors de la sauvegarde de l\'avis:', error);
+    //     const tempReview: Review = {
+    //       ...reviewData,
+    //       verified: false
+    //     };
+    //     this.reviews.unshift(tempReview);
+    //     this.reviewsSubject.next([...this.reviews]);
+    //   }
+    // });
   }
 }

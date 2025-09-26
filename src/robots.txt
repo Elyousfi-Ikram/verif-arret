@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://verif-arret.fr/sitemap.xml
+Sitemap: https://verifarret.com/sitemap.xml
 
 # Optimisation pour les moteurs de recherche
 User-agent: Googlebot

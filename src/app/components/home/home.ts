@@ -79,8 +79,8 @@ export class HomeComponent implements OnInit {
     this.meta.updateTag({ property: 'og:title', content: 'VERIF-ARRÊT - Enquêteur Privé Agréé pour Vérification d\'Arrêts' });
     this.meta.updateTag({ property: 'og:description', content: 'Service professionnel de vérification d\'arrêts maladie et accidents du travail par enquêteur privé agréé CNAPS.' });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
-    this.meta.updateTag({ property: 'og:url', content: 'https://verif-arret.fr' });
-    this.meta.updateTag({ property: 'og:image', content: 'https://verif-arret.fr/assets/home/og-image.webp' });
+    this.meta.updateTag({ property: 'og:url', content: 'https://verifarret.com' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://verifarret.com/assets/home/og-image.webp' });
     
     // Twitter Cards
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });

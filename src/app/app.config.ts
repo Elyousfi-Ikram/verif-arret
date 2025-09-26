@@ -9,5 +9,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(), 
+    // Désactiver le prérendu temporairement
+    { provide: 'PRERENDER', useValue: false }
   ]
 };

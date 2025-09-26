@@ -10,6 +10,4 @@ export const routes: Routes = [
     { path: 'decouvrir', component: DecouvrirComponent },
     { path: 'prestations', component: PrestationsComponent },
     { path: 'engagements', component: EngagementComponent },
-
-
 ];
