@@ -6,6 +6,12 @@ $footer-text-muted: rgba(255, 255, 255, 0.9);
 $footer-text-light: rgba(255, 255, 255, 0.7);
 $footer-border: rgba(255, 255, 255, 0.15);
 $footer-bg-overlay: rgba(255, 255, 255, 0.05);
+$border-color: #d4af37;
+$primary-color: #5d4e37;
+$background-white: #FFFFFF;
+$secondary-color: #8b6914;
+$accent-color: #f3e1c2;
+$text-dark: #5d4e37;
 
 // ===== BREAKPOINTS =====
 $mobile: 480px;
@@ -19,7 +25,6 @@ $z-content: 3;
 $z-toggle: 5;
 $z-cards: 5;
 $z-points: 10;
-$z-labels: 15;
 
 // ===== MIXINS =====
 @mixin smooth-transition {
@@ -37,10 +42,13 @@ $z-labels: 15;
 
 // ===== ANIMATIONS =====
 @keyframes arrowBounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
         opacity: 1;
     }
+
     50% {
         transform: translateY(5px);
         opacity: 0.7;
@@ -54,18 +62,12 @@ $z-labels: 15;
         transform: translate(-50%, -50%) scale(0.7) rotate(-20deg);
         filter: brightness(0.3) blur(5px);
     }
+
     100% {
         opacity: 0.9;
         visibility: visible;
         transform: translate(-50%, -50%) scale(1.2) rotate(0deg);
         filter: brightness(1.3) blur(0px);
-    }
-}
-
-@keyframes ripple {
-    to {
-        transform: translate(-50%, -50%) scale(2.5);
-        opacity: 0;
     }
 }
 
@@ -100,10 +102,6 @@ $z-labels: 15;
         transform: scale(1);
         pointer-events: auto;
         z-index: 4;
-
-        .background-map {
-            animation: mapAppear 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
     }
 
     &.map-hidden {
@@ -118,12 +116,12 @@ $z-labels: 15;
 // ===== CONTENEUR DE LA CARTE =====
 .carte-container {
     position: relative;
-    display: inline-block;
-    width: 100%;
+    height: auto;
 
     .carte-france {
-        width: 100%;
+        width: 480px;
         height: auto;
+        transition: all 0.3s ease;
         display: block;
     }
 }
@@ -131,102 +129,71 @@ $z-labels: 15;
 // ===== POINTS SUR LA CARTE =====
 .map-point {
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
+    background-color: $footer-highlight;
+    border-radius: 50%;
+    border: 2px solid $background-white;
+    box-shadow: 0 2px 6px rgba(139, 69, 19, 0.4);
     cursor: pointer;
-    left: calc(var(--point-x) * 1%);
-    top: calc(var(--point-y) * 1%);
     transform: translate(-50%, -50%);
-    z-index: $z-points;
-    @include smooth-transition;
-
-    .point-inner {
-        width: 100%;
-        height: 100%;
-        background: $footer-highlight;
-        border: 2px solid rgba(255, 255, 255, 0.9);
-        border-radius: 50%;
-        box-shadow: 0 2px 8px rgba(231, 76, 60, 0.4);
-        @include smooth-transition;
-    }
-
-    .point-ripple {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100%;
-        height: 100%;
-        border: 2px solid rgba(231, 76, 60, 0.6);
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        animation: ripple 2s infinite;
-        opacity: 0;
-    }
-
-    .point-label {
-        position: absolute;
-        top: -35px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(5, 16, 57, 0.95);
-        color: white;
-        padding: 4px 8px;
-        border-radius: 6px;
-        font-size: 0.75rem;
-        font-weight: 500;
-        white-space: nowrap;
-        opacity: 0;
-        visibility: hidden;
-        @include smooth-transition;
-        border: 1px solid $footer-border;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        z-index: $z-labels;
-    }
-
-    &:hover {
-        .point-inner {
-            transform: scale(1.3);
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.6);
-        }
-
-        .point-label {
-            opacity: 1;
-            visibility: visible;
-            top: -40px;
-        }
-
-        .point-ripple {
-            opacity: 1;
-        }
-    }
+    transition: all 0.3s ease;
+    z-index: 10;
 
     &.headquarters-point {
-        .point-inner {
-            background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
-            border-color: rgba(255, 215, 0, 0.9);
-            box-shadow: 0 3px 12px rgba(255, 215, 0, 0.5);
-        }
+        background-color: $footer-highlight;
+        width: 16px;
+        height: 16px;
+        border: 3px solid $accent-color;
     }
 
     &.selected-point {
-        .point-inner {
-            transform: scale(1.4);
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.8);
-        }
+        background-color: #ff6b35;
+        border-color: #ff6b35;
+        transform: translate(-50%, -50%) scale(1.3);
+    }
 
-        .point-label {
+    &:hover {
+        transform: translate(-50%, -50%) scale(1.2);
+
+        .point-tooltip {
             opacity: 1;
             visibility: visible;
-            top: -40px;
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
         }
+    }
+}
+
+.point-tooltip {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $text-dark;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 20;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 4px solid transparent;
+        border-top-color: $text-dark;
     }
 }
 
 // ===== CONTAINER RESPONSIVE =====
 .map-section-container {
     display: flex;
+    justify-content: center;
     width: 100%;
     height: 100%;
     position: relative;
@@ -353,14 +320,6 @@ $z-labels: 15;
 
 .badge-icon {
     font-size: 0.8rem;
-}
-
-.card-status-indicator {
-    width: 8px;
-    height: 8px;
-    background: #4CAF50;
-    border-radius: 50%;
-    margin-top: 4px;
 }
 
 .card-content {
@@ -491,7 +450,7 @@ $z-labels: 15;
     position: relative;
     z-index: $z-content;
     margin: 0 auto 35px;
-    padding: 80px 20px 0;
+    padding: 110px 20px 0;
     min-height: 350px;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     max-width: 1200px;
@@ -521,10 +480,10 @@ $z-labels: 15;
     gap: 2rem;
 
     .logo {
-        width: 25%;
+        width: 100%;
         height: auto;
         min-width: 80px;
-        max-width: 120px;
+        max-width: 150px;
     }
 }
 
@@ -567,23 +526,25 @@ $z-labels: 15;
     }
 }
 
-.ig-stars-container {
-    .btn-view-all-reviews {
-        background: #ff6b35;
-        color: white;
-        border: none;
-        padding: 0.4rem 0.8rem;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        font-weight: 500;
-        cursor: pointer;
-        @include smooth-transition;
-        white-space: nowrap;
+.reviews-summary {
+    background-color: transparent !important;
+}
 
-        &:hover {
-            background: #e55a2b;
-            transform: translateY(-1px);
-        }
+.btn-view-all-reviews {
+    background: #ff6b35;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    @include smooth-transition;
+    white-space: nowrap;
+
+    &:hover {
+        background: #e55a2b;
+        transform: translateY(-1px);
     }
 }
 
@@ -611,7 +572,7 @@ $z-labels: 15;
 .footer-description {
     text-transform: uppercase;
     text-align: center;
-    margin: 30px 0;
+    margin: 0 0 60px 0;
     color: $footer-text-muted;
     line-height: 1.6;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
@@ -632,7 +593,6 @@ $z-labels: 15;
 .contact-info {
     display: flex;
     gap: 25px;
-    flex-wrap: wrap;
     justify-content: flex-start;
 }
 
@@ -708,7 +668,7 @@ $z-labels: 15;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
 }
 
 .legal-btn {
@@ -826,11 +786,11 @@ $z-labels: 15;
         }
     }
 
-    .container {
-        padding: 40px 10px 0;
-        min-height: 250px;
-        margin: 0 auto 20px;
-    }
+    // .container {
+    //     padding: 60px 15px 0;
+    //     min-height: 300px;
+    //     margin: 0 auto 25px;
+    // }
 
     .footer-about {
         .footer-description {
@@ -890,17 +850,12 @@ $z-labels: 15;
         }
 
         .footer-legal {
-            flex-direction: column;
             gap: 10px;
 
             .legal-btn {
                 font-size: 0.8rem;
                 padding: 3px 10px;
                 text-transform: none;
-            }
-
-            .separator {
-                display: none;
             }
         }
 
@@ -960,15 +915,10 @@ $z-labels: 15;
             margin: 0 auto;
         }
     }
-    
+
     .map-point {
         width: 12px;
         height: 12px;
-        
-        .point-label {
-            font-size: 0.65rem;
-            padding: 2px 6px;
-        }
     }
 }
 
@@ -1014,10 +964,10 @@ $z-labels: 15;
         margin-top: 0;
 
         .reviews-header {
-            flex-direction: row;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 1.5rem;
+            gap: 0;
 
             h4 {
                 font-size: 0.95rem;
@@ -1026,12 +976,19 @@ $z-labels: 15;
         }
     }
 
+    .carte-container {
+        max-height: 50%;
+        top: 15%;
+        display: flex;
+        justify-content: center;
+    }
+
     .address-cards-container {
         width: 90%;
         right: 5%;
-        top: 30px;
+        top: 65%;
         padding: 20px;
-        max-height: 80%;
+        max-height: 32%;
 
         .cards-title {
             font-size: 1.2rem;
@@ -1045,7 +1002,7 @@ $z-labels: 15;
     }
 
     .container {
-        padding: 60px 15px 0;
+        padding: 125px 15px 0;
         min-height: 300px;
         margin: 0 auto 25px;
     }
@@ -1062,10 +1019,16 @@ $z-labels: 15;
         .contact-info {
             gap: 15px;
             justify-content: center;
+            flex-wrap: wrap;
 
             .contact-item {
-                width: 45%;
+                width: 47%;
                 padding: 8px;
+
+                .contact-link {
+                    width: 100%;
+                    text-align: center;
+                }
             }
         }
     }
@@ -1077,10 +1040,11 @@ $z-labels: 15;
             flex-direction: column;
             gap: 15px;
             text-align: center;
+            align-items: center;
         }
 
         .footer-legal {
-            gap: 15px;
+            gap: 0;
 
             .legal-btn {
                 font-size: 0.9rem;
@@ -1120,19 +1084,8 @@ $z-labels: 15;
         }
     }
 
-    .carte-container {
-        .carte-france {
-            max-width: 450px;
-        }
-    }
-    
     .map-point {
         width: 14px;
         height: 14px;
-        
-        .point-label {
-            font-size: 0.7rem;
-            padding: 3px 7px;
-        }
     }
 }

@@ -1,8 +1,8 @@
-import { Component, signal, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, signal, Inject, PLATFORM_ID, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ModalComponent } from '../modal/modal';
 import { ReviewsModalService } from '../../services/reviews-modal.service';
-
+import { Subscription } from 'rxjs';
 import { LegalModalService } from '../../services/legal-modal.service';
 import { PolicyModalService } from '../../services/policy-modal.service';
 import { CookiesModalService } from '../../services/cookies-modal.service';
@@ -27,10 +27,11 @@ export interface AddressItem {
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit, OnDestroy {
   currentYear = new Date().getFullYear();
-  averageRating = 3;
-  totalReviews = 10;
+  averageRating = 0;
+
+  private reviewsSubscription!: Subscription;
 
   // Signaux pour la gestion d'état
   isContentVisible = signal(true);
@@ -45,6 +46,18 @@ export class FooterComponent {
     private cookiesModalService: CookiesModalService
   ) { }
 
+  ngOnInit() {
+    this.reviewsSubscription = this.reviewsModalService.reviews$.subscribe(() => {
+      this.averageRating = this.reviewsModalService.getAverageRating();
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.reviewsSubscription) {
+      this.reviewsSubscription.unsubscribe();
+    }
+  }
+
   // Adresses organisées par région
   locations: AddressItem[] = [
     {
@@ -54,7 +67,7 @@ export class FooterComponent {
       phone: "+33645820697",
       displayPhone: "06 45 82 06 97",
       isHeadquarters: true,
-      mapPosition: { x: 30, y: 60 } // Ajusté pour Niort
+      mapPosition: { x: 36, y: 46 }
     },
     {
       id: 2,
@@ -62,7 +75,7 @@ export class FooterComponent {
       address: "4 boulevard Louis Tardy, 79000 Niort",
       phone: "06 07 25 74 27",
       displayPhone: "06 07 25 74 27",
-      mapPosition: { x: 68, y: 72 } // Sud-Est
+      mapPosition: { x: 73.55, y: 72.55 }
     },
     {
       id: 16,
@@ -70,7 +83,7 @@ export class FooterComponent {
       address: "Route Sanguinaires, 20000 Ajaccio",
       phone: "06 45 82 06 97",
       displayPhone: "06 45 82 06 97",
-      mapPosition: { x: 55, y: 88 } // Corse du Sud
+      mapPosition: { x: 89.4, y: 85.2 }
     },
     {
       id: 17,
@@ -78,7 +91,7 @@ export class FooterComponent {
       address: "12 Quai des Martyrs de la Libération, 20200 Bastia",
       phone: "06 45 82 06 97",
       displayPhone: "06 45 82 06 97",
-      mapPosition: { x: 58, y: 82 } // Corse du Nord
+      mapPosition: { x: 93.5, y: 77.95 }
     },
     {
       id: 10,
@@ -86,7 +99,7 @@ export class FooterComponent {
       address: "Rue du Régina, 64200 Biarritz",
       phone: "06 07 25 74 27",
       displayPhone: "06 07 25 74 27",
-      mapPosition: { x: 12, y: 78 } // Sud-Ouest côte
+      mapPosition: { x: 27.45, y: 72 }
     },
     {
       id: 15,
@@ -94,7 +107,7 @@ export class FooterComponent {
       address: "Rue François de Sourdis, 33000 Bordeaux",
       phone: "06 07 25 74 27",
       displayPhone: "06 07 25 74 27",
-      mapPosition: { x: 22, y: 68 } // Sud-Ouest
+      mapPosition: { x: 33, y: 61 }
     },
     {
       id: 5,
@@ -102,7 +115,7 @@ export class FooterComponent {
       address: "29 Avenue des Hespérides, 06400 Cannes",
       phone: "06 07 25 74 27",
       displayPhone: "06 07 25 74 27",
-      mapPosition: { x: 72, y: 76 } // Côte d'Azur
+      mapPosition: { x: 81.4, y: 72.7 }
     },
     {
       id: 12,
@@ -110,7 +123,7 @@ export class FooterComponent {
       address: "333 Rue Félix Faure, 76620 Le Havre",
       phone: "06 07 25 74 27",
       displayPhone: "06 07 25 74 27",
-      mapPosition: { x: 32, y: 28 } // Nord-Ouest côte
+      mapPosition: { x: 39, y: 19.6 }
     },
     {
       id: 14,
@@ -118,7 +131,7 @@ export class FooterComponent {
       address: "Rue Pierre Curie, 78110 Le Vésinet",
       phone: "06 07 25 74 27",
       displayPhone: "06 07 25 74 27",
-      mapPosition: { x: 48, y: 38 } // Région parisienne
+      mapPosition: { x: 50.85, y: 24.95 }
     },
     {
       id: 3,
@@ -126,7 +139,7 @@ export class FooterComponent {
       address: "8 Boulevard des Frères Godchot, 13005 Marseille",
       phone: "06 07 25 74 27",
       displayPhone: "06 07 25 74 27",
-      mapPosition: { x: 68, y: 74 } // Sud-Est côte
+      mapPosition: { x: 72, y: 75.15 }
     },
     {
       id: 11,
@@ -134,7 +147,7 @@ export class FooterComponent {
       address: "5 Rue Le Nôtre, 44000 Nantes",
       phone: "06 07 25 74 27",
       displayPhone: "06 07 25 74 27",
-      mapPosition: { x: 20, y: 52 } // Ouest
+      mapPosition: { x: 29.05, y: 39.7 }
     },
     {
       id: 4,
@@ -142,7 +155,7 @@ export class FooterComponent {
       address: "ABC Sud Intelligence, 6 av Henri Barbusse, 06200 Nice",
       phone: "06 07 25 74 27",
       displayPhone: "06 07 25 74 27",
-      mapPosition: { x: 75, y: 74 } // Côte d'Azur
+      mapPosition: { x: 83.4, y: 70.7 }
     },
     {
       id: 7,
@@ -150,7 +163,15 @@ export class FooterComponent {
       address: "L'Orée du Golf, 04860 Pierrevert",
       phone: "06 07 25 74 27",
       displayPhone: "06 07 25 74 27",
-      mapPosition: { x: 70, y: 70 } // Sud-Est intérieur
+      mapPosition: { x: 76, y: 70 }
+    },
+    {
+      id: 18,
+      city: "Reims",
+      address: "32 Boulevard de la Paix, 51100 Reims",
+      phone: "+33607257427",
+      displayPhone: "06 07 25 74 27",
+      mapPosition: { x: 62.45, y: 21.55 }
     },
     {
       id: 9,
@@ -158,7 +179,7 @@ export class FooterComponent {
       address: "63 Rue de Robien, 35000 Rennes",
       phone: "06 07 25 74 27",
       displayPhone: "06 07 25 74 27",
-      mapPosition: { x: 25, y: 45 } // Ouest
+      mapPosition: { x: 27, y: 30.9 }
     },
     {
       id: 13,
@@ -166,7 +187,7 @@ export class FooterComponent {
       address: "Avenue Bellevue, 06190 Roquebrune-Cap-Martin",
       phone: "06 07 25 74 27",
       displayPhone: "06 07 25 74 27",
-      mapPosition: { x: 77, y: 72 } // Côte d'Azur Est
+      mapPosition: { x: 85, y: 69 }
     },
     {
       id: 6,
@@ -174,7 +195,7 @@ export class FooterComponent {
       address: "Boulevard Louis Blanc, 83990 Saint-Tropez",
       phone: "06 07 25 74 27",
       displayPhone: "06 07 25 74 27",
-      mapPosition: { x: 70, y: 78 } // Côte d'Azur
+      mapPosition: { x: 79, y: 74.5 }
     },
     {
       id: 8,
@@ -182,7 +203,7 @@ export class FooterComponent {
       address: "6 Rue Victor Laloux, 37000 Tours",
       phone: "06 07 25 74 27",
       displayPhone: "06 07 25 74 27",
-      mapPosition: { x: 38, y: 55 } // Centre
+      mapPosition: { x: 43.4, y: 36.9 }
     }
   ];
 
@@ -234,13 +255,13 @@ export class FooterComponent {
   }
 
   getFormattedRating(): string {
-    return this.averageRating.toFixed(1);
+    return this.averageRating.toFixed(2);
   }
 
   getStarStyle(starIndex: number, rating: number): any {
     const fillPercentage = this.getStarFillPercentage(starIndex, rating);
-    const primaryColor = '#ff6b35';
-    const lightColor = 'rgba(255, 107, 53, 0.25)';
+    const primaryColor = '#fff';
+    const lightColor = 'rgba(255, 255, 255, 0.25)';
 
     if (fillPercentage === 100) {
       return { 'color': primaryColor, 'font-weight': 'bold' };
@@ -262,6 +283,7 @@ export class FooterComponent {
     if (rating <= starPosition - 1) return 0;
     return Math.round((rating - (starPosition - 1)) * 100);
   }
+
   onLegalClick(section: string): void {
     switch (section) {
       case 'mentions':

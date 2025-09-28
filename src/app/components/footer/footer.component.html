@@ -8,13 +8,14 @@
         <img src="assets/footer/carte.png" alt="Carte de France" class="carte-france" />
         <!-- Points sur la carte -->
         <div *ngFor="let location of locations; trackBy: trackByLocationId" class="map-point"
-          [class.headquarters-point]="location.isHeadquarters"
-          [class.selected-point]="selectedLocation()?.id === location.id" [style.--point-x]="location.mapPosition.x"
-          [style.--point-y]="location.mapPosition.y" [title]="location.city" (click)="handlePointClick(location)">
-          <div class="point-inner"></div>
-          <div class="point-ripple"></div>
-          <div class="point-label">{{ location.city }}</div>
-        </div>
+            [class.headquarters-point]="location.isHeadquarters"
+            [class.selected-point]="selectedLocation()?.id === location.id" 
+            [style.left.%]="location.mapPosition.x"
+            [style.top.%]="location.mapPosition.y" 
+            [title]="location.city" 
+            (click)="handlePointClick(location)">
+            <span class="point-tooltip">{{ location.city }}</span>
+          </div>
       </div>
 
       <!-- Liste des implantations avec design amélioré -->
@@ -94,62 +95,72 @@
             <!-- Section Avis déplacée pour mobile -->
             <div class="footer-reviews-section">
               <div class="reviews-header">
-                <h4>Avis Clients <span class="rating-mobile">{{ getFormattedRating() }}/5</span></h4>
-                <div class="ig-stars-container">
-                  <div class="d-flex gap-1">
-                    <span *ngFor="let star of [0,1,2,3,4]; let i = index" class="ig-star ig-star-enhanced"
-                      [ngStyle]="getStarStyle(i, averageRating)">★</span>
-                  </div>
+                <div class="d-flex justify-content-between align-items-center gap-3">
+                  <h4>Avis Clients</h4>
                   <button class="btn-view-all-reviews" (click)="openReviewsModal()">
                     Voir tous les avis →
                   </button>
+                </div>
+                <div class="p-4 text-center reviews-summary">
+                  <div class="d-flex flex-row justify-content-between align-items-center gap-4">
+                    <div class="d-flex flex-row align-items-center gap-2">
+                      <div class="ig-rating-number">{{ getFormattedRating() }}/5</div>
+                    </div>
+                    <div class="ig-stars-container">
+                      <div class="d-flex gap-1">
+                        <span *ngFor="let star of [0,1,2,3,4]; let i = index"
+                          class="ig-star ig-star-enhanced ig-star-white"
+                          [ngStyle]="getStarStyle(i, averageRating)">★</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Description principale -->
-        <div class="footer-description-section">
-          <p class="footer-description py-4 text-center">
-            Votre partenaire de confiance pour la vérification d'arrêts de travail et maladie.
-            Enquêtes professionnelles et discrètes sur tout le territoire français.
-          </p>
-        </div>
       </div>
 
-      <!-- Section Contact -->
-      <div class="footer-section footer-contact">
-        <h4><span class="icon-contact"></span>Contact</h4>
-        <div class="contact-info">
-          <div class="contact-item">
-            <a href="tel:+33607257427" class="contact-link">
-              <span class="contact-icon">📞</span>
-              <span class="contact-text">06 07 25 74 27</span>
-            </a>
-          </div>
-          <div class="contact-item">
-            <span class="contact-link">
-              <span class="contact-icon">✉️</span>
-              <span class="contact-text">verifarret@gmail.fr</span>
-            </span>
-          </div>
-          <div class="contact-item">
-            <span class="contact-link">
-              <span class="contact-icon">📍</span>
-              <span class="contact-text">4 boulevard Louis Tardy, 79000 Niort</span>
-            </span>
-          </div>
-          <div class="contact-item">
-            <span class="contact-link">
-              <span class="contact-icon">🕒</span>
-              <span class="contact-text">Lundi au Samedi : 9h-21h</span>
-            </span>
-          </div>
+      <!-- Description principale -->
+      <div class="footer-description-section">
+        <p class="footer-description text-center">
+          Votre partenaire de confiance pour la vérification d'arrêts de travail et maladie.
+          Enquêtes professionnelles et discrètes sur tout le territoire français.
+        </p>
+      </div>
+    
+    <!-- Section Contact -->
+    <div class="footer-section footer-contact">
+      <h4><span class="icon-contact"></span>Contact</h4>
+      <div class="contact-info">
+        <div class="contact-item">
+          <a href="tel:+33607257427" class="contact-link">
+            <span class="contact-icon">📞</span>
+            <span class="contact-text">06 07 25 74 27</span>
+          </a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-link">
+            <span class="contact-icon">✉️</span>
+            <span class="contact-text">verifarret@gmail.fr</span>
+          </span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-link">
+            <span class="contact-icon">📍</span>
+            <span class="contact-text">4 boulevard Louis Tardy, 79000 Niort</span>
+          </span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-link">
+            <span class="contact-icon">🕒</span>
+            <span class="contact-text">Lundi au Samedi : 9h-21h</span>
+          </span>
         </div>
       </div>
     </div>
   </div>
+</div>
 
   <!-- Footer bottom -->
   <div *ngIf="isContentVisible()">
