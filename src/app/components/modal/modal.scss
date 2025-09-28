@@ -430,9 +430,9 @@ $star-gold-light: rgba(93, 78, 55, 0.3);
 
 // ===== REVIEWS SPÉCIFIQUES =====
 .ig-back-btn {
-  background: none;
+  background-color: $primary-color;
+  color: white;
   border: 2px solid $primary-color;
-  color: $primary-color;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   cursor: pointer;
@@ -533,7 +533,7 @@ $star-gold-light: rgba(93, 78, 55, 0.3);
   border-radius: 8px;
 
   .ig-footer-note {
-    color: $primary-color;
+    color: $background-white;
     font-size: 0.9rem;
 
     i {
