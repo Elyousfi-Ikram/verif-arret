@@ -60,8 +60,8 @@ export class ReviewsModalComponent implements OnInit, OnDestroy {
 
   getStarStyle(starIndex: number, rating: number): any {
     const fillPercentage = this.getStarFillPercentage(starIndex, rating);
-    const primaryColor = '#5d4e37';
-    const lightColor = 'rgba(93, 78, 55, 0.25)';
+    const primaryColor = '#fff';
+    const lightColor = 'rgba(5, 16, 57, 0.25)';
     
     if (fillPercentage === 100) {
       return { 'color': primaryColor, 'font-weight': 'bold' };
