@@ -3,6 +3,9 @@ Allow: /
 
 Sitemap: https://verifarret.com/sitemap.xml
 
+# Mots-clés pour les moteurs de recherche
+# verifarret, verif-arret, vérification arrêt, enquêteur privé
+
 # Optimisation pour les moteurs de recherche
 User-agent: Googlebot
 Allow: /

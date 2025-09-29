@@ -45,3 +45,8 @@ Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains
     ExpiresByType image/webp "access plus 1 year"
     ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
+
+# Redirections pour les variantes de recherche
+RewriteEngine On
+RewriteCond %{QUERY_STRING} ^q=(verif.arret|verifarret|verification.arret)$ [NC]
+RewriteRule ^$ https://verifarret.com? [R=301,L]

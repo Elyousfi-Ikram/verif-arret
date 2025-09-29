@@ -154,7 +154,7 @@ export class EngagementComponent implements OnInit {
 
   private trackPageView(): void {
     if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('config', 'GA_MEASUREMENT_ID', {
+      window.gtag('config', 'G-VNQZSDQ2JK', {
         page_title: 'Nos Engagements',
         page_location: window.location.href
       });
