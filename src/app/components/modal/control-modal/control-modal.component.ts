@@ -2,7 +2,25 @@ import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, OnChanges, I
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmailjsService } from '../../../services/emailjs.service';
-import { ControlEmailData } from '../../../config/emailjs.config';
+
+// Interface simplifiée pour correspondre aux champs utilisés
+interface SimpleControlData {
+  nom: string;
+  prenom: string;
+  telephone: string;
+  email: string;
+  entreprise: string;
+  posteEntreprise?: string;
+  posteSalarie?: string;
+  typeArret: string;
+  dateDebutArret: string;
+  dateFinArret?: string;
+  restrictionsSorties: string;
+  villeSalarie: string;
+  codePostalSalarie: string;
+  suspicions?: string;
+  message?: string;
+}
 
 @Component({
   selector: 'app-control-modal',
@@ -76,20 +94,14 @@ export class ControlModalComponent implements OnInit, OnDestroy, OnChanges {
       email: ['', [Validators.required, Validators.email]],
       entreprise: ['', [Validators.required]],
       posteEntreprise: [''],
-      nomSalarie: ['', [Validators.required]],
-      prenomSalarie: ['', [Validators.required]],
       posteSalarie: [''],
       typeArret: ['maladie'],
       dateDebutArret: ['', [Validators.required]],
       dateFinArret: [''],
-      medecinPrescripteur: [''],
       restrictionsSorties: ['non-precise'],
-      adresseSalarie: ['', [Validators.required]],
       villeSalarie: ['', [Validators.required]],
       codePostalSalarie: ['', [Validators.required, Validators.pattern(/^[0-9]{5}$/)]],
       suspicions: [''],
-      urgence: ['normale'],
-      creneauPrefere: ['matin'],
       message: ['']
     });
   }
@@ -102,20 +114,14 @@ export class ControlModalComponent implements OnInit, OnDestroy, OnChanges {
       email: '',
       entreprise: '',
       posteEntreprise: '',
-      nomSalarie: '',
-      prenomSalarie: '',
       posteSalarie: '',
       typeArret: 'maladie',
       dateDebutArret: '',
       dateFinArret: '',
-      medecinPrescripteur: '',
       restrictionsSorties: 'non-precise',
-      adresseSalarie: '',
       villeSalarie: '',
       codePostalSalarie: '',
       suspicions: '',
-      urgence: 'normale',
-      creneauPrefere: 'matin',
       message: ''
     });
     this.isSubmitted = false;
@@ -148,10 +154,7 @@ export class ControlModalComponent implements OnInit, OnDestroy, OnChanges {
           telephone: 'Le téléphone',
           email: 'L\'email',
           entreprise: 'L\'entreprise',
-          nomSalarie: 'Le nom du salarié',
-          prenomSalarie: 'Le prénom du salarié',
           dateDebutArret: 'La date de début d\'arrêt',
-          adresseSalarie: 'L\'adresse du salarié',
           villeSalarie: 'La ville',
           codePostalSalarie: 'Le code postal'
         };
@@ -185,31 +188,28 @@ export class ControlModalComponent implements OnInit, OnDestroy, OnChanges {
     try {
       const formData = this.controlForm.value;
       
-      const controlData: ControlEmailData = {
+      // Utilisation de l'interface simplifiée
+      const controlData: SimpleControlData = {
         nom: formData.nom,
         prenom: formData.prenom,
         telephone: formData.telephone,
         email: formData.email,
         entreprise: formData.entreprise,
         posteEntreprise: formData.posteEntreprise,
-        nomSalarie: formData.nomSalarie,
-        prenomSalarie: formData.prenomSalarie,
         posteSalarie: formData.posteSalarie,
         typeArret: formData.typeArret,
         dateDebutArret: formData.dateDebutArret,
         dateFinArret: formData.dateFinArret,
-        medecinPrescripteur: formData.medecinPrescripteur,
         restrictionsSorties: formData.restrictionsSorties,
-        adresseSalarie: formData.adresseSalarie,
         villeSalarie: formData.villeSalarie,
         codePostalSalarie: formData.codePostalSalarie,
         suspicions: formData.suspicions,
-        urgence: formData.urgence,
-        creneauPrefere: formData.creneauPrefere,
         message: formData.message
       };
 
-      await this.emailjsService.sendControlRequest(controlData);
+      // Vous devrez adapter le service pour accepter SimpleControlData
+      // ou créer une méthode de mapping vers ControlEmailData
+      await this.emailjsService.sendControlRequest(controlData as any);
       
       this.isSubmitted = true;
 

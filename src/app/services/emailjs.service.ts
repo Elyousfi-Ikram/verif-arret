@@ -1,6 +1,25 @@
 import { Injectable } from '@angular/core';
 import emailjs from '@emailjs/browser';
-import { EmailJSConfig, CallbackEmailData, ControlEmailData } from '../config/emailjs.config';
+import { EmailJSConfig, CallbackEmailData } from '../config/emailjs.config';
+
+// Interface simplifiée pour les données de contrôle réellement utilisées
+interface SimpleControlData {
+  nom: string;
+  prenom: string;
+  telephone: string;
+  email: string;
+  entreprise: string;
+  posteEntreprise?: string;
+  posteSalarie?: string;
+  typeArret: string;
+  dateDebutArret: string;
+  dateFinArret?: string;
+  restrictionsSorties: string;
+  villeSalarie: string;
+  codePostalSalarie: string;
+  suspicions?: string;
+  message?: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +62,7 @@ export class EmailjsService {
         creneau_prefere: data.creneauPrefere || '',
         message: data.message || 'Aucun message spécifique',
         date_demande: new Date().toLocaleDateString('fr-FR'),
-        // Ajout des variables manquantes pour le template
+        // Variables optimisées pour le template
         from_email: data.email,
         phone: data.telephone
       };
@@ -63,9 +82,9 @@ export class EmailjsService {
   }
 
   /**
-   * Envoie une demande de contrôle
+   * Envoie une demande de contrôle (version optimisée)
    */
-  async sendControlRequest(data: ControlEmailData): Promise<void> {
+  async sendControlRequest(data: SimpleControlData): Promise<void> {
     try {
       const templateParams = {
         demandeur_nom: data.nom || '',
@@ -74,20 +93,14 @@ export class EmailjsService {
         demandeur_telephone: data.telephone || '',
         entreprise: data.entreprise || '',
         poste_entreprise: data.posteEntreprise || '',
-        salarie_nom: data.nomSalarie || '',
-        salarie_prenom: data.prenomSalarie || '',
         salarie_poste: data.posteSalarie || '',
-        salarie_adresse: data.adresseSalarie || '',
         salarie_ville: data.villeSalarie || '',
         salarie_code_postal: data.codePostalSalarie || '',
         type_arret: data.typeArret || '',
         date_debut: data.dateDebutArret || '',
         date_fin: data.dateFinArret || 'Non précisée',
-        medecin: data.medecinPrescripteur || 'Non précisé',
         restrictions: data.restrictionsSorties || '',
         suspicions: data.suspicions || 'Aucune suspicion particulière',
-        urgence: data.urgence || '',
-        creneau: data.creneauPrefere || '',
         message: data.message || 'Aucun message complémentaire',
         date_demande: new Date().toLocaleDateString('fr-FR')
       };
