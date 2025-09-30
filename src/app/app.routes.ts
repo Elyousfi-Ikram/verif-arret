@@ -5,7 +5,7 @@ import { PrestationsComponent } from './components/prestations/prestations';
 import { EngagementComponent } from './components/engagement/engagement';
 
 export const routes: Routes = [
-    { path: '/', component: HomeComponent },
+    { path: '', component: HomeComponent },
     { path: 'decouvrir', component: DecouvrirComponent },
     { path: 'prestations', component: PrestationsComponent },
     { path: 'engagements', component: EngagementComponent },

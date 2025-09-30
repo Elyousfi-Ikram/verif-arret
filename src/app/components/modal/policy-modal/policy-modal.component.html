@@ -1,108 +1,227 @@
+<!-- Balises meta pour le référencement -->
+<meta name="description" content="Politique de confidentialité VERIF-ARRÊT - Protection données personnelles, RGPD, investigation privée, détective privé, enquête confidentielle, vie privée, sécurité données">
+<meta name="keywords" content="politique confidentialité, protection données personnelles, RGPD, CNIL, vie privée, investigation privée, détective privé, enquête discrète, sécurité données, traitement données, consentement, droits utilisateur, confidentialité client, secret professionnel, enquête confidentielle, surveillance discrète, recherche privée, généalogie, droit accès, droit rectification, droit effacement, portabilité données, opposition traitement, retrait consentement, responsable traitement, finalité traitement, base légale, durée conservation, destinataires données, transfert UE, sécurité organisationnelle, mesures techniques, protection accidentelle, accès non autorisé, destruction illicite, altération données, diffusion contrôlée">
+<meta name="geo-keywords" content="Niort, Deux-Sèvres, Nouvelle-Aquitaine, France, Union Européenne, protection données France, RGPD France, confidentialité Niort">
+<meta name="legal-keywords" content="RGPD, CNIL, Commission Nationale Informatique Libertés, règlement général protection données, droit européen, législation française, conformité légale, obligation légale, réclamation CNIL, violation RGPD, protection juridique, cadre légal, réglementation données">
+<meta name="privacy-keywords" content="vie privée, confidentialité, secret professionnel, discrétion, anonymat, protection identité, sécurité personnelle, données sensibles, informations privées, respect intimité, confidentialité absolue, secret investigation, discrétion enquête">
+<meta name="service-keywords" content="investigation privée, détective privé, enquête personnelle, recherche personne, surveillance discrète, filature, contre-enquête, vérification information, recherche généalogique, enquête familiale, investigation matrimoniale, recherche héritier, localisation personne, enquête commerciale, vérification antécédents">
+
+<!-- Données structurées Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PrivacyPolicy",
+  "name": "Politique de Confidentialité VERIF-ARRÊT",
+  "description": "Politique de protection de la vie privée pour les services d'investigation privée et de détective privé VERIF-ARRÊT",
+  "url": "https://verif-arret.fr/politique-confidentialite",
+  "dateModified": "2024-01-01",
+  "inLanguage": "fr-FR",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "VERIF-ARRÊT - Investigation Privée",
+    "url": "https://verif-arret.fr"
+  },
+  "about": {
+    "@type": "Organization",
+    "name": "VERIF-ARRÊT",
+    "description": "Agence d'investigation privée spécialisée en enquêtes confidentielles, recherche de personnes et surveillance discrète",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "4 boulevard Louis Tardy",
+      "addressLocality": "Niort",
+      "postalCode": "79000",
+      "addressRegion": "Nouvelle-Aquitaine",
+      "addressCountry": "FR"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+33607257427",
+      "email": "verifarret@gmail.com",
+      "contactType": "Protection des données personnelles",
+      "availableLanguage": "French",
+      "areaServed": "FR"
+    },
+    "serviceType": [
+      "Investigation privée",
+      "Détective privé",
+      "Enquête confidentielle",
+      "Recherche de personnes",
+      "Surveillance discrète",
+      "Généalogie successorale"
+    ]
+  },
+  "governingLaw": {
+    "@type": "Legislation",
+    "name": "Règlement Général sur la Protection des Données (RGPD)",
+    "jurisdiction": "Union Européenne"
+  },
+  "dataController": {
+    "@type": "Organization",
+    "name": "VERIF-ARRÊT",
+    "email": "verifarret@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "4 boulevard Louis Tardy",
+      "addressLocality": "Niort",
+      "postalCode": "79000",
+      "addressCountry": "FR"
+    }
+  },
+  "dataProcessingPurpose": [
+    "Gestion relation client investigation privée",
+    "Prestations détective privé",
+    "Enquêtes confidentielles",
+    "Recherche généalogique",
+    "Amélioration services investigation"
+  ],
+  "dataRetentionPeriod": "P3Y",
+  "rightsAvailable": [
+    "Droit d'accès données personnelles",
+    "Droit rectification informations",
+    "Droit effacement données",
+    "Droit limitation traitement",
+    "Droit portabilité données",
+    "Droit opposition traitement",
+    "Droit retrait consentement"
+  ]
+}
+</script>
+
 @if (isOpen) {
-<div class="ig-modal-overlay" (click)="onOverlayClick($event)">
-    <div class="ig-modal-container">
+<div class="ig-modal-overlay" (click)="onOverlayClick($event)" 
+     title="Politique de confidentialité VERIF-ARRÊT - Protection données personnelles investigation privée"
+     aria-label="Modal politique confidentialité détective privé RGPD protection vie privée">
+    <div class="ig-modal-container" 
+         itemscope itemtype="https://schema.org/PrivacyPolicy"
+         role="dialog"
+         aria-labelledby="privacy-policy-title"
+         aria-describedby="privacy-policy-content">
         <div class="d-flex justify-content-between align-items-center p-4 border-bottom ig-modal-header">
-            <h3 class="mb-0">Politique de Confidentialité</h3>
-            <button class="ig-modal-close-btn" (click)="onClose()" aria-label="Fermer">
+            <h3 class="mb-0" 
+                id="privacy-policy-title"
+                itemprop="name"
+                title="Politique confidentialité investigation privée VERIF-ARRÊT protection données RGPD">Politique de Confidentialité</h3>
+            <button class="ig-modal-close-btn" 
+                    (click)="onClose()" 
+                    aria-label="Fermer politique confidentialité détective privé protection données personnelles"
+                    title="Fermer modal confidentialité investigation privée RGPD">
                 ×
             </button>
         </div>
         <div class="p-2">
-            <div class="ig-modal-content">
-                <h2>Politique de protection de la vie privée</h2>
-                <p><em>Site internet de Sud Intelligence</em></p>
+            <div class="ig-modal-content" 
+                 id="privacy-policy-content"
+                 itemprop="text">
+                <h2 itemprop="headline" 
+                    title="Protection vie privée investigation privée détective VERIF-ARRÊT">Politique de protection de la vie privée</h2>
+                <p><em itemprop="about" 
+                       title="Site internet agence investigation privée Sud Intelligence détective">Site internet de Sud Intelligence</em></p>
 
-                <h3>Politique de protection de la vie privée</h3>
-                <p>Cette politique de protection de la vie privée expose comment et pourquoi nous collectons et
+                <h3 title="Politique protection données personnelles investigation privée RGPD">Politique de protection de la vie privée</h3>
+                <p itemprop="description" 
+                   title="Collecte utilisation données personnelles investigation privée détective services confidentiels">Cette politique de protection de la vie privée expose comment et pourquoi nous collectons et
                     utilisons vos données personnelles lorsque vous visitez notre site web ou que vous utilisez nos
                     services. Elle vous informe également sur vos droits en matière de protection des données et sur
                     la façon dont la loi vous protège.</p>
 
-                <h3>Identité du responsable du traitement</h3>
-                <p>Le responsable du traitement des données est :</p>
-                <p><strong>VERIF-ARRÊT<span class="copyright-text">®</span></strong><br>
-                    Adresse : 4 boulevard Louis Tardy, 79000 Niort<br>
-                    Téléphone : 06 07 25 74 27<br>
-                    Email : verifarret@gmail.com</p>
+                <h3 title="Responsable traitement données investigation privée VERIF-ARRÊT détective">Identité du responsable du traitement</h3>
+                <p title="Responsable données personnelles agence investigation privée">Le responsable du traitement des données est :</p>
+                <p itemprop="dataController" 
+                   itemscope itemtype="https://schema.org/Organization"
+                   title="VERIF-ARRÊT agence investigation privée détective Niort protection données"><strong itemprop="name">VERIF-ARRÊT<span class="copyright-text">®</span></strong><br>
+                    <span itemprop="address" 
+                          itemscope itemtype="https://schema.org/PostalAddress"
+                          title="Adresse agence investigation privée VERIF-ARRÊT Niort Deux-Sèvres">Adresse : <span itemprop="streetAddress">4 boulevard Louis Tardy</span>, <span itemprop="postalCode">79000</span> <span itemprop="addressLocality">Niort</span></span><br>
+                    <span itemprop="telephone" 
+                          title="Téléphone détective privé investigation VERIF-ARRÊT contact confidentiel">Téléphone : 06 07 25 74 27</span><br>
+                    <span itemprop="email" 
+                          title="Email contact investigation privée VERIF-ARRÊT détective confidentiel">Email : verifarret@gmail.com</span></p>
 
-                <h3>Les traitements relatifs à vos données personnelles</h3>
+                <h3 title="Traitements données personnelles investigation privée détective RGPD">Les traitements relatifs à vos données personnelles</h3>
 
-                <h4>Identité, coordonnées :</h4>
-                <table class="ig-data-table">
+                <h4 title="Identité coordonnées client investigation privée détective">Identité, coordonnées :</h4>
+                <table class="ig-data-table" 
+                       itemprop="dataProcessingTable"
+                       title="Tableau traitement données personnelles investigation privée RGPD">
                     <thead>
                         <tr>
-                            <th>Finalité du traitement</th>
-                            <th>Base légale</th>
-                            <th>Catégories de données</th>
-                            <th>Durée de conservation</th>
+                            <th title="Finalité traitement données investigation privée détective">Finalité du traitement</th>
+                            <th title="Base légale traitement données RGPD investigation">Base légale</th>
+                            <th title="Catégories données personnelles investigation privée">Catégories de données</th>
+                            <th title="Durée conservation données investigation privée RGPD">Durée de conservation</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Gestion de la relation client et des demandes de contact</td>
-                            <td>Intérêt légitime</td>
-                            <td>Nom, prénom, adresse email, téléphone, message</td>
-                            <td>3 ans à compter du dernier contact</td>
+                        <tr itemprop="dataProcessingPurpose">
+                            <td title="Gestion relation client investigation privée détective contact">Gestion de la relation client et des demandes de contact</td>
+                            <td title="Intérêt légitime investigation privée RGPD">Intérêt légitime</td>
+                            <td title="Données identité contact investigation privée détective">Nom, prénom, adresse email, téléphone, message</td>
+                            <td title="Conservation 3 ans données client investigation privée">3 ans à compter du dernier contact</td>
                         </tr>
-                        <tr>
-                            <td>Prestations de généalogie et recherche</td>
-                            <td>Exécution d'un contrat</td>
-                            <td>Données d'identité, informations familiales, documents fournis</td>
-                            <td>Durée nécessaire à l'exécution de la prestation + 5 ans</td>
+                        <tr itemprop="dataProcessingPurpose">
+                            <td title="Prestations généalogie recherche investigation privée détective">Prestations de généalogie et recherche</td>
+                            <td title="Exécution contrat investigation privée RGPD">Exécution d'un contrat</td>
+                            <td title="Données identité familiales investigation généalogie">Données d'identité, informations familiales, documents fournis</td>
+                            <td title="Conservation 5 ans prestations investigation privée">Durée nécessaire à l'exécution de la prestation + 5 ans</td>
                         </tr>
-                        <tr>
-                            <td>Amélioration de nos services et analyse statistique</td>
-                            <td>Consentement</td>
-                            <td>Données de navigation, cookies analytiques</td>
-                            <td>13 mois maximum</td>
+                        <tr itemprop="dataProcessingPurpose">
+                            <td title="Amélioration services investigation privée analyse statistique">Amélioration de nos services et analyse statistique</td>
+                            <td title="Consentement cookies investigation privée RGPD">Consentement</td>
+                            <td title="Données navigation cookies investigation privée">Données de navigation, cookies analytiques</td>
+                            <td title="Conservation 13 mois cookies investigation privée">13 mois maximum</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <p><strong>Destinataires des données :</strong> Les données collectées sont destinées aux services
+                <p title="Destinataires données investigation privée VERIF-ARRÊT confidentialité"><strong>Destinataires des données :</strong> Les données collectées sont destinées aux services
                     internes de <strong>VERIF-ARRÊT<span class="copyright-text">®</span></strong>. Elles ne sont
                     jamais transmises à des tiers sans votre
                     consentement explicite, sauf obligation légale.</p>
 
-                <p><strong>Transferts hors UE :</strong> Aucun transfert de données personnelles n'est effectué en
+                <p title="Transferts données hors UE investigation privée RGPD"><strong>Transferts hors UE :</strong> Aucun transfert de données personnelles n'est effectué en
                     dehors de l'Union Européenne.</p>
 
-                <p><strong>Sécurité des données :</strong> Nous mettons en place des mesures techniques et
+                <p title="Sécurité données investigation privée protection technique organisationnelle"><strong>Sécurité des données :</strong> Nous mettons en place des mesures techniques et
                     organisationnelles appropriées pour protéger vos données contre la destruction accidentelle ou
                     illicite, la perte accidentelle, l'altération, la diffusion ou l'accès non autorisés.</p>
 
-                <h3>Quels sont vos droits ?</h3>
-                <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits
+                <h3 title="Droits utilisateur RGPD investigation privée protection données">Quels sont vos droits ?</h3>
+                <p title="RGPD droits données personnelles investigation privée détective">Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits
                     suivants concernant vos données personnelles :</p>
 
-                <ul>
-                    <li><strong>Droit d'accès :</strong> Vous pouvez demander l'accès aux données personnelles que
+                <ul itemprop="rightsAvailable" 
+                    title="Liste droits RGPD investigation privée protection données">
+                    <li title="Droit accès données personnelles investigation privée RGPD"><strong>Droit d'accès :</strong> Vous pouvez demander l'accès aux données personnelles que
                         nous détenons à votre sujet</li>
-                    <li><strong>Droit de rectification :</strong> Vous pouvez demander la correction de données
+                    <li title="Droit rectification données investigation privée RGPD"><strong>Droit de rectification :</strong> Vous pouvez demander la correction de données
                         inexactes ou incomplètes</li>
-                    <li><strong>Droit à l'effacement :</strong> Vous pouvez demander la suppression de vos données
+                    <li title="Droit effacement données investigation privée RGPD"><strong>Droit à l'effacement :</strong> Vous pouvez demander la suppression de vos données
                         dans certaines circonstances</li>
-                    <li><strong>Droit à la limitation :</strong> Vous pouvez demander la limitation du traitement de
+                    <li title="Droit limitation traitement investigation privée RGPD"><strong>Droit à la limitation :</strong> Vous pouvez demander la limitation du traitement de
                         vos données</li>
-                    <li><strong>Droit à la portabilité :</strong> Vous pouvez demander à recevoir vos données dans
+                    <li title="Droit portabilité données investigation privée RGPD"><strong>Droit à la portabilité :</strong> Vous pouvez demander à recevoir vos données dans
                         un format structuré</li>
-                    <li><strong>Droit d'opposition :</strong> Vous pouvez vous opposer au traitement de vos données
+                    <li title="Droit opposition traitement investigation privée RGPD"><strong>Droit d'opposition :</strong> Vous pouvez vous opposer au traitement de vos données
                         pour des raisons tenant à votre situation particulière</li>
-                    <li><strong>Droit de retrait du consentement :</strong> Lorsque le traitement est basé sur votre
+                    <li title="Droit retrait consentement investigation privée RGPD"><strong>Droit de retrait du consentement :</strong> Lorsque le traitement est basé sur votre
                         consentement, vous pouvez le retirer à tout moment</li>
                 </ul>
 
-                <p>Pour exercer ces droits, vous pouvez nous contacter à l'adresse :
-                    <strong>verifarret@gmail.com</strong>
+                <p title="Exercer droits RGPD investigation privée contact VERIF-ARRÊT">Pour exercer ces droits, vous pouvez nous contacter à l'adresse :
+                    <strong itemprop="contactPoint" 
+                            title="Contact protection données investigation privée VERIF-ARRÊT">verifarret@gmail.com</strong>
                 </p>
 
-                <p>Vous disposez également du droit d'introduire une réclamation auprès de la Commission Nationale
+                <p title="Réclamation CNIL investigation privée RGPD violation données">Vous disposez également du droit d'introduire une réclamation auprès de la Commission Nationale
                     de l'Informatique et des Libertés (CNIL) si vous estimez que le traitement de vos données
                     personnelles constitue une violation du RGPD.</p>
             </div>
         </div>
         <div class="d-flex justify-content-end pt-3 px-5 pb-5 border-top">
-            <button class="ig-btn-secondary" (click)="onClose()">
+            <button class="ig-btn-secondary" 
+                    (click)="onClose()"
+                    title="Fermer politique confidentialité investigation privée VERIF-ARRÊT"
+                    aria-label="Fermer modal politique confidentialité détective privé protection données">
                 Fermer
             </button>
         </div>
