@@ -1,28 +1,28 @@
 <footer class="footer" itemscope itemtype="https://schema.org/Organization">
   <!-- Balises META SEO spécifiques au footer -->
-  <meta name="footer-keywords" content="enquêteur privé France, détective agréé CNAPS, investigation arrêt maladie, surveillance professionnelle, vérification absentéisme, cabinet enquête privée, implantations nationales, contact enquêteur, agrément officiel">
-  
+  <meta name="footer-keywords"
+    content="enquêteur privé France, détective agréé CNAPS, investigation arrêt maladie, surveillance professionnelle, vérification absentéisme, cabinet enquête privée, implantations nationales, contact enquêteur, agrément officiel">
+
   <!-- Image de la carte optimisée -->
   <div [class]="'footer-background ' + (!isContentVisible() ? 'map-visible' : 'map-hidden')">
     <!-- Container responsive pour mobile/tablet -->
     <div class="map-section-container">
       <!-- Carte en haut pour mobile/tablet -->
       <div class="carte-container">
-        <img src="assets/footer/carte.png" 
-             alt="Carte de France des implantations VERIF-ARRÊT - Enquêteur privé agréé CNAPS - Couverture nationale investigation arrêts maladie" 
-             class="carte-france" 
-             title="Réseau national d'enquêteurs privés VERIF-ARRÊT - Interventions sur tout le territoire français" />
+        <img src="assets/footer/carte.png"
+          alt="Carte de France des implantations VERIF-ARRÊT - Enquêteur privé agréé CNAPS - Couverture nationale investigation arrêts maladie"
+          class="carte-france"
+          title="Réseau national d'enquêteurs privés VERIF-ARRÊT - Interventions sur tout le territoire français" />
         <!-- Points sur la carte optimisés -->
         <div *ngFor="let location of locations; trackBy: trackByLocationId" class="map-point"
-            [class.headquarters-point]="location.isHeadquarters"
-            [class.selected-point]="selectedLocation()?.id === location.id" 
-            [style.left.%]="location.mapPosition.x"
-            [style.top.%]="location.mapPosition.y" 
-            [title]="'Bureau enquêteur privé ' + location.city + ' - Investigation arrêt maladie - Contact local VERIF-ARRÊT'" 
-            [attr.aria-label]="'Implantation enquêteur privé agréé à ' + location.city"
-            (click)="handlePointClick(location)">
-            <span class="point-tooltip">{{ location.city }} - Enquêteur Privé</span>
-          </div>
+          [class.headquarters-point]="location.isHeadquarters"
+          [class.selected-point]="selectedLocation()?.id === location.id" [style.left.%]="location.mapPosition.x"
+          [style.top.%]="location.mapPosition.y"
+          [title]="'Bureau enquêteur privé ' + location.city + ' - Investigation arrêt maladie - Contact local VERIF-ARRÊT'"
+          [attr.aria-label]="'Implantation enquêteur privé agréé à ' + location.city"
+          (click)="handlePointClick(location)">
+          <span class="point-tooltip">{{ location.city }} - Enquêteur Privé</span>
+        </div>
       </div>
 
       <!-- Liste des implantations avec design amélioré -->
@@ -30,7 +30,8 @@
         <div class="cards-header">
           <h4 class="cards-title" itemprop="name">
             <span class="title-icon">📍</span>
-            Nos Implantations d'Enquêteurs Privés Agréés CNAPS
+            Nos Implantations VERIF-ARRÊT
+
             <div class="title-underline"></div>
           </h4>
           <p class="implantations-description">
@@ -39,28 +40,21 @@
         </div>
 
         <div class="address-cards-grid" itemscope itemtype="https://schema.org/ItemList">
-          <div *ngFor="let address of locations; let i = index" 
-               [id]="'location-' + address.id" 
-               class="address-card"
-               [class.highlighted]="address.isHeadquarters" 
-               [class.selected]="selectedCard() === i"
-               [class.highlighted-card]="selectedLocation()?.id === address.id"
-               [class.point-selected]="selectedLocation()?.id === address.id" 
-               (click)="selectCard(i)"
-               [attr.aria-label]="'Bureau enquêteur privé agréé CNAPS de ' + address.city + ' - Investigation arrêt maladie'"
-               itemscope itemtype="https://schema.org/LocalBusiness">
+          <div *ngFor="let address of locations; let i = index" [id]="'location-' + address.id" class="address-card"
+            [class.highlighted]="address.isHeadquarters" [class.selected]="selectedCard() === i"
+            [class.highlighted-card]="selectedLocation()?.id === address.id"
+            [class.point-selected]="selectedLocation()?.id === address.id" (click)="selectCard(i)"
+            [attr.aria-label]="'Bureau enquêteur privé agréé CNAPS de ' + address.city + ' - Investigation arrêt maladie'"
+            itemscope itemtype="https://schema.org/LocalBusiness">
 
             <div class="card-header">
               <div class="city-info">
                 <div class="d-flex justify-content-between align-items-center mt-3">
-                  <h5 class="city-name" itemprop="name">{{ address.city }} - Enquêteur Privé</h5>
+                  <h5 class="city-name" itemprop="name">{{ address.city }}</h5>
                   <span><i class="fas fa-chevron-down pe-5" aria-hidden="true"></i></span>
                 </div>
                 <span class="region-badge" *ngIf="address.isHeadquarters" itemprop="description">
-                  Siège Social - Direction Nationale VERIF-ARRÊT
-                </span>
-                <span class="service-badge" itemprop="serviceType">
-                  Investigation Arrêt Maladie - Surveillance Professionnelle
+                  Siège Social 
                 </span>
               </div>
             </div>
@@ -74,12 +68,10 @@
               </div>
 
               <div class="contact-info">
-                <a [href]="getPhoneHref(address.phone)" 
-                   class="phone-link" 
-                   (click)="$event.stopPropagation()"
-                   itemprop="telephone"
-                   [title]="'Contacter enquêteur privé ' + address.city + ' - VERIF-ARRÊT investigation arrêt maladie'"
-                   [attr.aria-label]="'Téléphoner au bureau enquêteur privé de ' + address.city">
+                <a [href]="getPhoneHref(address.phone)" class="phone-link" (click)="$event.stopPropagation()"
+                  itemprop="telephone"
+                  [title]="'Contacter enquêteur privé ' + address.city + ' - VERIF-ARRÊT investigation arrêt maladie'"
+                  [attr.aria-label]="'Téléphoner au bureau enquêteur privé de ' + address.city">
                   <span class="phone-icon">📞</span>
                   <span class="phone-text">{{ address.displayPhone }}</span>
                 </a>
@@ -96,13 +88,11 @@
 
   <!-- Bouton emplacement optimisé -->
   <div class="toggle-section">
-    <button [class]="'btn-emplacement ' + (!isContentVisible() ? 'rotated' : '')" 
-            (click)="toggleFooterContent()"
-            [attr.aria-label]="isContentVisible() ? 'Afficher la carte des implantations enquêteur privé' : 'Afficher les informations de contact VERIF-ARRÊT'"
-            title="Basculer entre carte et informations - Réseau national enquêteurs privés VERIF-ARRÊT">
-      <img src="assets/footer/emplacement.png" 
-           alt="Icône emplacement - Réseau national enquêteurs privés VERIF-ARRÊT" 
-           class="emplacement" />
+    <button [class]="'btn-emplacement ' + (!isContentVisible() ? 'rotated' : '')" (click)="toggleFooterContent()"
+      [attr.aria-label]="isContentVisible() ? 'Afficher la carte des implantations enquêteur privé' : 'Afficher les informations de contact VERIF-ARRÊT'"
+      title="Basculer entre carte et informations - Réseau national enquêteurs privés VERIF-ARRÊT">
+      <img src="assets/footer/emplacement.png" alt="Icône emplacement - Réseau national enquêteurs privés VERIF-ARRÊT"
+        class="emplacement" />
       <span class="toggle-hint">
         <span class="chevron-icon">▼</span>
       </span>
@@ -117,17 +107,12 @@
         <div class="footer-section footer-about" itemscope itemtype="https://schema.org/ProfessionalService">
           <div class="footer-header">
             <div class="footer-logo">
-              <img src="assets/footer/logo.png" 
-                   alt="VERIF-ARRÊT Logo - Enquêteur privé agréé CNAPS spécialisé vérification arrêts maladie" 
-                   class="logo" 
-                   itemprop="logo"
-                   title="VERIF-ARRÊT - Cabinet d'enquêteur privé professionnel agréé" />
+              <img src="assets/footer/logo.png"
+                alt="VERIF-ARRÊT Logo - Enquêteur privé agréé CNAPS spécialisé vérification arrêts maladie" class="logo"
+                itemprop="logo" title="VERIF-ARRÊT - Cabinet d'enquêteur privé professionnel agréé" />
               <div class="logo-text">
                 <h3 itemprop="name">VERIF-ARRÊT</h3>
                 <span class="tagline" itemprop="slogan">Expertise Investigation & Discrétion Professionnelle</span>
-                <div class="service-specialties">
-                  <small itemprop="serviceType">Enquêteur Privé Agréé CNAPS • Investigation Arrêt Maladie • Surveillance Professionnelle</small>
-                </div>
               </div>
             </div>
 
@@ -135,11 +120,10 @@
             <div class="footer-reviews-section" itemscope itemtype="https://schema.org/AggregateRating">
               <div class="reviews-header">
                 <div class="d-flex justify-content-between align-items-center gap-3">
-                  <h4>Avis Clients - Enquêtes Privées</h4>
-                  <button class="btn-view-all-reviews" 
-                          (click)="openReviewsModal()"
-                          title="Consulter tous les avis clients VERIF-ARRÊT - Enquêteur privé"
-                          aria-label="Voir tous les témoignages clients investigation arrêt maladie">
+                  <h4>Avis Clients</h4>
+                  <button class="btn-view-all-reviews" (click)="openReviewsModal()"
+                    title="Consulter tous les avis clients VERIF-ARRÊT - Enquêteur privé"
+                    aria-label="Voir tous les témoignages clients investigation arrêt maladie">
                     Voir tous les avis →
                   </button>
                 </div>
@@ -153,13 +137,11 @@
                     <div class="ig-stars-container">
                       <div class="d-flex gap-1">
                         <span *ngFor="let star of [0,1,2,3,4]; let i = index"
-                          class="ig-star ig-star-enhanced ig-star-white"
-                          [ngStyle]="getStarStyle(i, averageRating)"
+                          class="ig-star ig-star-enhanced ig-star-white" [ngStyle]="getStarStyle(i, averageRating)"
                           [attr.aria-label]="'Étoile ' + (i+1) + ' - Note enquêteur privé VERIF-ARRÊT'">★</span>
                       </div>
                     </div>
                   </div>
-                  <small class="reviews-context">Satisfaction clients investigation arrêt maladie</small>
                 </div>
               </div>
             </div>
@@ -170,72 +152,55 @@
       <!-- Description principale enrichie -->
       <div class="footer-description-section">
         <p class="footer-description text-center" itemprop="description">
-          Votre partenaire de confiance pour la vérification d'arrêts de travail et maladie.
-          <strong>Enquêtes professionnelles et discrètes d'enquêteur privé agréé CNAPS</strong> sur tout le territoire français.
-          Investigation légale contre l'absentéisme abusif, surveillance professionnelle et rapport juridique exploitable.
+          <em>Votre partenaire de confiance pour la vérification d'arrêts de travail et maladie. Enquêtes
+            professionnelles et discrètes d'enquêteur privé agréé CNAPS sur tout le territoire français.
+            Investigation légale contre l'absentéisme abusif, surveillance professionnelle et rapport juridique
+            exploitable.</em>
         </p>
-        <div class="service-highlights text-center">
-          <span class="highlight-badge">Agrément CNAPS Officiel</span>
-          <span class="highlight-badge">Investigation Légale</span>
-          <span class="highlight-badge">Rapport Juridique</span>
-          <span class="highlight-badge">Couverture Nationale</span>
-        </div>
+
       </div>
-    
-    <!-- Section Contact enrichie -->
-    <div class="footer-section footer-contact" itemscope itemtype="https://schema.org/ContactPoint">
-      <h4><span class="icon-contact"></span>Contact Enquêteur Privé VERIF-ARRÊT</h4>
-      <div class="contact-info">
-        <div class="contact-item">
-          <a href="tel:+33607257427" 
-             class="contact-link"
-             itemprop="telephone"
-             title="Appeler VERIF-ARRÊT - Enquêteur privé agréé CNAPS - Investigation arrêt maladie"
-             aria-label="Téléphoner à VERIF-ARRÊT pour une enquête privée">
-            <span class="contact-icon">📞</span>
-            <span class="contact-text">06 07 25 74 27</span>
-          </a>
-          <small class="contact-description">Urgence investigation arrêt maladie</small>
-        </div>
-        <div class="contact-item">
-          <span class="contact-link">
-            <span class="contact-icon">✉️</span>
-            <span class="contact-text" itemprop="email">verifarret@gmail.fr</span>
-          </span>
-          <small class="contact-description">Demande devis enquête privée</small>
-        </div>
-        <div class="contact-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-          <span class="contact-link">
-            <span class="contact-icon">📍</span>
-            <span class="contact-text">
-              <span itemprop="streetAddress">4 boulevard Louis Tardy</span>, 
-              <span itemprop="postalCode">79000</span> 
-              <span itemprop="addressLocality">Niort</span>
+
+      <!-- Section Contact enrichie -->
+      <div class="footer-section footer-contact" itemscope itemtype="https://schema.org/ContactPoint">
+        <h4><span class="icon-contact"></span>Contact Enquêteur Privé VERIF-ARRÊT</h4>
+        <div class="contact-info">
+          <div class="contact-item">
+            <a href="tel:+33607257427" class="contact-link" itemprop="telephone"
+              title="Appeler VERIF-ARRÊT - Enquêteur privé agréé CNAPS - Investigation arrêt maladie"
+              aria-label="Téléphoner à VERIF-ARRÊT pour une enquête privée">
+              <span class="contact-icon">📞</span>
+              <span class="contact-text">06 07 25 74 27</span>
+            </a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-link">
+              <span class="contact-icon">✉️</span>
+              <span class="contact-text" itemprop="email">verifarret@gmail.fr</span>
             </span>
-          </span>
-          <small class="contact-description">Siège social enquêteur privé agréé</small>
-          <meta itemprop="addressCountry" content="France">
+          </div>
+          <div class="contact-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span class="contact-link">
+              <span class="contact-icon">📍</span>
+              <span class="contact-text">
+                <span itemprop="streetAddress">4 boulevard Louis Tardy</span>,
+                <span itemprop="postalCode">79000 </span>
+                <span itemprop="addressLocality">Niort</span>
+              </span>
+            </span>
+            <meta itemprop="addressCountry" content="France">
+          </div>
+          <div class="contact-item">
+            <span class="contact-link">
+              <span class="contact-icon">🕒</span>
+              <span class="contact-text" itemprop="hoursAvailable">Lundi au Samedi : 9h-21h</span>
+            </span>
+          </div>
         </div>
-        <div class="contact-item">
-          <span class="contact-link">
-            <span class="contact-icon">🕒</span>
-            <span class="contact-text" itemprop="hoursAvailable">Lundi au Samedi : 9h-21h</span>
-          </span>
-          <small class="contact-description">Disponibilité enquêteur privé</small>
-        </div>
-        <div class="contact-item">
-          <span class="contact-link">
-            <span class="contact-icon">🚨</span>
-            <span class="contact-text">Intervention d'urgence 24h/24</span>
-          </span>
-          <small class="contact-description">Investigation arrêt maladie urgent</small>
-        </div>
+        <meta itemprop="contactType" content="customer service">
+        <meta itemprop="areaServed" content="France">
       </div>
-      <meta itemprop="contactType" content="customer service">
-      <meta itemprop="areaServed" content="France">
     </div>
   </div>
-</div>
 
   <!-- Footer bottom enrichi -->
   <div *ngIf="isContentVisible()">
@@ -244,55 +209,41 @@
         <div class="copyright-content">
           <p>&copy; {{ currentYear }} VERIF-ARRÊT. Tous droits réservés.</p>
           <p class="footer-subtitle">
-            <strong>Enquêteur privé agréé CNAPS</strong> - Respect de la vie privée - Interventions légales d'investigation
+            Enquêteur privé agréé CNAPS - Respect de la vie privée - Interventions légales d'investigation
             - Spécialiste vérification arrêt maladie - Surveillance professionnelle discrète
           </p>
         </div>
         <div class="footer-section footer-legal">
           <div class="footer-legal">
-            <button type="button" 
-                    class="legal-btn" 
-                    (click)="onLegalClick('mentions')"
-                    title="Mentions Légales VERIF-ARRÊT - Enquêteur privé agréé CNAPS investigation arrêt maladie" 
-                    aria-label="Mentions Légales cabinet enquêteur privé VERIF-ARRÊT">
+            <button type="button" class="legal-btn" (click)="onLegalClick('mentions')"
+              title="Mentions Légales VERIF-ARRÊT - Enquêteur privé agréé CNAPS investigation arrêt maladie"
+              aria-label="Mentions Légales cabinet enquêteur privé VERIF-ARRÊT">
               Mentions Légales
             </button>
             <span class="separator" aria-hidden="true">|</span>
-            <button type="button" 
-                    class="legal-btn" 
-                    (click)="onLegalClick('confidentialite')"
-                    title="Politique de Confidentialité VERIF-ARRÊT - Protection données enquête privée" 
-                    aria-label="Politique de Confidentialité enquêteur privé professionnel">
+            <button type="button" class="legal-btn" (click)="onLegalClick('confidentialite')"
+              title="Politique de Confidentialité VERIF-ARRÊT - Protection données enquête privée"
+              aria-label="Politique de Confidentialité enquêteur privé professionnel">
               Politique de Confidentialité
             </button>
             <span class="separator" aria-hidden="true">|</span>
-            <button type="button" 
-                    class="legal-btn" 
-                    (click)="onLegalClick('cookies')"
-                    title="Politique de Cookies VERIF-ARRÊT - Site enquêteur privé agréé" 
-                    aria-label="Politique de Cookies cabinet investigation privée">
+            <button type="button" class="legal-btn" (click)="onLegalClick('cookies')"
+              title="Politique de Cookies VERIF-ARRÊT - Site enquêteur privé agréé"
+              aria-label="Politique de Cookies cabinet investigation privée">
               Politique de Cookies
             </button>
           </div>
         </div>
       </div>
       <div class="footer-certifications" itemscope itemtype="https://schema.org/Organization">
-        <div class="certifications-header">
-          <h5>Agréments Officiels Enquêteur Privé</h5>
-        </div>
         <span class="certification-badge" itemscope itemtype="https://schema.org/Certification">
           <span class="badge-icon" itemprop="name">Agrément C.N.A.P.S (France Métropolitaine)</span>
           <span class="badge-number" itemprop="identifier">NUM : AGD – 013 – 2112 – 10 – 10 – 20130336981</span>
-          <small class="badge-description">Enquêteur privé agréé investigation arrêt maladie</small>
         </span>
         <span class="certification-badge" itemscope itemtype="https://schema.org/Certification">
           <span class="badge-icon" itemprop="name">Agrément C.N.A.P.S (Corse)</span>
           <span class="badge-number" itemprop="identifier">NUM : AUT – 02A – 2112 – 12 – 01 – 20130349120</span>
-          <small class="badge-description">Extension territoriale enquêteur privé Corse</small>
         </span>
-        <div class="certification-details">
-          <small>Agréments délivrés par le Conseil National des Activités Privées de Sécurité sous tutelle du Ministère de l'Intérieur</small>
-        </div>
       </div>
     </div>
   </div>
