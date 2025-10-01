@@ -1,119 +1,113 @@
 <header class="header" role="banner">
-    <!-- Boutons d'action - cachés sur mobile avec mots-clés enrichis -->
-    <div class="header-actions">
-        <button class="action-btn" type="button"
-            aria-label="Demander à être rappelé par un expert VERIF-ARRET - Contrôle médical professionnel, expertise arrêt maladie, contre-expertise médicale" 
-            title="Service de rappel gratuit - Contrôle médical professionnel, expertise arrêt de travail, investigation médicale, contre-visite médicale"
-            (click)="onCallbackClick()">
-            Être rappelé
-        </button>
-        <button class="action-btn" type="button"
-            aria-label="Demander un contrôle médical terrain professionnel - Expertise arrêt maladie, contre-expertise médicale, investigation sur site" 
-            title="Demande de contrôle médical sur site - Expert arrêt maladie, enquêteur privé médical, contre-visite domicile"
-            (click)="onControlClick()">
-            Demander un contrôle terrain
-        </button>
+  <!-- Boutons d'action - cachés sur mobile avec mots-clés enrichis -->
+  <div class="header-actions">
+    <button class="action-btn" type="button"
+      aria-label="Demander à être rappelé par un expert VERIF-ARRET - Contrôle médical professionnel, expertise arrêt maladie, contre-expertise médicale"
+      title="Service de rappel gratuit - Contrôle médical professionnel, expertise arrêt de travail, investigation médicale, contre-visite médicale"
+      (click)="onCallbackClick()">
+      Être rappelé
+    </button>
+    <button class="action-btn" type="button"
+      aria-label="Demander un contrôle médical terrain professionnel - Expertise arrêt maladie, contre-expertise médicale, investigation sur site"
+      title="Demande de contrôle médical sur site - Expert arrêt maladie, enquêteur privé médical, contre-visite domicile"
+      (click)="onControlClick()">
+      Demander un contrôle terrain
+    </button>
+  </div>
+
+  <div class="header-container">
+    <!-- Logo avec optimisation SEO complète et mots-clés enrichis -->
+    <div class="header-logo-container">
+      <a href="/" class="header-logo"
+        title="VERIF-ARRET - Accueil du site de contrôle médical professionnel, expertise arrêt maladie, contre-expertise médicale, enquête privée médicale"
+        aria-label="Retour à l'accueil VERIF-ARRET - Expert contrôle médical, arrêt de travail, contre-visite médicale">
+        <img src="assets/header/logo-verif.webp"
+          alt="Logo VERIF-ARRET - Spécialiste du contrôle médical professionnel, expertise arrêt maladie, contre-expertise médicale, enquêteur privé médical, investigation arrêt de travail, contre-visite médicale domicile, expert médical assermenté"
+          class="logo-img" loading="eager" width="200" height="75" decoding="async" fetchpriority="high" tabindex="0"
+          role="img" />
+      </a>
+      <div class="d-flex flex-column flex-md-row">
+        <a href="tel:+33607257427" class="contact-link" itemprop="telephone"
+          title="Appeler VERIF-ARRÊT - Enquêteur privé agréé CNAPS - Investigation arrêt maladie"
+          aria-label="Téléphoner à VERIF-ARRÊT pour une enquête privée">
+          <span class="contact-icon">📞</span>
+          <span class="contact-text">06 07 25 74 27</span>
+        </a>
+        <div class="contact-item">
+          <a class="contact-link" href="mailto:verifarret@gmail.fr">
+            <span class="contact-icon">✉️</span>
+            <span class="contact-text" itemprop="email">verifarret@gmail.fr</span>
+          </a>
+        </div>
+      </div>
     </div>
 
-    <div class="header-container">
-        <!-- Logo avec optimisation SEO complète et mots-clés enrichis -->
-        <div class="header-logo-container">
-            <a href="/" class="header-logo" 
-               title="VERIF-ARRET - Accueil du site de contrôle médical professionnel, expertise arrêt maladie, contre-expertise médicale, enquête privée médicale"
-               aria-label="Retour à l'accueil VERIF-ARRET - Expert contrôle médical, arrêt de travail, contre-visite médicale">
-                <img src="assets/header/logo-verif.webp" 
-                     alt="Logo VERIF-ARRET - Spécialiste du contrôle médical professionnel, expertise arrêt maladie, contre-expertise médicale, enquêteur privé médical, investigation arrêt de travail, contre-visite médicale domicile, expert médical assermenté"
-                     class="logo-img" 
-                     loading="eager" 
-                     width="200" 
-                     height="75"
-                     decoding="async"
-                     fetchpriority="high"
-                     tabindex="0" 
-                     role="img" />
+    <!-- Conteneur pour navigation et boutons hamburger -->
+    <div class="header-controls">
+      <!-- Bouton Hamburger avec amélioration SEO et mots-clés -->
+      <button class="hamburger-btn" [class.active]="isMobileMenuOpen()" type="button"
+        [attr.aria-expanded]="isMobileMenuOpen()"
+        aria-label="Ouvrir le menu de navigation principal VERIF-ARRET - Services contrôle médical, expertise arrêt maladie, contre-expertise"
+        title="Menu de navigation - Services de contrôle médical professionnel, expertise arrêt de travail, investigation médicale"
+        aria-controls="main-navigation" (click)="toggleMobileMenu()">
+        <span class="hamburger-line" [class.active]="isMobileMenuOpen()" aria-hidden="true"></span>
+        <span class="hamburger-line" [class.active]="isMobileMenuOpen()" aria-hidden="true"></span>
+        <span class="hamburger-line" [class.active]="isMobileMenuOpen()" aria-hidden="true"></span>
+      </button>
+
+      <!-- Navigation avec structure SEO optimisée et mots-clés enrichis -->
+      <nav class="header-nav" role="navigation" [class.mobile-open]="isMobileMenuOpen()"
+        aria-label="Navigation principale VERIF-ARRET - Contrôle médical, expertise arrêt maladie, contre-expertise médicale"
+        id="main-navigation">
+        <ul class="nav-list" role="menubar">
+          <li class="nav-item" role="none">
+            <a href="/decouvrir" class="nav-link" role="menuitem"
+              title="Découvrez VERIF-ARRET, expert en contrôle médical professionnel depuis 2010 - Expertise arrêt maladie, contre-expertise médicale, enquêteur privé médical"
+              aria-label="Découvrir VERIF-ARRET - Expertise contrôle médical, arrêt maladie, contre-visite médicale, investigation médicale professionnelle">
+              <span>DÉCOUVREZ-NOUS</span>
             </a>
+          </li>
+          <li class="nav-item" role="none">
+            <a href="/prestations" class="nav-link" role="menuitem"
+              title="Services de contrôle médical professionnel, expertise arrêt maladie, contre-expertise médicale, investigation arrêt de travail, contre-visite domicile"
+              aria-label="Nos prestations - Contrôle médical professionnel, arrêt maladie, contre-expertise, enquête médicale, investigation privée">
+              <span>NOS SERVICES</span>
+            </a>
+          </li>
+          <li class="nav-item" role="none">
+            <a href="/engagements" class="nav-link" role="menuitem"
+              title="Engagements qualité VERIF-ARRET - Contrôle médical professionnel certifié, expertise arrêt maladie, contre-expertise médicale agréée"
+              aria-label="Nos engagements qualité en contrôle médical, expertise médicale, investigation arrêt de travail, contre-visite professionnelle">
+              <span>NOS ENGAGEMENTS</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Boutons d'action dans le menu mobile avec SEO enrichi -->
+        <div class="mobile-actions">
+          <button class="mobile-action-btn" type="button"
+            aria-label="Demander à être rappelé par un expert VERIF-ARRET - Contrôle médical professionnel, expertise arrêt maladie, contre-expertise"
+            title="Service de rappel gratuit - Contrôle médical professionnel, expertise arrêt de travail, investigation médicale"
+            (click)="onCallbackClick(); closeMobileMenu()">
+            <span>Être rappelé par un expert</span>
+          </button>
+          <button class="mobile-action-btn" type="button"
+            aria-label="Demander un contrôle médical terrain professionnel - Expertise arrêt maladie, contre-expertise médicale, investigation sur site"
+            title="Demande de contrôle médical sur site - Expert arrêt maladie, enquêteur privé médical, contre-visite domicile"
+            (click)="onControlClick(); closeMobileMenu()">
+            <span>Demander un contrôle terrain</span>
+          </button>
         </div>
-
-        <!-- Conteneur pour navigation et boutons hamburger -->
-        <div class="header-controls">
-            <!-- Bouton Hamburger avec amélioration SEO et mots-clés -->
-            <button class="hamburger-btn" [class.active]="isMobileMenuOpen()" type="button" 
-                [attr.aria-expanded]="isMobileMenuOpen()" 
-                aria-label="Ouvrir le menu de navigation principal VERIF-ARRET - Services contrôle médical, expertise arrêt maladie, contre-expertise" 
-                title="Menu de navigation - Services de contrôle médical professionnel, expertise arrêt de travail, investigation médicale"
-                aria-controls="main-navigation"
-                (click)="toggleMobileMenu()">
-                <span class="hamburger-line" [class.active]="isMobileMenuOpen()" aria-hidden="true"></span>
-                <span class="hamburger-line" [class.active]="isMobileMenuOpen()" aria-hidden="true"></span>
-                <span class="hamburger-line" [class.active]="isMobileMenuOpen()" aria-hidden="true"></span>
-            </button>
-
-            <!-- Navigation avec structure SEO optimisée et mots-clés enrichis -->
-            <nav class="header-nav" 
-                 role="navigation" 
-                 [class.mobile-open]="isMobileMenuOpen()"
-                 aria-label="Navigation principale VERIF-ARRET - Contrôle médical, expertise arrêt maladie, contre-expertise médicale"
-                 id="main-navigation">
-                <ul class="nav-list" role="menubar">
-                    <li class="nav-item" role="none">
-                        <a href="/decouvrir" 
-                           class="nav-link" 
-                           role="menuitem"
-                           title="Découvrez VERIF-ARRET, expert en contrôle médical professionnel depuis 2010 - Expertise arrêt maladie, contre-expertise médicale, enquêteur privé médical"
-                           aria-label="Découvrir VERIF-ARRET - Expertise contrôle médical, arrêt maladie, contre-visite médicale, investigation médicale professionnelle">
-                            <span>DÉCOUVREZ-NOUS</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a href="/prestations" 
-                           class="nav-link" 
-                           role="menuitem"
-                           title="Services de contrôle médical professionnel, expertise arrêt maladie, contre-expertise médicale, investigation arrêt de travail, contre-visite domicile"
-                           aria-label="Nos prestations - Contrôle médical professionnel, arrêt maladie, contre-expertise, enquête médicale, investigation privée">
-                            <span>NOS SERVICES</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a href="/engagements" 
-                           class="nav-link" 
-                           role="menuitem"
-                           title="Engagements qualité VERIF-ARRET - Contrôle médical professionnel certifié, expertise arrêt maladie, contre-expertise médicale agréée"
-                           aria-label="Nos engagements qualité en contrôle médical, expertise médicale, investigation arrêt de travail, contre-visite professionnelle">
-                            <span>NOS ENGAGEMENTS</span>
-                        </a>
-                    </li>
-                </ul>
-                
-                <!-- Boutons d'action dans le menu mobile avec SEO enrichi -->
-                <div class="mobile-actions">
-                    <button class="mobile-action-btn" type="button"
-                        aria-label="Demander à être rappelé par un expert VERIF-ARRET - Contrôle médical professionnel, expertise arrêt maladie, contre-expertise" 
-                        title="Service de rappel gratuit - Contrôle médical professionnel, expertise arrêt de travail, investigation médicale"
-                        (click)="onCallbackClick(); closeMobileMenu()">
-                        <span>Être rappelé par un expert</span>
-                    </button>
-                    <button class="mobile-action-btn" type="button"
-                        aria-label="Demander un contrôle médical terrain professionnel - Expertise arrêt maladie, contre-expertise médicale, investigation sur site" 
-                        title="Demande de contrôle médical sur site - Expert arrêt maladie, enquêteur privé médical, contre-visite domicile"
-                        (click)="onControlClick(); closeMobileMenu()">
-                        <span>Demander un contrôle terrain</span>
-                    </button>
-                </div>
-            </nav>
-        </div>
+      </nav>
     </div>
+  </div>
 
-    <!-- Overlay mobile avec amélioration accessibilité -->
-    @if (isMobileMenuOpen()) {
-    <div class="mobile-overlay" 
-         [class.active]="isMobileMenuOpen()"
-         (click)="closeMobileMenu()" 
-         (keydown.escape)="closeMobileMenu()"
-         aria-hidden="true"
-         role="presentation"
-         tabindex="-1">
-    </div>
-    }
+  <!-- Overlay mobile avec amélioration accessibilité -->
+  @if (isMobileMenuOpen()) {
+  <div class="mobile-overlay" [class.active]="isMobileMenuOpen()" (click)="closeMobileMenu()"
+    (keydown.escape)="closeMobileMenu()" aria-hidden="true" role="presentation" tabindex="-1">
+  </div>
+  }
 </header>
 
 <!-- Données structurées JSON-LD enrichies pour le SEO -->

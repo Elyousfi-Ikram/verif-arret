@@ -5,6 +5,8 @@ $breakpoint-md: 768px; // Changé de 992px à 768px
 $primary-color: #051039;
 $accent-color: #e74c3c;
 $white: #ffffff;
+$footer-text: #ffffff;
+
 
 // ===== MIXINS =====
 @mixin flex-center {
@@ -82,6 +84,27 @@ $white: #ffffff;
       width: auto;
       max-width: 200px;
     }
+
+
+  }
+
+  .contact-link {
+    color: $footer-text;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 3px 12px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    text-decoration: none;
+
+    &:hover {
+      color: $footer-text;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-1px);
+    }
   }
 
   // Contrôles (navigation + hamburger)
@@ -109,7 +132,7 @@ $white: #ffffff;
     padding: 0;
     list-style: none;
   }
-  
+
   .nav-link {
     display: block;
     padding: 1rem 1.5rem;
@@ -222,6 +245,7 @@ $white: #ffffff;
 // Mobile et petites tablettes (≤ 768px)
 @media (max-width: $breakpoint-md) {
   .header {
+
     // Actions desktop cachées
     &-actions {
       display: none;
