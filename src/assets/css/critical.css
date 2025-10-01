@@ -1,44 +1,162 @@
 /* CSS critique pour éviter le FOUC (Flash of Unstyled Content) */
+/* Optimisé pour les performances long terme */
 
-/* Reset de base */
+/* ========================================
+   OPTIMISATIONS POLICES - LONG TERME
+   ======================================== */
+
+/* Optimisation FontAwesome avec font-display */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap; /* Affichage immédiat avec police de fallback */
+  src: url('/fa-solid-900.woff2') format('woff2');
+  unicode-range: U+F000-F8FF; /* Plage Unicode des icônes FontAwesome */
+}
+
+/* Police système optimisée avec fallbacks robustes */
+:root {
+  --font-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+                 Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 
+                 'Helvetica Neue', sans-serif;
+  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', 
+               Consolas, 'Courier New', monospace;
+}
+
+/* Optimisation globale des polices */
 * {
+  font-display: swap;
+}
+
+/* ========================================
+   RESET ET BASE - OPTIMISÉ
+   ======================================== */
+
+/* Reset moderne et performant */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: var(--font-system);
   line-height: 1.6;
   color: #333;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
 }
 
-/* Styles critiques pour le header */
+/* ========================================
+   VARIABLES CSS - DESIGN SYSTEM
+   ======================================== */
+
+:root {
+  /* Couleurs principales */
+  --color-primary: #007bff;
+  --color-primary-hover: #0056b3;
+  --color-secondary: #6c757d;
+  --color-success: #28a745;
+  --color-danger: #dc3545;
+  --color-warning: #ffc107;
+  --color-info: #17a2b8;
+  
+  /* Couleurs neutres */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-100: #f8f9fa;
+  --color-gray-200: #e9ecef;
+  --color-gray-300: #dee2e6;
+  --color-gray-400: #ced4da;
+  --color-gray-500: #adb5bd;
+  --color-gray-600: #6c757d;
+  --color-gray-700: #495057;
+  --color-gray-800: #343a40;
+  --color-gray-900: #212529;
+  
+  /* Espacements */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+  
+  /* Bordures */
+  --border-radius: 0.375rem;
+  --border-radius-sm: 0.25rem;
+  --border-radius-lg: 0.5rem;
+  
+  /* Ombres */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+  
+  /* Breakpoints */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+}
+
+/* ========================================
+   COMPOSANTS CRITIQUES
+   ======================================== */
+
+/* Header optimisé */
 header {
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
   z-index: 1000;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-/* Navigation */
+/* Navigation responsive */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: var(--spacing-md) var(--spacing-xl);
   max-width: 1200px;
   margin: 0 auto;
+  min-height: 64px;
 }
 
-/* Logo */
+/* Logo optimisé */
 .logo {
   height: 40px;
   width: auto;
+  object-fit: contain;
+  transition: transform var(--transition-fast);
 }
 
-/* Hero section */
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Hero section moderne */
 .hero {
   min-height: 60vh;
   display: flex;
@@ -46,74 +164,243 @@ nav {
   justify-content: center;
   text-align: center;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 2;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: var(--spacing-md);
   font-weight: 700;
+  line-height: 1.2;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Boutons */
+/* ========================================
+   COMPOSANTS UI RÉUTILISABLES
+   ======================================== */
+
+/* Système de boutons moderne */
 .btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background: #007bff;
-  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
   text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+  white-space: nowrap;
 }
 
-.btn:hover {
-  background: #0056b3;
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
 }
 
-/* Images responsives */
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Images responsives optimisées */
 img {
   max-width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
 }
 
-/* Container */
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+.img-contain {
+  object-fit: contain;
+}
+
+/* Container système */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 var(--spacing-md);
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 var(--spacing-md);
 }
 
 /* Sections */
 section {
-  padding: 4rem 0;
+  padding: var(--spacing-xxl) 0;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+.section-sm {
+  padding: var(--spacing-xl) 0;
+}
+
+.section-lg {
+  padding: 5rem 0;
+}
+
+/* ========================================
+   ICÔNES SYSTÈME (Alternative FontAwesome)
+   ======================================== */
+
+/* Icônes Unicode pour remplacer FontAwesome */
+.icon {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+.icon-check::before { content: '✓'; }
+.icon-times::before { content: '✕'; }
+.icon-arrow-right::before { content: '→'; }
+.icon-arrow-left::before { content: '←'; }
+.icon-phone::before { content: '📞'; }
+.icon-envelope::before { content: '✉'; }
+.icon-map-marker::before { content: '📍'; }
+.icon-user::before { content: '👤'; }
+.icon-home::before { content: '🏠'; }
+.icon-search::before { content: '🔍'; }
+.icon-menu::before { content: '☰'; }
+.icon-close::before { content: '✕'; }
+
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE FIRST
+   ======================================== */
+
+/* Base mobile (320px+) */
+@media (max-width: 575.98px) {
   .hero h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
   
   .hero p {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   
   nav {
-    padding: 1rem;
+    padding: var(--spacing-sm) var(--spacing-md);
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  
+  section {
+    padding: var(--spacing-xl) 0;
   }
 }
 
-/* Optimisations de performance */
+/* Tablette (576px+) */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+/* Tablette large (768px+) */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+  
+  nav {
+    padding: var(--spacing-md) var(--spacing-xl);
+  }
+}
+
+/* Desktop (992px+) */
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+/* Desktop large (1200px+) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* Desktop XL (1400px+) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+/* ========================================
+   OPTIMISATIONS PERFORMANCE
+   ======================================== */
+
+/* Animations performantes */
 .fade-in {
   opacity: 0;
-  animation: fadeIn 0.5s ease-in forwards;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.6s ease-out forwards;
 }
 
 @keyframes fadeIn {
@@ -122,7 +409,20 @@ section {
   }
 }
 
-/* Préchargement des images critiques */
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optimisation GPU */
+.gpu-optimized {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Préchargement optimisé */
 .preload {
   position: absolute;
   left: -9999px;
@@ -130,4 +430,107 @@ section {
   width: 1px;
   height: 1px;
   opacity: 0;
+  pointer-events: none;
+}
+
+/* ========================================
+   UTILITAIRES
+   ======================================== */
+
+/* Espacement */
+.m-0 { margin: 0; }
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+.mt-5 { margin-top: var(--spacing-xl); }
+
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+.mb-5 { margin-bottom: var(--spacing-xl); }
+
+/* Texte */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-muted { color: var(--color-gray-600); }
+
+/* Affichage */
+.d-none { display: none; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+
+/* Flexbox */
+.justify-content-center { justify-content: center; }
+.justify-content-between { justify-content: space-between; }
+.align-items-center { align-items: center; }
+.flex-column { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+
+/* ========================================
+   ACCESSIBILITÉ
+   ======================================== */
+
+/* Focus visible pour l'accessibilité */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Réduction des mouvements pour les utilisateurs sensibles */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mode sombre */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-white: #1a1a1a;
+    --color-black: #ffffff;
+    --color-gray-100: #2d2d2d;
+    --color-gray-900: #f8f9fa;
+  }
+  
+  body {
+    background-color: var(--color-white);
+    color: var(--color-black);
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
 }
