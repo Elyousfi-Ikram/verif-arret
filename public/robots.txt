@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://verifarret.com/sitemap.xml
+
+# Bloquer les ressources non essentielles
+Disallow: /assets/temp/
+Disallow: /*.json$
+Disallow: /api/internal/

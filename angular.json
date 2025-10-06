@@ -24,13 +24,18 @@
               "src/assets",
               {
                 "glob": "**/*",
-                "input": "public",
+                "input": "public/",
                 "output": "/"
               },
               {
-                "glob": ".htaccess",
-                "input": "./",
-                "output": "./"
+                "glob": "robots.txt",
+                "input": "src/",
+                "output": "/"
+              },
+              {
+                "glob": "sitemap.xml",
+                "input": "src/",
+                "output": "/"
               }
             ],
             "styles": [

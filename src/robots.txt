@@ -1,26 +1,27 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://verifarret.com/sitemap.xml
-
-# Mots-clés pour les moteurs de recherche
-# verifarret, verif-arret, vérification arrêt, enquêteur privé
-
 # Optimisation pour les moteurs de recherche
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 2
 
-# Bloquer les ressources non essentielles
-Disallow: /assets/temp/
-Disallow: /*.json$
-Disallow: /api/internal/
+# Blocage des bots indésirables
+User-agent: AhrefsBot
+Disallow: /
 
-# Permettre l'accès aux ressources importantes
-Allow: /assets/header/
-Allow: /assets/images/
-Allow: /*.css$
-Allow: /*.js$
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap
+Sitemap: https://verifarret.com/sitemap.xml
+
+# Optimisation SEO
+Host: https://verifarret.com

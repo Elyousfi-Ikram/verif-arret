@@ -180,7 +180,7 @@
             <p class="mb-0">
               Un <strong>agent de recherche privé</strong> est un <strong>enquêteur de droit privé agréé CNAPS</strong> qui a la capacité d'effectuer des recherches,
               des investigations et des surveillances pour le compte de particuliers, d'entreprises ou d'institutions.
-              Expert en <strong>vérification d'arrêts maladie</strong>, <strong>contrôle fraude sociale</strong> et <strong>surveillance médicale discrète</strong>.
+              Expert en <strong>vérification d'arrêts maladie</strong> et <strong>contrôle sur d'éventuelles fraudes</strong>.
             </p>
           </article>
 
@@ -247,4 +247,10 @@
       </div>
     </div>
   </section>
+
+  <!-- Modal de callback -->
+  <app-callback-modal 
+    [isOpen]="isCallbackModalOpen" 
+    (close)="onCallbackModalClose()">
+  </app-callback-modal>
 </main>
