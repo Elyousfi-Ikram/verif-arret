@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
         "telephone": "+33645820697",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "4 boulevard Louis Tardy",
+          "streetAddress": "37 Rue Saint Symphorien",
           "addressLocality": "Niort",
           "postalCode": "79000",
           "addressCountry": "FR"

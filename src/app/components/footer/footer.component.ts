@@ -63,7 +63,7 @@ export class FooterComponent implements OnInit, OnDestroy {
     {
       id: 1,
       city: "Siège Social - Niort",
-      address: "4 boulevard Louis Tardy, 79000 Niort",
+      address: "37 Rue Saint Symphorien, 79000 Niort",
       phone: "+33645820697",
       displayPhone: "06 45 82 06 97",
       isHeadquarters: true,
@@ -72,7 +72,7 @@ export class FooterComponent implements OnInit, OnDestroy {
     {
       id: 2,
       city: "Aix-en-Provence",
-      address: "4 boulevard Louis Tardy, 79000 Niort",
+      address: "37 Rue Saint Symphorien, 79000 Niort",
       phone: "06 07 25 74 27",
       displayPhone: "06 07 25 74 27",
       mapPosition: { x: 73.55, y: 72.55 }
