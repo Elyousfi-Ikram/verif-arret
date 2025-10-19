@@ -1,3 +1,4 @@
+// app.routes.ts — ajout wildcard pour 404
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home';
 import { DecouvrirComponent } from './components/decouvrir/decouvrir';
@@ -9,4 +10,5 @@ export const routes: Routes = [
     { path: 'decouvrir', component: DecouvrirComponent },
     { path: 'prestations', component: PrestationsComponent },
     { path: 'engagements', component: EngagementComponent },
+    { path: '**', redirectTo: '' }
 ];

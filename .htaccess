@@ -1,6 +1,6 @@
+# .htaccess — forcer HTTPS + hôte canonique verifarret.com
 RewriteEngine On
 RewriteBase /
-
 # Exception pour robots.txt et sitemap.xml
 RewriteCond %{REQUEST_URI} ^/robots\.txt$ [NC]
 RewriteRule ^.*$ - [L]
@@ -55,3 +55,7 @@ Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains
 RewriteEngine On
 RewriteCond %{QUERY_STRING} ^q=(verif.arret|verifarret|verification.arret)$ [NC]
 RewriteRule ^$ https://verifarret.com? [R=301,L]
+# Force HTTPS and canonical host
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^verifarret\.com$ [NC]
+RewriteRule ^(.*)$ https://verifarret.com/$1 [R=301,L]

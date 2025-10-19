@@ -9,10 +9,12 @@
     <div class="map-section-container">
       <!-- Carte en haut pour mobile/tablet -->
       <div class="carte-container">
+        <!-- footer.component.html — lazy-load image carte -->
         <img src="assets/footer/carte.png"
-          alt="Carte de France des implantations VERIF-ARRÊT - Enquêteur privé agréé CNAPS - Couverture nationale investigation arrêts maladie"
-          class="carte-france"
-          title="Réseau national d'enquêteurs privés VERIF-ARRÊT - Interventions sur tout le territoire français" />
+             alt="Carte de France des implantations VERIF-ARRÊT - Enquêteur privé agréé CNAPS - Couverture nationale investigation arrêts maladie"
+             class="carte-france"
+             title="Réseau national d'enquêteurs privés VERIF-ARRÊT - Interventions sur tout le territoire français"
+             loading="lazy" decoding="async" />
         <!-- Points sur la carte optimisés -->
         <div *ngFor="let location of locations; trackBy: trackByLocationId" class="map-point"
           [class.headquarters-point]="location.isHeadquarters"

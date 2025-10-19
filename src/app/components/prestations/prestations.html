@@ -73,7 +73,7 @@
             <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white rounded-3 shadow-sm"
               style="width: 150px; height: 120px;">
               <img src="assets/prestation/step1.png" alt="Illustration de l'étape 1: Demande d'enquête confidentielle"
-                loading="eager" class="img-fluid">
+                loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -120,7 +120,7 @@
             <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white rounded-3 shadow-sm"
               style="width: 150px; height: 120px;">
               <img src="assets/prestation/step3.png" alt="Illustration de l'étape 3: Rapport d'enquête détaillé"
-                loading="lazy" class="img-fluid">
+                loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -147,7 +147,7 @@
             <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white rounded-3 shadow-sm"
               style="width: 150px; height: 120px;">
               <img src="assets/prestation/step4.png" alt="Illustration de l'étape 4: Accompagnement juridique"
-                loading="lazy" class="img-fluid">
+                loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -171,79 +171,36 @@
     <meta name="author" content="VERIF-ARRÊT - Enquêteurs privés spécialisés arrêts travail">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="theme-color" content="#e74c3c">
-    <link rel="canonical" href="https://verif-arret.fr/prestations">
+    <link rel="canonical" href="https://verifarret.com/prestations">
 
     <!-- Données structurées Schema.org enrichies -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "Services d'Investigations Professionnelles - VERIF-ARRÊT",
-      "description": "Découvrez nos services d'investigations sur arrêts de travail : surveillance discrète, preuves juridiques, rapports détaillés par enquêteurs privés agréés CNAPS.",
-      "url": "https://verif-arret.fr/prestations",
-      "mainEntity": {
-        "@type": "Service",
-        "name": "Investigation Arrêts de Travail",
-        "description": "Service professionnel d'enquête et surveillance sur arrêts de travail suspects par détectives privés agréés",
-        "provider": {
-          "@type": "ProfessionalService",
-          "name": "VERIF-ARRÊT",
-          "description": "Société spécialisée dans les investigations sur arrêts de travail, surveillance discrète et constitution de preuves juridiques",
-          "url": "https://verif-arret.fr",
-          "telephone": "+33-1-XX-XX-XX-XX",
-          "email": "contact@verif-arret.fr",
-          "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "FR",
-            "addressRegion": "France métropolitaine"
-          },
-          "areaServed": {
-            "@type": "Country",
-            "name": "France"
-          },
-          "serviceType": "Investigation privée",
-          "hasCredential": {
-            "@type": "EducationalOccupationalCredential",
-            "name": "Agrément CNAPS",
-            "description": "Autorisation d'exercer en tant qu'enquêteur privé délivrée par le CNAPS",
-            "credentialCategory": "Licence professionnelle"
-          }
-        },
-        "serviceOutput": [
-          {
-            "@type": "Report",
-            "name": "Rapport d'enquête circonstancié",
-            "description": "Document détaillé avec preuves photographiques et vidéo exploitable en justice"
-          }
-        ],
-        "offers": {
-          "@type": "Offer",
-          "availability": "https://schema.org/InStock",
-          "validFrom": "2024-01-01",
-          "areaServed": {
-            "@type": "Country",
-            "name": "France"
-          }
-        }
+      "url": "https://verifarret.com/prestations",
+      "isPartOf": {
+        "@type": "WebSite",
+        "url": "https://verifarret.com"
       },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Accueil",
-            "item": "https://verif-arret.fr"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Prestations",
-            "item": "https://verif-arret.fr/prestations"
-          }
-        ]
+      "publisher": {
+        "@type": "Organization",
+        "email": "contact@verif-arret.fr"
       }
     }
     </script>
   </section>
 </div>
+
+<nav aria-label="Breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="https://verifarret.com"><span itemprop="name">Accueil</span></a>
+      <meta itemprop="position" content="1"/>
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="https://verifarret.com/prestations"><span itemprop="name">Prestations</span></a>
+      <meta itemprop="position" content="2"/>
+    </li>
+  </ol>
+</nav>
