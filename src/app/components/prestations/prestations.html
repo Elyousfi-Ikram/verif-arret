@@ -4,12 +4,15 @@
     aria-labelledby="hero-title" itemscope itemtype="https://schema.org/ProfessionalService">
     <div class="container text-center py-5">
       <h1 id="hero-title" class="mb-4 display-4 fw-bold text-white" itemprop="name">
-        Nos Services d'Investigations Professionnelles
+        {{ 'prestations.hero.title' | translate }}
       </h1>
       <div class="hero-highlight mx-auto" itemprop="description">
-        <strong>Enquêtes professionnelles</strong> sur les arrêts de travail par des enquêteurs privés
-        <strong>agréés CNAPS et expérimentés</strong> de <strong class="verif-arret-brand">VERIF-ARRÊT</strong>.
-        Surveillance discrète, rapports juridiques, intervention partout en France.
+        <strong>{{ 'prestations.hero.subtitle1' | translate }}</strong>
+        {{ 'prestations.hero.subtitle2' | translate }}
+        <strong>{{ 'prestations.hero.description1' | translate }}</strong>
+        {{ 'prestations.hero.description2' | translate }}
+        <strong class="verif-arret-brand">VERIF-ARRÊT</strong>.
+        {{ 'prestations.hero.description3' | translate }}
       </div>
     </div>
   </section>
@@ -24,17 +27,14 @@
       <div class="text-center">
         <div class="mx-auto" style="max-width: 1000px;">
           <h2 id="network-title" class="mb-4 h2 fw-bold position-relative pb-3">
-            <span class="text-danger fw-bold">VERIF-ARRÊT</span> intervient partout en France
+            <span class="text-danger fw-bold">VERIF-ARRÊT</span> {{ 'prestations.network.title' | translate }}
             <span class="position-absolute bottom-0 start-50 translate-middle-x bg-danger rounded"
               style="width: 60px; height: 3px;"></span>
           </h2>
           <p class="fs-5 mb-4 text-start text-md-justify">
-            La société <span class="text-danger fw-bold">VERIF-ARRÊT</span> vous garantit une intervention
-            professionnelle et discrète, quel que soit votre secteur d'activité. Présents dans toutes
-            les régions de France, nos enquêteurs privés agréés CNAPS assurent une surveillance légale et efficace
-            dans le respect total de la vie privée et de la déontologie professionnelle.
-            Nos investigations couvrent tous types d'arrêts : maladie ordinaire, longue maladie, accident du travail,
-            maladie professionnelle, avec des rapports détaillés utilisables devant les tribunaux.
+            {{ 'prestations.network.description' | translate }}
+            <span class="text-danger fw-bold">VERIF-ARRÊT</span>
+            {{ 'prestations.network.description2' | translate }}
           </p>
         </div>
       </div>
@@ -50,7 +50,7 @@
 
     <div class="container position-relative">
       <h2 id="process-title" class="text-center mb-5 h2 fw-bold position-relative pb-3">
-        L'enquête sur arrêt de travail en 4 étapes
+        {{ 'prestations.process.title' | translate }}
         <span class="position-absolute bottom-0 start-50 translate-middle-x bg-danger rounded"
           style="width: 60px; height: 3px;"></span>
       </h2>
@@ -65,10 +65,10 @@
               1
             </div>
             <div class="flex-grow-1">
-              <h3 class="h5 mb-2 fw-semibold">Demande d'enquête confidentielle</h3>
-              <p class="mb-0 text-start text-md-justify">Vous nous transmettez votre demande d'investigation en
-                précisant vos coordonnées et les éléments suspects. L'employeur peut demander une enquête dès le premier
-                jour d'arrêt en cas de doute légitime sur la justification médicale.</p>
+              <h3 class="h5 mb-2 fw-semibold">{{ 'prestations.step1.title' | translate }}</h3>
+              <p class="mb-0 text-start text-md-justify">
+                {{ 'prestations.step1.description' | translate }}
+              </p>
             </div>
             <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white rounded-3 shadow-sm"
               style="width: 150px; height: 120px;">
@@ -88,10 +88,10 @@
               2
             </div>
             <div class="flex-grow-1">
-              <h3 class="h5 mb-2 fw-semibold">Surveillance discrète par enquêteur agréé</h3>
-              <p class="mb-0 text-start text-md-justify">Un enquêteur privé professionnel de notre réseau effectue une
-                surveillance discrète du salarié(e) en arrêt de travail, dans le respect total de la légalité et de la
-                vie privée, pour constater d'éventuelles activités incompatibles.</p>
+              <h3 class="h5 mb-2 fw-semibold">{{'prestations.step2.title' | translate}}</h3>
+              <p class="mb-0 text-start text-md-justify">
+                {{'prestations.step2.description' | translate}}
+              </p>
             </div>
             <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white rounded-3 shadow-sm"
               style="width: 150px; height: 120px;">
@@ -112,11 +112,10 @@
               3
             </div>
             <div class="flex-grow-1">
-              <h3 class="h5 mb-2 fw-semibold">Rapport d'enquête détaillé</h3>
-              <p class="mb-0 text-start text-md-justify">L'enquêteur établit un rapport circonstancié avec preuves
-                photographiques et/ou vidéo si nécessaire, utilisable devant les tribunaux. Ce rapport détaille les
-                observations et constatations effectuées pendant la mission de surveillance et prépare la future
-                intervention d'un Commissaire de Justice munit d'une Ordonnance du Tribunal.</p>
+              <h3 class="h5 mb-2 fw-semibold">{{'prestations.step3.title' | translate}}</h3>
+              <p class="mb-0 text-start text-md-justify">
+                {{'prestations.step3.description' | translate}}
+              </p>
             </div>
             <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white rounded-3 shadow-sm"
               style="width: 150px; height: 120px;">
@@ -125,6 +124,9 @@
             </div>
           </div>
         </div>
+
+
+
 
         <!-- Étape 4 -->
         <div role="listitem" class="mb-4">
@@ -136,9 +138,11 @@
               4
             </div>
             <div class="flex-grow-1">
-              <h3 class="h5 mb-2 fw-semibold">Accompagnement juridique</h3>
-              <p class="mb-0 text-start text-md-justify">Notre équipe vous accompagne dans l'exploitation des résultats
-                et vous conseille sur les démarches à effectuer en partenariat avec votre cabinet d'avocat.</p>
+              <h3 class="h5 mb-2 fw-semibold">{{'prestations.step4.title' | translate}}</h3>
+              <p class="mb-0 text-start text-md-justify">
+                Notre équipe vous accompagne dans l'exploitation des résultats
+                {{'prestations.step4.description' | translate}}
+              </p>
             </div>
             <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white rounded-3 shadow-sm"
               style="width: 150px; height: 120px;">

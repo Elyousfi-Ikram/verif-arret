@@ -1,168 +1,151 @@
 <!-- Balises méta SEO pour modal de rappel -->
-<meta name="description" content="Demande de rappel confidentiel - Enquêteur privé agréé CNAPS - Vérification arrêt maladie - Investigation professionnelle - Contact discret">
-<meta name="keywords" content="demande rappel enquêteur privé, contact confidentiel détective, rappel téléphonique investigation, enquête privée discrète, vérification arrêt travail, contrôle terrain professionnel, detective privé agréé, investigation entreprise, surveillance salarié, enquête maladie professionnelle">
-<meta name="geo-keywords" content="enquêteur privé France, detective Niort, investigation Deux-Sèvres, contrôle arrêt maladie national, surveillance terrain France">
-<meta name="investigation-keywords" content="rappel confidentiel investigation, contact enquêteur discret, demande contrôle terrain, vérification professionnelle, enquête privée entreprise">
+<meta name="description"
+  content="Demande de rappel confidentiel - Enquêteur privé agréé CNAPS - Vérification arrêt maladie - Investigation professionnelle - Contact discret">
+<meta name="keywords"
+  content="demande rappel enquêteur privé, contact confidentiel détective, rappel téléphonique investigation, enquête privée discrète, vérification arrêt travail, contrôle terrain professionnel, detective privé agréé, investigation entreprise, surveillance salarié, enquête maladie professionnelle">
+<meta name="geo-keywords"
+  content="enquêteur privé France, detective Niort, investigation Deux-Sèvres, contrôle arrêt maladie national, surveillance terrain France">
+<meta name="investigation-keywords"
+  content="rappel confidentiel investigation, contact enquêteur discret, demande contrôle terrain, vérification professionnelle, enquête privée entreprise">
 
 @if (isOpen) {
-  <div class="ig-modal-overlay" (click)="onOverlayClick($event)" 
-       itemscope itemtype="https://schema.org/ContactPage"
-       aria-label="Modal de demande de rappel confidentiel pour enquête privée">
-    <div class="ig-modal-container" (click)="$event.stopPropagation()" 
-         role="dialog" aria-labelledby="modal-title" aria-modal="true"
-         title="Formulaire de contact confidentiel - Enquêteur privé agréé CNAPS">
-      <div class="d-flex justify-content-between align-items-center p-4 border-bottom ig-modal-header">
-        <h3 class="mb-0" id="modal-title" 
-            itemprop="name"
-            title="Demande de rappel confidentiel - Investigation privée professionnelle">Demande de rappel</h3>
-        <button class="ig-modal-close-btn" (click)="onClose()" 
-                aria-label="Fermer la modal de demande de rappel confidentiel" 
-                title="Fermer le formulaire de contact enquêteur privé"
-                type="button">×</button>
-      </div>
+<div class="ig-modal-overlay" (click)="onOverlayClick($event)" itemscope itemtype="https://schema.org/ContactPage"
+  aria-label="Modal de demande de rappel confidentiel pour enquête privée">
+  <div class="ig-modal-container" (click)="$event.stopPropagation()" role="dialog" aria-labelledby="modal-title"
+    aria-modal="true" title="Formulaire de contact confidentiel - Enquêteur privé agréé CNAPS">
+    <div class="d-flex justify-content-between align-items-center p-4 border-bottom ig-modal-header">
+      <h3 class="mb-0" id="modal-title" itemprop="name"
+        title="Demande de rappel confidentiel - Investigation privée professionnelle">{{ 'callback.modal.title' |
+        translate }}</h3>
+      <button class="ig-modal-close-btn" (click)="onClose()"
+        aria-label="Fermer la modal de demande de rappel confidentiel"
+        title="Fermer le formulaire de contact enquêteur privé" type="button">×</button>
+    </div>
 
-      <div class="p-2" itemprop="mainContentOfPage">
-        @if (!isSubmitted) {
-          <div class="ig-study-form" 
-               itemscope itemtype="https://schema.org/ContactForm"
-               aria-label="Formulaire de demande de rappel pour enquête privée">
-            <p class="mb-4" 
-               itemprop="description"
-               title="Contact confidentiel avec enquêteur privé agréé CNAPS">Remplissez ce formulaire et nous vous rappellerons dans les plus brefs délais</p>
+    <div class="p-2" itemprop="mainContentOfPage">
+      @if (!isSubmitted) {
+      <div class="ig-study-form" itemscope itemtype="https://schema.org/ContactForm"
+        aria-label="Formulaire de demande de rappel pour enquête privée">
+        <p class="mb-4" itemprop="description" title="Contact confidentiel avec enquêteur privé agréé CNAPS">
+          {{ 'callback.form.description' | translate }}
+        </p>
 
-            <form [formGroup]="callbackForm" (ngSubmit)="onSubmit()" 
-                  itemscope itemtype="https://schema.org/ContactForm"
-                  aria-label="Formulaire de contact confidentiel enquêteur privé">
-              <div class="form-row">
-                <div class="mb-4 ig-form-group">
-                  <label for="nom" 
-                         itemprop="familyName"
-                         title="Nom du demandeur pour contact confidentiel enquête privée">Nom *</label>
-                  <input type="text" id="nom" formControlName="nom"
-                         [class.error]="getFieldError('nom')" 
-                         aria-label="Nom du demandeur pour enquête privée confidentielle"
-                         title="Saisir votre nom pour contact avec détective privé agréé"
-                         required>
-                  <span *ngIf="getFieldError('nom')" class="error-message">{{ getFieldError('nom') }}</span>
-                </div>
-
-                <div class="mb-4 ig-form-group">
-                  <label for="prenom" 
-                         itemprop="givenName"
-                         title="Prénom du demandeur pour investigation privée">Prénom *</label>
-                  <input type="text" id="prenom" formControlName="prenom" 
-                         [class.error]="getFieldError('prenom')"
-                         aria-label="Prénom du demandeur pour enquête confidentielle"
-                         title="Saisir votre prénom pour contact enquêteur privé"
-                         required>
-                  <span *ngIf="getFieldError('prenom')" class="error-message">{{ getFieldError('prenom') }}</span>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="mb-4 ig-form-group">
-                  <label for="telephone" 
-                         itemprop="telephone"
-                         title="Numéro de téléphone pour rappel confidentiel enquête privée">Téléphone *</label>
-                  <input type="tel" id="telephone" formControlName="telephone" 
-                         (input)="formatPhoneNumber($event)"
-                         [class.error]="getFieldError('telephone')" 
-                         placeholder="01 23 45 67 89" maxlength="14"
-                         aria-label="Téléphone pour rappel confidentiel investigation privée"
-                         title="Numéro de téléphone pour contact discret avec enquêteur privé"
-                         required>
-                  <span *ngIf="getFieldError('telephone')" class="error-message">{{ getFieldError('telephone') }}</span>
-                </div>
-
-                <div class="mb-4 ig-form-group">
-                  <label for="email" 
-                         itemprop="email"
-                         title="Adresse email pour contact confidentiel enquête privée">Email *</label>
-                  <input type="email" id="email" formControlName="email" 
-                         [class.error]="getFieldError('email')"
-                         placeholder="votre@email.com" 
-                         aria-label="Email pour contact confidentiel avec détective privé"
-                         title="Adresse email pour échanges sécurisés enquête privée"
-                         required>
-                  <span *ngIf="getFieldError('email')" class="error-message">{{ getFieldError('email') }}</span>
-                </div>
-              </div>
-
-              <div class="mb-4 ig-form-group">
-                <label for="entreprise" 
-                       itemprop="worksFor"
-                       title="Nom de l'entreprise pour enquête privée professionnelle">Entreprise *</label>
-                <input type="text" id="entreprise" formControlName="entreprise"
-                       [class.error]="getFieldError('entreprise')" 
-                       placeholder="Nom de votre entreprise" 
-                       aria-label="Entreprise demandant une enquête privée professionnelle"
-                       title="Nom de l'entreprise pour investigation confidentielle"
-                       required>
-                <span *ngIf="getFieldError('entreprise')" class="error-message">{{ getFieldError('entreprise') }}</span>
-              </div>
-
-              <div class="mb-4 ig-form-group">
-                <label for="creneauPrefere" 
-                       title="Créneau horaire préféré pour rappel confidentiel enquête privée">À quelle heure souhaitez-vous être rappelé en toute confidentialité ? *</label>
-                <select id="creneauPrefere" formControlName="creneauPrefere" 
-                        aria-label="Sélection créneau horaire pour rappel confidentiel investigation"
-                        title="Choisir l'heure pour contact discret avec enquêteur privé"
-                        required>
-                  <option *ngFor="let option of creneauOptions" [value]="option.value">
-                    {{ option.label }}
-                  </option>
-                </select>
-              </div>
-
-              <div class="mb-4 ig-form-group">
-                <label for="message" 
-                       title="Message complémentaire pour enquête privée confidentielle">Message (optionnel)</label>
-                <textarea id="message" formControlName="message" rows="4"
-                          placeholder="Décrivez brièvement votre demande..."
-                          aria-label="Message détaillé pour demande d'enquête privée"
-                          title="Description confidentielle de votre besoin d'investigation"></textarea>
-              </div>
-
-              <div *ngIf="submitError" class="error-message error-message--global">
-                {{ submitError }}
-              </div>
-
-              <div class="d-flex flex-column-reverse flex-md-row align-items-end gap-3 mt-5 pt-3 border-top">
-                <button type="button" class="ig-btn-secondary" (click)="onClose()" 
-                        [disabled]="isSubmitting"
-                        aria-label="Annuler la demande de rappel enquête privée"
-                        title="Fermer sans envoyer la demande de contact confidentiel">
-                  Annuler
-                </button>
-                <button type="submit" class="ig-btn-primary" 
-                        [class.btn-disabled]="!isFormValid"
-                        [disabled]="isSubmitting || !isFormValid"
-                        aria-label="Envoyer demande de rappel confidentiel enquêteur privé"
-                        title="Confirmer la demande de contact avec détective privé agréé">
-                  {{ isSubmitting ? 'Envoi en cours...' : 'Demander un rappel' }}
-                </button>
-              </div>
-            </form>
+        <form [formGroup]="callbackForm" (ngSubmit)="onSubmit()" itemscope itemtype="https://schema.org/ContactForm"
+          aria-label="Formulaire de contact confidentiel enquêteur privé">
+          <div class="form-row">
+            <!-- Champ Nom -->
+            <div class="mb-4 ig-form-group">
+              <label for="nom" itemprop="familyName"
+                title="Nom du demandeur pour contact confidentiel enquête privée">{{ 'callback.form.nom' | translate }} *</label>
+              <input type="text" id="nom" formControlName="nom" [class.error]="getFieldError('nom')"
+                aria-label="Nom du demandeur pour enquête privée confidentielle"
+                title="Saisir votre nom pour contact avec détective privé agréé" required>
+              <span *ngIf="getFieldError('nom')" class="error-message">{{ getFieldError('nom') | translate }}</span>
+            </div>
+            
+            <!-- Champ Prénom -->
+            <div class="mb-4 ig-form-group">
+              <label for="prenom" itemprop="givenName" title="Prénom du demandeur pour investigation privée">
+                {{ 'callback.form.prenom' | translate }} *</label>
+              <input type="text" id="prenom" formControlName="prenom" [class.error]="getFieldError('prenom')"
+                aria-label="Prénom du demandeur pour enquête confidentielle"
+                title="Saisir votre prénom pour contact enquêteur privé" required>
+              <span *ngIf="getFieldError('prenom')" class="error-message">{{ getFieldError('prenom') | translate }}</span>
+            </div>
           </div>
-        } @else {
-          <div class="success-message" 
-               itemscope itemtype="https://schema.org/ConfirmationPage"
-               aria-label="Confirmation envoi demande rappel enquête privée">
-            <div class="success-icon" 
-                 aria-label="Succès envoi demande contact enquêteur privé"
-                 title="Demande de rappel confidentiel envoyée avec succès">✓</div>
-            <h3 itemprop="name" 
-                title="Confirmation demande rappel enquêteur privé agréé">Demande envoyée !</h3>
-            <p itemprop="description" 
-               title="Rappel confidentiel enquête privée dans les plus brefs délais">Nous vous rappellerons dans les plus brefs délais.</p>
+
+          <div class="form-row">
+            <div class="mb-4 ig-form-group">
+              <label for="telephone" itemprop="telephone"
+                title="Numéro de téléphone pour rappel confidentiel enquête privée">
+                {{ 'callback.form.telephone' | translate }} *</label>
+              <input type="tel" id="telephone" formControlName="telephone" (input)="formatPhoneNumber($event)"
+                [class.error]="getFieldError('telephone')" [placeholder]="'control.form.placeholders.telephone' | translate" maxlength="14"
+                aria-label="Téléphone pour rappel confidentiel investigation privée"
+                title="Numéro de téléphone pour contact discret avec enquêteur privé" required>
+              <span *ngIf="getFieldError('telephone')" class="error-message">{{ getFieldError('telephone') | translate }}</span>
+            </div>
+
+            <div class="mb-4 ig-form-group">
+              <label for="email" itemprop="email" title="Adresse email pour contact confidentiel enquête privée">
+                {{ 'callback.form.email' | translate }} *</label>
+              <input type="email" id="email" formControlName="email" [class.error]="getFieldError('email')"
+                placeholder="@email.com" aria-label="Email pour contact confidentiel avec détective privé"
+                title="Adresse email pour échanges sécurisés enquête privée" required>
+              <span *ngIf="getFieldError('email')" class="error-message">{{ getFieldError('email') | translate }}</span>
+            </div>
           </div>
-        }
+
+          <div class="mb-4 ig-form-group">
+            <label for="entreprise" itemprop="worksFor" title="Nom de l'entreprise pour enquête privée professionnelle">
+              {{ 'callback.form.entreprise' | translate }} *</label>
+            <input type="text" id="entreprise" formControlName="entreprise" [class.error]="getFieldError('entreprise')"
+              placeholder="{{ 'callback.form.entreprise.placeholder' | translate }}" aria-label="Entreprise demandant une enquête privée professionnelle"
+              title="Nom de l'entreprise pour investigation confidentielle" required>
+            <span *ngIf="getFieldError('entreprise')" class="error-message">{{ getFieldError('entreprise') | translate }}</span>
+          </div>
+
+          <div class="mb-4 ig-form-group">
+            <label for="creneauPrefere" title="Créneau horaire préféré pour rappel confidentiel enquête privée">
+              {{ 'callback.form.creneau.label' | translate }} *</label>
+            <select id="creneauPrefere" formControlName="creneauPrefere"
+              aria-label="Sélection créneau horaire pour rappel confidentiel investigation"
+              title="Choisir l'heure pour contact discret avec enquêteur privé" required>
+              <option *ngFor="let option of creneauOptions" [value]="option.value">
+                {{ option.label | translate }}
+              </option>
+            </select>
+          </div>
+
+          <div class="mb-4 ig-form-group">
+            <label for="message" title="Message complémentaire pour enquête privée confidentielle">
+              {{ 'callback.form.message' | translate }}</label>
+            <textarea id="message" formControlName="message" rows="4" placeholder="{{ 'callback.form.message.placeholder' | translate }}"
+              aria-label="Message détaillé pour demande d'enquête privée"
+              title="Description confidentielle de votre besoin d'investigation"></textarea>
+          </div>
+
+          <div *ngIf="submitError" class="error-message error-message--global">
+            {{ submitError }}
+          </div>
+
+          <!-- Section actions du formulaire -->
+          <div class="d-flex flex-column-reverse flex-md-row align-items-end gap-3 mt-5 pt-3 border-top">
+            <button type="button" class="ig-btn-secondary" (click)="onClose()" 
+                [disabled]="isSubmitting"
+                [attr.aria-label]="'callback.form.buttons.cancel_aria' | translate"
+                [attr.title]="'callback.form.buttons.cancel_title' | translate">
+              {{ 'callback.form.cancel' | translate }}
+            </button>
+            <button type="submit" class="ig-btn-primary" 
+                [class.btn-disabled]="!isFormValid"
+                [disabled]="isSubmitting || !isFormValid"
+                [attr.aria-label]="'callback.form.buttons.submit_aria' | translate"
+                [attr.title]="'callback.form.buttons.submit_title' | translate">
+              {{ isSubmitting ? ('callback.form.submitting' | translate) : ('callback.form.submit' | translate) }}
+            </button>
+          </div>
+        </form>
       </div>
+      } @else {
+      <div class="success-message" itemscope itemtype="https://schema.org/ConfirmationPage"
+        aria-label="Confirmation envoi demande rappel enquête privée">
+        <div class="success-icon" aria-label="Succès envoi demande contact enquêteur privé"
+          title="Demande de rappel confidentiel envoyée avec succès">✓</div>
+        <h3 itemprop="name" title="Confirmation demande rappel enquêteur privé agréé">
+          {{ 'callback.success.title' | translate }}
+        </h3>
+        <p itemprop="description" title="Rappel confidentiel enquête privée dans les plus brefs délais">
+          {{ 'callback.success.message' | translate }}
+        </p>
+      </div>
+      }
     </div>
   </div>
+</div>
 
-  <!-- Données structurées Schema.org pour SEO -->
-  <script type="application/ld+json">
+<!-- Données structurées Schema.org pour SEO -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ContactPage",

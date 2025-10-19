@@ -4,6 +4,10 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmailjsService } from '../../../services/emailjs.service';
 import { CallbackEmailData } from '../../../config/emailjs.config';
+import { TranslationService } from '../../../services/translation.service';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
+
+
 
 interface FormData {
   nom: string;
@@ -18,7 +22,8 @@ interface FormData {
 @Component({
   selector: 'app-callback-modal',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslatePipe],
+
   templateUrl: './callback-modal.component.html',
   styleUrls: ['../modal.scss']
 })
@@ -44,6 +49,7 @@ export class CallbackModalComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private cdr: ChangeDetectorRef,
     private emailjsService: EmailjsService,
+    private TranslationService: TranslationService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.initForm();
@@ -70,9 +76,9 @@ export class CallbackModalComponent implements OnInit, OnDestroy {
     });
   }
 
-  private phoneValidator(control: AbstractControl): {[key: string]: any} | null {
+  private phoneValidator(control: AbstractControl): { [key: string]: any } | null {
     if (!control.value) return null;
-    
+
     const phoneNumbers = control.value.replace(/\s/g, '');
     if (phoneNumbers.length < 10 || !/^[0-9]{10}$/.test(phoneNumbers)) {
       return { 'invalidPhone': true };
@@ -126,7 +132,7 @@ export class CallbackModalComponent implements OnInit, OnDestroy {
     const numbers = value.replace(/\D/g, '');
     const limitedNumbers = numbers.slice(0, 10);
     const formatted = limitedNumbers.replace(/(\d{2})(?=\d)/g, '$1 ');
-    
+
     this.callbackForm.patchValue({ telephone: formatted });
   }
 
@@ -137,10 +143,10 @@ export class CallbackModalComponent implements OnInit, OnDestroy {
   getFieldError(fieldName: string): string {
     const field = this.callbackForm.get(fieldName);
     if (field?.errors && field.touched) {
-      if (field.errors['required']) return `Le ${fieldName} est requis`;
-      if (field.errors['email']) return 'Format d\'email invalide';
-      if (field.errors['invalidPhone']) return 'Le numéro doit contenir 10 chiffres';
-      if (field.errors['minlength']) return `${fieldName} trop court`;
+      if (field.errors['required']) return `callback.errors.${fieldName}.required`;
+      if (field.errors['email']) return 'callback.errors.email.format';
+      if (field.errors['invalidPhone']) return 'callback.errors.telephone.invalid';
+      if (field.errors['minlength']) return `callback.errors.${fieldName}.minlength`;
     }
     return '';
   }
@@ -167,9 +173,9 @@ export class CallbackModalComponent implements OnInit, OnDestroy {
       };
 
       await this.emailjsService.sendCallbackRequest(callbackData);
-      
+
       this.isSubmitted = true;
-      
+
       setTimeout(() => {
         this.onClose();
       }, 2000);

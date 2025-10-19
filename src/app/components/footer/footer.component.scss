@@ -363,7 +363,7 @@ $z-points: 10;
     color: $footer-text;
     text-decoration: none;
     font-size: 0.85rem;
-    @include smooth-transition;
+    width: 100%;
 
     &:hover {
         background: rgba(76, 175, 80, 0.2);
@@ -377,6 +377,7 @@ $z-points: 10;
 
 .phone-text {
     font-weight: 500;
+    width: 100%;
 }
 
 .expand-icon {
@@ -592,6 +593,7 @@ $z-points: 10;
     display: flex;
     gap: 25px;
     justify-content: flex-start;
+    width: 100%;
 }
 
 .contact-item {

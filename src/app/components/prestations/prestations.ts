@@ -1,11 +1,15 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
+import { SEO_KEYWORDS, getKeywordsByCategory } from '../../config/seo-keywords.config';
+import { TranslatePipe } from '../../pipes/translate.pipe';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-prestations',
   standalone: true,
-  imports: [],
+  imports: [TranslatePipe],
+
   templateUrl: './prestations.html',
   styleUrls: ['./prestations.scss']
 })
@@ -14,8 +18,9 @@ export class PrestationsComponent implements OnInit {
   constructor(
     private meta: Meta,
     private title: Title,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+    @Inject(PLATFORM_ID) private platformId: Object,
+    public translationService: TranslationService
+  ) { }
 
   ngOnInit(): void {
     this.setSEOMetadata();
@@ -23,20 +28,25 @@ export class PrestationsComponent implements OnInit {
   }
 
   private setSEOMetadata(): void {
-    // Titre optimisé pour les recherches locales
-    this.title.setTitle('Services Investigation Arrêt Travail | Enquêteur Privé France | VERIF-ARRÊT');
+    // Utilisation des mots-clés services et professionnels
+    const serviceKeywords = getKeywordsByCategory('services');
+    const professionalKeywords = getKeywordsByCategory('professional');
+    const geoKeywords = getKeywordsByCategory('geographic');
 
-    // Meta description unique focalisée sur les services
+    // Titre avec mots-clés services
+    this.title.setTitle(`${serviceKeywords[0]} | ${professionalKeywords[0]} | VERIF-ARRÊT`);
+
+    // Meta description avec services
     this.meta.updateTag({
       name: 'description',
-      content: 'Services professionnels d\'investigation sur arrêts de travail. Enquêteurs privés agréés CNAPS, surveillance discrète, rapports détaillés. Intervention 24h/7j partout en France.'
+      content: `${serviceKeywords.slice(0, 3).join(', ')}. Enquêteurs privés agréés CNAPS, surveillance discrète, rapports détaillés. Intervention 24h/7j partout en France.`
     });
 
     // SUPPRESSION des meta keywords (obsolètes)
-    
+
     this.meta.updateTag({ name: 'robots', content: 'index, follow' });
     this.meta.updateTag({ rel: 'canonical', href: 'https://verifarret.com/prestations' });
-    
+
     // Open Graph spécifique aux services
     this.meta.updateTag({ property: 'og:title', content: 'Services Investigation Arrêt Travail | VERIF-ARRÊT' });
     this.meta.updateTag({ property: 'og:description', content: 'Enquêteurs privés agréés pour vérification d\'arrêts maladie. Service professionnel partout en France.' });

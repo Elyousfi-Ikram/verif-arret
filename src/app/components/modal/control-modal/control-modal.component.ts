@@ -2,6 +2,8 @@ import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, OnChanges, I
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmailjsService } from '../../../services/emailjs.service';
+import { TranslationService } from '../../../services/translation.service';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 // Interface simplifiée pour correspondre aux champs utilisés
 interface SimpleControlData {
@@ -25,7 +27,8 @@ interface SimpleControlData {
 @Component({
   selector: 'app-control-modal',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslatePipe],
+
   templateUrl: './control-modal.component.html',
   styleUrls: ['../modal.scss']
 })
@@ -43,6 +46,7 @@ export class ControlModalComponent implements OnInit, OnDestroy, OnChanges {
   constructor(
     private fb: FormBuilder,
     private emailjsService: EmailjsService,
+    private TranslationService: TranslationService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.initForm();
@@ -145,26 +149,42 @@ export class ControlModalComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   getFieldError(fieldName: string): string {
-    const field = this.controlForm.get(fieldName);
-    if (field?.errors && field.touched) {
-      if (field.errors['required']) {
-        const labels: { [key: string]: string } = {
-          nom: 'Le nom',
-          prenom: 'Le prénom',
-          telephone: 'Le téléphone',
-          email: 'L\'email',
-          entreprise: 'L\'entreprise',
-          dateDebutArret: 'La date de début d\'arrêt',
-          villeSalarie: 'La ville',
-          codePostalSalarie: 'Le code postal'
-        };
-        return `${labels[fieldName] || 'Ce champ'} est requis`;
+      const field = this.controlForm.get(fieldName);
+      if (field?.errors && field.touched) {
+          // Erreur "required" pour les champs du formulaire de contrôle
+          if (field.errors['required']) {
+              const fieldsWithRequired = [
+                  'nom',
+                  'prenom',
+                  'telephone',
+                  'email',
+                  'entreprise',
+                  'dateDebutArret',
+                  'villeSalarie',
+                  'codePostalSalarie'
+              ];
+              if (fieldsWithRequired.includes(fieldName)) {
+                  return `control.errors.${fieldName}.required`;
+              }
+              return '';
+          }
+  
+          // Format d'email invalide
+          if (field.errors['email']) {
+              return 'control.errors.email.format';
+          }
+  
+          // Longueur minimale du téléphone (10 chiffres)
+          if (field.errors['minlength'] && fieldName === 'telephone') {
+              return 'control.errors.telephone.minlength';
+          }
+  
+          // Code postal: 5 chiffres
+          if (field.errors['pattern'] && fieldName === 'codePostalSalarie') {
+              return 'control.errors.codePostalSalarie.pattern';
+          }
       }
-      if (field.errors['email']) return 'Format d\'email invalide';
-      if (field.errors['minlength']) return 'Le numéro doit contenir au moins 10 chiffres';
-      if (field.errors['pattern']) return 'Le code postal doit contenir 5 chiffres';
-    }
-    return '';
+      return '';
   }
 
   hasFieldError(fieldName: string): boolean {
@@ -187,7 +207,7 @@ export class ControlModalComponent implements OnInit, OnDestroy, OnChanges {
 
     try {
       const formData = this.controlForm.value;
-      
+
       // Utilisation de l'interface simplifiée
       const controlData: SimpleControlData = {
         nom: formData.nom,
@@ -210,7 +230,7 @@ export class ControlModalComponent implements OnInit, OnDestroy, OnChanges {
       // Vous devrez adapter le service pour accepter SimpleControlData
       // ou créer une méthode de mapping vers ControlEmailData
       await this.emailjsService.sendControlRequest(controlData as any);
-      
+
       this.isSubmitted = true;
 
       setTimeout(() => {

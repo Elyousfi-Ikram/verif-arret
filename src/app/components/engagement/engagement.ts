@@ -1,11 +1,14 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
+import { SEO_KEYWORDS, getKeywordsByCategory } from '../../config/seo-keywords.config';
+import { TranslatePipe } from '../../pipes/translate.pipe';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-engagement',
   standalone: true,
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './engagement.html',
   styleUrls: ['./engagement.scss']
 })
@@ -14,7 +17,8 @@ export class EngagementComponent implements OnInit {
   constructor(
     private meta: Meta,
     private title: Title,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    public translationService: TranslationService
   ) {}
 
   ngOnInit(): void {
@@ -23,13 +27,17 @@ export class EngagementComponent implements OnInit {
   }
 
   private setSEOMetadata(): void {
-    // Titre unique focalisé sur les engagements
-    this.title.setTitle('Nos Engagements Déontologiques | Enquêteur Privé Agréé | VERIF-ARRÊT');
-
-    // Meta description unique sur la déontologie
+    // Utilisation des mots-clés légaux et professionnels
+    const legalKeywords = getKeywordsByCategory('legal');
+    const professionalKeywords = getKeywordsByCategory('professional');
+    
+    // Titre avec aspects légaux
+    this.title.setTitle(`Nos Engagements Déontologiques | ${professionalKeywords[0]} | VERIF-ARRÊT`);
+    
+    // Meta description avec légalité
     this.meta.updateTag({
       name: 'description',
-      content: 'Découvrez nos engagements déontologiques : confidentialité, légalité, professionnalisme. Enquêteur privé agréé CNAPS respectant l\'éthique et la vie privée.'
+      content: `Découvrez nos engagements déontologiques : ${legalKeywords[5]}, ${legalKeywords[0]}, professionnalisme. ${professionalKeywords[0]} respectant l'éthique et la vie privée.`
     });
 
     // SUPPRESSION des meta keywords

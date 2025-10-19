@@ -1,71 +1,64 @@
 <main class="engagement-page" role="main" itemscope itemtype="https://schema.org/WebPage">
     <!-- Balises META SEO spécifiques à la page -->
-    <meta name="description" content="Découvrez les engagements de VERIF-ARRÊT : enquêteur privé agréé CNAPS spécialisé dans la vérification d'arrêts maladie, surveillance professionnelle, investigations légales contre l'absentéisme abusif et fraudes aux arrêts de travail.">
-    <meta name="keywords" content="engagements enquêteur privé, VERIF-ARRÊT promesses, agrément CNAPS, vérification arrêt maladie, surveillance professionnelle, investigation légale, absentéisme abusif, fraude arrêt travail, détective privé certifié, enquête employeur, contrôle salarié, rapport juridique, preuve tribunal, confidentialité enquête, déontologie investigation, secret professionnel, tarification juste, contrat mandat, enquêteur qualifié, rigueur professionnalisme, recueil preuves, légalité loyauté, obligation moyens, facturation honoraires, satisfaction client, certification officielle, ministère intérieur, protection entreprise, lutte malveillance, surveillance discrète, investigation éthique">
-    <meta name="geo-keywords" content="enquêteur privé France, détective agréé Paris, investigation Lyon, surveillance Marseille, enquête Toulouse, contrôle arrêt Nice, vérification Nantes, detective Strasbourg, enquêteur Bordeaux, investigation Lille">
-    <meta name="investigation-keywords" content="enquête arrêt maladie, surveillance salarié, contrôle absentéisme, investigation fraude, détection simulation, vérification incapacité, surveillance domicile, filature professionnelle, constat huissier, rapport circonstancié">
-    
+    <meta name="description"
+        content="Découvrez les engagements de VERIF-ARRÊT : enquêteur privé agréé CNAPS spécialisé dans la vérification d'arrêts maladie, surveillance professionnelle, investigations légales contre l'absentéisme abusif et fraudes aux arrêts de travail.">
+    <meta name="keywords"
+        content="engagements enquêteur privé, VERIF-ARRÊT promesses, agrément CNAPS, vérification arrêt maladie, surveillance professionnelle, investigation légale, absentéisme abusif, fraude arrêt travail, détective privé certifié, enquête employeur, contrôle salarié, rapport juridique, preuve tribunal, confidentialité enquête, déontologie investigation, secret professionnel, tarification juste, contrat mandat, enquêteur qualifié, rigueur professionnalisme, recueil preuves, légalité loyauté, obligation moyens, facturation honoraires, satisfaction client, certification officielle, ministère intérieur, protection entreprise, lutte malveillance, surveillance discrète, investigation éthique">
+    <meta name="geo-keywords"
+        content="enquêteur privé France, détective agréé Paris, investigation Lyon, surveillance Marseille, enquête Toulouse, contrôle arrêt Nice, vérification Nantes, detective Strasbourg, enquêteur Bordeaux, investigation Lille">
+    <meta name="investigation-keywords"
+        content="enquête arrêt maladie, surveillance salarié, contrôle absentéisme, investigation fraude, détection simulation, vérification incapacité, surveillance domicile, filature professionnelle, constat huissier, rapport circonstancié">
+
     <!-- Hero Section optimisé -->
     <header class="engagement-hero py-5 d-flex align-items-center min-vh-75 position-relative" role="banner"
         aria-labelledby="hero-title" itemscope itemtype="https://schema.org/Organization">
         <div class="container text-center py-5">
             <h1 id="hero-title" class="mb-4 display-4 fw-bold text-white" itemprop="name">
-                Nos Engagements d'Enquêteur Privé Agréé CNAPS
+                {{ 'engagement.hero.title' | translate }}
             </h1>
             <div class="hero-highlight mx-auto" itemprop="description">
-                Des valeurs fortes de déontologie, confidentialité et professionnalisme au service de votre confiance avec <strong
-                    class="verif-arret-brand" itemprop="legalName">VERIF-ARRÊT</strong>, spécialiste de la vérification d'arrêts maladie et investigations légales.
+                {{ 'engagement.hero.subtitle1' | translate }}
+                <strong class="verif-arret-brand" itemprop="legalName">VERIF-ARRÊT</strong>,
+                {{ 'engagement.hero.subtitle2' | translate }}
             </div>
         </div>
     </header>
 
     <!-- Prevention Section enrichi -->
-    <section class="prevention-section py-5" aria-labelledby="prevention-title" itemscope itemtype="https://schema.org/Service">
+    <section class="prevention-section py-5" aria-labelledby="prevention-title" itemscope
+        itemtype="https://schema.org/Service">
         <div class="position-absolute top-0 start-50 translate-middle-x"
             style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;"
             aria-hidden="true">
         </div>
         <div class="container">
             <h2 id="prevention-title" class="text-center mb-5 fw-bold text-primary position-relative" itemprop="name">
-                Investigations Légales Anti-Fraude : Protection Juridique de Votre Entreprise Contre l'Absentéisme Abusif
+                {{ 'engagement.prevention.title' | translate }}
             </h2>
             <div class="row justify-content-center">
                 <div itemprop="description">
                     <p class="fs-5 lh-lg text-primary bg-light rounded-3 p-4 mb-4 border-start border-danger border-4 shadow-sm"
-                       itemscope itemtype="https://schema.org/Thing">
+                        itemscope itemtype="https://schema.org/Thing">
                         <span itemprop="description">
-                            Nos missions d'enquêtes privées sur les arrêts de travail de vos salarié(e)s constituent un outil
-                            légal et efficace pour lutter contre l'absentéisme au travail, les arrêts abusifs et la fraude aux prestations sociales. 
-                            Cette investigation professionnelle permet de protéger votre entreprise contre les fraudes à l'arrêt maladie 
-                            tout en respectant scrupuleusement le cadre légal, la déontologie de l'enquêteur privé et
-                            la vie privée du salarié(e) sous surveillance discrète.
+                            {{ 'engagement.prevention.paragraph1' | translate }}
                         </span>
                     </p>
                     <p class="fs-5 lh-lg text-primary bg-light rounded-3 p-4 mb-4 border-start border-danger border-4 shadow-sm"
-                       itemscope itemtype="https://schema.org/Thing">
+                        itemscope itemtype="https://schema.org/Thing">
                         <span itemprop="description">
-                            Nos enquêteurs privés agréés C.N.A.P.S, détectives professionnels formés spécialement aux techniques de surveillances
-                            professionnelles et filatures discrètes, garantissent une approche déontologique et respectueuse tout en protégeant
-                            les intérêts fondamentaux et légitimes de l'employeur. Les preuves recueillies par investigation légale et consignées
-                            dans un rapport d'enquête circonstancié sont juridiquement exploitables et reconnues par les tribunaux pour contentieux prud'homal.
+                            {{ 'engagement.prevention.paragraph2' | translate }}
                         </span>
                     </p>
                     <p class="fs-5 lh-lg text-primary bg-light rounded-3 p-4 mb-4 border-start border-danger border-4 shadow-sm"
-                       itemscope itemtype="https://schema.org/Thing">
+                        itemscope itemtype="https://schema.org/Thing">
                         <span itemprop="description">
-                            L'enquête privée sur arrêt de travail constitue un outil légal et efficace pour
-                            lutter contre l'absentéisme abusif. Elle permet de protéger votre entreprise
-                            contre les fraudes tout en respectant scrupuleusement le cadre légal et
-                            la vie privée du salarié(e).
+                            {{ 'engagement.prevention.paragraph3' | translate }}
                         </span>
                     </p>
                     <p class="fs-5 lh-lg text-primary bg-light rounded-3 p-4 mb-4 border-start border-danger border-4 shadow-sm"
-                       itemscope itemtype="https://schema.org/Thing">
+                        itemscope itemtype="https://schema.org/Thing">
                         <span itemprop="description">
-                            Nos enquêteurs agréés, formés aux spécificités de la surveillance professionnelle,
-                            garantissent une approche déontologique et respectueuse tout en protégeant
-                            les intérêts légitimes de l'employeur. Les preuves recueillies sont juridiquement
-                            exploitables et reconnues par les tribunaux.
+                            {{ 'engagement.prevention.paragraph4' | translate }}
                         </span>
                     </p>
                 </div>
@@ -74,24 +67,26 @@
     </section>
 
     <!-- Engagements Section avec mots-clés enrichis -->
-    <section class="engagements-section py-5 bg-light position-relative" aria-labelledby="engagements-title"
-             itemscope itemtype="https://schema.org/ItemList">
+    <section class="engagements-section py-5 bg-light position-relative" aria-labelledby="engagements-title" itemscope
+        itemtype="https://schema.org/ItemList">
         <div class="position-absolute top-0 start-50 translate-middle-x"
             style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;"
             aria-hidden="true">
         </div>
         <div class="container">
             <h2 id="engagements-title" class="text-center mb-5 fw-bold text-primary position-relative" itemprop="name">
-                <span class="verif-arret-brand">VERIF-ARRÊT</span> : Enquêteur Privé Agréé s'engage avec Déontologie pour :
+                <span class="verif-arret-brand">VERIF-ARRÊT</span> : {{ 'engagement.engagements.title' | translate }}
             </h2>
-            <div class="row g-4" role="list" aria-label="Liste de nos engagements professionnels d'enquêteur privé" itemprop="itemListElement">
+            <div class="row g-4" role="list" aria-label="Liste de nos engagements professionnels d'enquêteur privé"
+                itemprop="itemListElement">
                 <!-- Engagement 1 optimisé -->
                 <div class="col-lg-3">
                     <li class="engagement-item d-flex align-items-center bg-white rounded-3 shadow-sm p-4 border h-100"
                         role="listitem" itemscope itemtype="https://schema.org/ListItem"
                         (click)="trackEngagementInteraction('solutions-malveillance')">
-                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope itemtype="https://schema.org/Thing">
-                            <span itemprop="name">Vous apporter des solutions d'investigation privée dans la lutte contre toutes les formes de malveillances, fraudes aux arrêts maladie et absentéisme abusif.</span>
+                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope
+                            itemtype="https://schema.org/Thing">
+                            <span itemprop="name">{{ 'engagement.item1' | translate }}</span>
                         </p>
                         <meta itemprop="position" content="1">
                     </li>
@@ -102,8 +97,9 @@
                     <li class="engagement-item d-flex align-items-center bg-white rounded-3 shadow-sm p-4 border h-100"
                         role="listitem" itemscope itemtype="https://schema.org/ListItem"
                         (click)="trackEngagementInteraction('tarification-juste')">
-                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope itemtype="https://schema.org/Thing">
-                            <span itemprop="name">Calculer les honoraires d'enquêteur privé au juste prix en fonction des moyens d'investigation engagés et de la complexité de la surveillance.</span>
+                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope
+                            itemtype="https://schema.org/Thing">
+                            <span itemprop="name">{{ 'engagement.item2' | translate }}</span>
                         </p>
                         <meta itemprop="position" content="2">
                     </li>
@@ -114,8 +110,9 @@
                     <li class="engagement-item d-flex align-items-center bg-white rounded-3 shadow-sm p-4 border h-100"
                         role="listitem" itemscope itemtype="https://schema.org/ListItem"
                         (click)="trackEngagementInteraction('contrat-mandat')">
-                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope itemtype="https://schema.org/Thing">
-                            <span itemprop="name">Établir un contrat de mandat d'enquêteur privé (convention d'honoraires légale) avant chaque début d'enquête et investigation.</span>
+                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope
+                            itemtype="https://schema.org/Thing">
+                            <span itemprop="name">{{ 'engagement.item3' | translate }}</span>
                         </p>
                         <meta itemprop="position" content="3">
                     </li>
@@ -126,8 +123,9 @@
                     <li class="engagement-item d-flex align-items-center bg-white rounded-3 shadow-sm p-4 border h-100"
                         role="listitem" itemscope itemtype="https://schema.org/ListItem"
                         (click)="trackEngagementInteraction('enqueteurs-qualifies')">
-                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope itemtype="https://schema.org/Thing">
-                            <span itemprop="name">Mettre à votre disposition des enquêteurs privés qualifiés agréés CNAPS, détectives professionnels possédant une expertise confirmée dans l'investigation et la surveillance discrète.</span>
+                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope
+                            itemtype="https://schema.org/Thing">
+                            <span itemprop="name">{{ 'engagement.item4' | translate }}</span>
                         </p>
                         <meta itemprop="position" content="4">
                     </li>
@@ -138,8 +136,9 @@
                     <li class="engagement-item d-flex align-items-center bg-white rounded-3 shadow-sm p-4 border h-100"
                         role="listitem" itemscope itemtype="https://schema.org/ListItem"
                         (click)="trackEngagementInteraction('rigueur-professionnalisme')">
-                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope itemtype="https://schema.org/Thing">
-                            <span itemprop="name">Effectuer votre mission d'enquête privée avec rigueur et professionnalisme, dans le plus strict respect de la confidentialité, du secret professionnel et des règles déontologiques de l'investigation.</span>
+                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope
+                            itemtype="https://schema.org/Thing">
+                            <span itemprop="name">{{ 'engagement.item5' | translate }}</span>
                         </p>
                         <meta itemprop="position" content="5">
                     </li>
@@ -150,8 +149,9 @@
                     <li class="engagement-item d-flex align-items-center bg-white rounded-3 shadow-sm p-4 border h-100"
                         role="listitem" itemscope itemtype="https://schema.org/ListItem"
                         (click)="trackEngagementInteraction('recueil-preuves')">
-                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope itemtype="https://schema.org/Thing">
-                            <span itemprop="name">Vous aider dans le recueil de preuves juridiques, témoignages et éléments probants par investigation légale et surveillance professionnelle.</span>
+                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope
+                            itemtype="https://schema.org/Thing">
+                            <span itemprop="name">{{ 'engagement.item6' | translate }}</span>
                         </p>
                         <meta itemprop="position" content="6">
                     </li>
@@ -162,8 +162,9 @@
                     <li class="engagement-item d-flex align-items-center bg-white rounded-3 shadow-sm p-4 border h-100"
                         role="listitem" itemscope itemtype="https://schema.org/ListItem"
                         (click)="trackEngagementInteraction('legalite-loyaute')">
-                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope itemtype="https://schema.org/Thing">
-                            <span itemprop="name">Respecter la légalité des investigations privées et agir avec loyauté déontologique sans conflits d'intérêts dans nos enquêtes.</span>
+                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope
+                            itemtype="https://schema.org/Thing">
+                            <span itemprop="name">{{ 'engagement.item7' | translate }}</span>
                         </p>
                         <meta itemprop="position" content="7">
                     </li>
@@ -174,8 +175,9 @@
                     <li class="engagement-item d-flex align-items-center bg-white rounded-3 shadow-sm p-4 border h-100"
                         role="listitem" itemscope itemtype="https://schema.org/ListItem"
                         (click)="trackEngagementInteraction('obligation-moyens')">
-                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope itemtype="https://schema.org/Thing">
-                            <span itemprop="name">Nous sommes tenus à une obligation de moyens d'investigation mais pas à une obligation de résultats car celui-ci dépendra des événements constatés par l'enquêteur privé sur le terrain de surveillance.</span>
+                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope
+                            itemtype="https://schema.org/Thing">
+                            <span itemprop="name">{{ 'engagement.item8' | translate }}</span>
                         </p>
                         <meta itemprop="position" content="8">
                     </li>
@@ -186,8 +188,9 @@
                     <li class="engagement-item d-flex align-items-center bg-white rounded-3 shadow-sm p-4 border h-100"
                         role="listitem" itemscope itemtype="https://schema.org/ListItem"
                         (click)="trackEngagementInteraction('rapport-enquete')">
-                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope itemtype="https://schema.org/Thing">
-                            <span itemprop="name">Rédiger un rapport d'enquête privée écrit de façon détaillée et circonstanciée, document juridique utilisable en justice grâce à notre agrément C.N.A.P.S d'enquêteur professionnel.</span>
+                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope
+                            itemtype="https://schema.org/Thing">
+                            <span itemprop="name">{{ 'engagement.item9' | translate }}</span>
                         </p>
                         <meta itemprop="position" content="9">
                     </li>
@@ -198,8 +201,9 @@
                     <li class="engagement-item d-flex align-items-center bg-white rounded-3 shadow-sm p-4 border h-100"
                         role="listitem" itemscope itemtype="https://schema.org/ListItem"
                         (click)="trackEngagementInteraction('facturation')">
-                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope itemtype="https://schema.org/Thing">
-                            <span itemprop="name">Éditer une facture légale et transparente pour le paiement de nos honoraires d'enquêteur privé agréé.</span>
+                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope
+                            itemtype="https://schema.org/Thing">
+                            <span itemprop="name">{{ 'engagement.item10' | translate }}</span>
                         </p>
                         <meta itemprop="position" content="10">
                     </li>
@@ -210,8 +214,9 @@
                     <li class="engagement-item d-flex align-items-center bg-white rounded-3 shadow-sm p-4 border h-100"
                         role="listitem" itemscope itemtype="https://schema.org/ListItem"
                         (click)="trackEngagementInteraction('confidentialite')">
-                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope itemtype="https://schema.org/Thing">
-                            <span itemprop="name">Vous garantir une totale confidentialité (secret professionnel d'enquêteur privé) concernant l'objet et la finalité de nos interventions d'investigation.</span>
+                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope
+                            itemtype="https://schema.org/Thing">
+                            <span itemprop="name">{{ 'engagement.item11' | translate }}</span>
                         </p>
                         <meta itemprop="position" content="11">
                     </li>
@@ -222,8 +227,9 @@
                     <li class="engagement-item d-flex align-items-center bg-white rounded-3 shadow-sm p-4 border h-100"
                         role="listitem" itemscope itemtype="https://schema.org/ListItem"
                         (click)="trackEngagementInteraction('satisfaction-client')">
-                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope itemtype="https://schema.org/Thing">
-                            <span itemprop="name">S'assurer de la satisfaction de nos clients employeurs en fournissant un service d'enquête privée de haute qualité et une investigation professionnelle irréprochable.</span>
+                        <p class="engagement-text mb-0 text-dark lh-lg" itemprop="item" itemscope
+                            itemtype="https://schema.org/Thing">
+                            <span itemprop="name">{{ 'engagement.item12' | translate }}</span>
                         </p>
                         <meta itemprop="position" content="12">
                     </li>
@@ -233,9 +239,10 @@
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <blockquote class="engagement fst-italic fw-semibold text-danger text-center fs-5 p-4 bg-opacity-10 border border-danger border-opacity-30 rounded-3 mx-auto"
-                               itemscope itemtype="https://schema.org/Quotation">
-                        <span itemprop="text">Confidentialité absolue, discrétion professionnelle et efficacité d'investigation sont nos engagements d'enquêteur privé agréé CNAPS.</span>
+                    <blockquote
+                        class="engagement fst-italic fw-semibold text-danger text-center fs-5 p-4 bg-opacity-10 border border-danger border-opacity-30 rounded-3 mx-auto"
+                        itemscope itemtype="https://schema.org/Quotation">
+                        <span itemprop="text">{{ 'engagement.quote' | translate }}</span>
                     </blockquote>
                 </div>
             </div>
@@ -243,38 +250,40 @@
     </section>
 
     <!-- Certification Section enrichi -->
-    <section class="prevention-section py-5" aria-labelledby="certification-title"
-             itemscope itemtype="https://schema.org/EducationalOccupationalCredential">
+    <section class="prevention-section py-5" aria-labelledby="certification-title" itemscope
+        itemtype="https://schema.org/EducationalOccupationalCredential">
         <div class="position-absolute top-0 start-50 translate-middle-x"
             style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;"
             aria-hidden="true">
         </div>
         <div class="container">
-            <h2 id="certification-title" class="text-center mb-5 fw-bold text-primary position-relative" itemprop="name">
-                Certification Officielle et Agrément CNAPS d'Enquêteur Privé Professionnel
+            <h2 id="certification-title" class="text-center mb-5 fw-bold text-primary position-relative"
+                itemprop="name">
+                {{ 'engagement.certification.title' | translate }}
             </h2>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <p class="fs-5 lh-lg text-primary bg-light rounded-3 p-4 mb-4 border-start border-danger border-4 shadow-sm"
-                       itemprop="description">
-                        Conformément à la législation en vigueur sur les professions réglementées d'enquêteur privé et détective professionnel, tous nos documents
-                        commerciaux et officiels comportent les références de nos agréments d'investigation privée délivrés par le
+                        itemprop="description">
+                        {{ 'engagement.certification.description1' | translate }}
                         <strong itemprop="recognizedBy" itemscope itemtype="https://schema.org/Organization">
-                            <span itemprop="name">Conseil National des Activités Privées de Sécurité (C.N.A.P.S)</span>
-                        </strong>, établissement
-                        public administratif placé sous tutelle du ministère de l'Intérieur pour la régulation des enquêteurs privés agréés.
+                            <span itemprop="name">{{ 'engagement.certification.description2' | translate }}</span>
+                        </strong>, {{ 'engagement.certification.description3' | translate }}
+
                     </p>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="certification-badge bg-white rounded-4 shadow-lg p-4 border border-primary border-2 d-flex align-items-center gap-4 flex-column flex-md-row text-center text-md-start"
-                        role="img" aria-label="Badge de certification CNAPS enquêteur privé" itemscope itemtype="https://schema.org/Badge">
+                        role="img" aria-label="Badge de certification CNAPS enquêteur privé" itemscope
+                        itemtype="https://schema.org/Badge">
                         <span class="badge-icon fs-1 text-primary" aria-hidden="true">🏛️</span>
                         <div class="badge-content">
-                            <h3 class="text-primary fs-4 mb-2 fw-semibold" itemprop="name">Agrément C.N.A.P.S Enquêteur Privé</h3>
+                            <h3 class="text-primary fs-4 mb-2 fw-semibold" itemprop="name">
+                                {{ 'engagement.certification.badge.title' | translate }}</h3>
                             <p class="text-secondary mb-0 fs-6" itemprop="description">
-                                Certification officielle d'enquêteur privé professionnel sous tutelle du Ministère de l'Intérieur
+                                {{ 'engagement.certification.badge.description' | translate }}.
                             </p>
                         </div>
                     </div>

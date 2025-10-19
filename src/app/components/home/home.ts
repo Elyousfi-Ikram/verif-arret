@@ -2,11 +2,14 @@ import { Component, OnInit, Inject, PLATFORM_ID, DOCUMENT } from '@angular/core'
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
+import { SEO_KEYWORDS, getKeywordsByCategory } from '../../config/seo-keywords.config';
+import { TranslatePipe } from '../../pipes/translate.pipe';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe], // Ajouter TranslatePipe
   templateUrl: './home.html',
   styleUrls: ['./home.scss']
 })
@@ -20,7 +23,8 @@ export class HomeComponent implements OnInit {
     private title: Title,
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    public translationService: TranslationService // Ajouter le service
   ) {}
 
   ngOnInit(): void {
@@ -30,13 +34,18 @@ export class HomeComponent implements OnInit {
   }
 
   private setSEOMetadata(): void {
-    // Titre optimisé pour le CTR
-    this.title.setTitle('Enquêteur Privé Arrêt Maladie | Vérification Légale | VERIF-ARRÊT');
+    // Utilisation des mots-clés configurés
+    const primaryKeywords = getKeywordsByCategory('primary');
+    const geoKeywords = getKeywordsByCategory('geographic');
     
-    // Meta description unique et engageante
+    // Titre optimisé avec mots-clés principaux
+    this.title.setTitle(`${primaryKeywords[0]} | ${primaryKeywords[3]} | VERIF-ARRÊT`);
+    
+    // Meta description avec rotation des mots-clés
+    const keywordString = primaryKeywords.slice(0, 3).join(', ');
     this.meta.updateTag({
       name: 'description',
-      content: 'Enquêteur privé agréé CNAPS spécialisé dans la vérification d\'arrêts maladie. Surveillance légale, rapports détaillés, intervention 24h/7j partout en France. Devis gratuit.'
+      content: `${keywordString}. Enquêteur privé agréé CNAPS spécialisé dans la vérification d'arrêts maladie. Surveillance légale, rapports détaillés, intervention 24h/7j partout en France. Devis gratuit.`
     });
 
     // SUPPRESSION TOTALE des meta keywords

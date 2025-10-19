@@ -3,11 +3,14 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { CallbackModalComponent } from '../modal/callback-modal/callback-modal.component';
+import { SEO_KEYWORDS, getKeywordsByCategory } from '../../config/seo-keywords.config';
+import { TranslatePipe } from '../../pipes/translate.pipe';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-decouvrir',
   standalone: true,
-  imports: [CommonModule, CallbackModalComponent],
+  imports: [CommonModule, CallbackModalComponent, TranslatePipe],
   templateUrl: './decouvrir.html',
   styleUrls: ['./decouvrir.scss']
 })
@@ -18,7 +21,8 @@ export class DecouvrirComponent implements OnInit {
     private meta: Meta,
     private title: Title,
     private router: Router,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    public translationService: TranslationService
   ) {}
 
   ngOnInit(): void {
@@ -40,13 +44,17 @@ export class DecouvrirComponent implements OnInit {
   }
 
   private setSEOMetadata(): void {
-    // Titre optimisé pour Olivier Lagarde
-    this.title.setTitle('Olivier Lagarde | Enquêteur Privé Agréé CNAPS | 30 ans d\'expérience | VERIF-ARRÊT');
+    // Utilisation des mots-clés professionnels
+    const professionalKeywords = getKeywordsByCategory('professional');
+    const primaryKeywords = getKeywordsByCategory('primary');
     
-    // Meta description unique sur le fondateur
+    // Titre optimisé pour Olivier Lagarde avec mots-clés
+    this.title.setTitle(`Olivier Lagarde | ${professionalKeywords[0]} | 30 ans d'expérience | VERIF-ARRÊT`);
+    
+    // Meta description avec mots-clés professionnels
     this.meta.updateTag({ 
       name: 'description', 
-      content: 'Découvrez Olivier Lagarde, enquêteur privé agréé CNAPS avec 30 ans d\'expérience. Ancien des Forces Spéciales, fondateur de VERIF-ARRÊT, expert en investigation privée.' 
+      content: `Découvrez Olivier Lagarde, ${professionalKeywords[0]} avec 30 ans d'expérience. Ancien des Forces Spéciales, fondateur de VERIF-ARRÊT, expert en ${primaryKeywords[2]}.` 
     });
     
     this.meta.updateTag({ name: 'robots', content: 'index, follow' });

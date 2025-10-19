@@ -6,6 +6,8 @@ import { Subscription } from 'rxjs';
 import { LegalModalService } from '../../services/legal-modal.service';
 import { PolicyModalService } from '../../services/policy-modal.service';
 import { CookiesModalService } from '../../services/cookies-modal.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
+import { TranslationService } from '../../services/translation.service';
 
 // Déclaration TypeScript pour gtag
 declare let gtag: Function;
@@ -23,7 +25,7 @@ export interface AddressItem {
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, ModalComponent],
+  imports: [CommonModule, ModalComponent, TranslatePipe],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
@@ -43,7 +45,8 @@ export class FooterComponent implements OnInit, OnDestroy {
     private reviewsModalService: ReviewsModalService,
     private legalModalService: LegalModalService,
     private policyModalService: PolicyModalService,
-    private cookiesModalService: CookiesModalService
+    private cookiesModalService: CookiesModalService,
+    public translationService: TranslationService
   ) { }
 
   ngOnInit() {

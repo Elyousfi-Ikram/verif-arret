@@ -1,74 +1,100 @@
 <!-- Balises méta SEO pour modal mentions légales -->
-<meta name="description"
-    content="Mentions légales VERIF-ARRÊT - Enquêteur privé agréé CNAPS Niort - SIREN 991192519 - Investigation professionnelle - Hébergement IONOS">
-<meta name="keywords"
-    content="mentions légales enquêteur privé, VERIF-ARRÊT Niort, SIREN 991192519, detective privé agréé, investigation légale, enquête privée professionnelle, Sud Intelligence mentions, hébergement IONOS">
-<meta name="legal-keywords"
-    content="éditeur site enquêteur, SIRET investigation, propriété intellectuelle detective, hébergement professionnel, mentions légales CNAPS">
-<meta name="geo-keywords"
-    content="enquêteur privé Niort, detective Deux-Sèvres, investigation 79000, Sud Intelligence Niort">
+<meta name="description" [attr.content]="'legal.modal.seo.description' | translate">
+<meta name="keywords" [attr.content]="'legal.modal.seo.keywords' | translate">
+<meta name="legal-keywords" [attr.content]="'legal.modal.seo.legalKeywords' | translate">
+<meta name="geo-keywords" [attr.content]="'legal.modal.seo.geoKeywords' | translate">
 
 @if (isOpen) {
 <div class="ig-modal-overlay" (click)="onOverlayClick($event)" itemscope itemtype="https://schema.org/AboutPage"
-    aria-label="Modal mentions légales VERIF-ARRÊT">
-    <div class="ig-modal-container" title="Mentions légales VERIF-ARRÊT - Enquêteur privé agréé CNAPS">
+    [attr.aria-label]="'legal.modal.open.ariaLabel' | translate">
+    <div class="ig-modal-container" [attr.title]="'legal.modal.container.title' | translate">
         <div class="d-flex justify-content-between align-items-center p-4 border-bottom ig-modal-header">
-            <h3 class="mb-0" itemprop="name" title="Mentions légales VERIF-ARRÊT enquêteur privé Niort">Mentions Légales
+            <h3 class="mb-0" itemprop="name" [attr.title]="'legal.modal.header.titleAttr' | translate">
+                {{ 'legal.modal.header.title' | translate }}
             </h3>
-            <button class="ig-modal-close-btn" (click)="onClose()" aria-label="Fermer mentions légales enquêteur privé"
-                title="Fermer informations légales VERIF-ARRÊT">
+            <button class="ig-modal-close-btn" (click)="onClose()"
+                [attr.aria-label]="'legal.modal.close.ariaLabel' | translate"
+                [attr.title]="'legal.modal.close.title' | translate">
                 ×
             </button>
         </div>
         <div class="p-4" itemprop="mainContentOfPage">
             <div class="ig-modal-content" itemscope itemtype="https://schema.org/Organization"
-                aria-label="Informations légales VERIF-ARRÊT enquêteur privé">
-                <h3 title="Éditeur site VERIF-ARRÊT enquêteur privé agréé">Éditeur du site</h3>
-                <p itemprop="legalName" title="Raison sociale VERIF-ARRÊT detective privé Niort">
-                    <strong>VERIF-ARRÊT<span class="copyright-text">®</span></strong><br>
+                [attr.aria-label]="'legal.modal.content.ariaLabel' | translate">
+                <h3 [attr.title]="'legal.modal.publisher.titleAttr' | translate">
+                    {{ 'legal.modal.publisher.title' | translate }}
+                </h3>
+                <p itemprop="legalName" [attr.title]="'legal.modal.publisher.legalNameTitle' | translate">
+                    <span [innerHTML]="'legal.modal.publisher.brandHtml' | translate"></span><br>
                     <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"
-                        title="Adresse enquêteur privé VERIF-ARRÊT Niort">
+                        [attr.title]="'legal.modal.publisher.address.title' | translate">
                         <span itemprop="streetAddress">37 Rue Saint Symphorien</span>,
                         <span itemprop="postalCode">79000</span>
                         <span itemprop="addressLocality">Niort</span>
                     </span><br>
-                    <span title="Téléphone contact enquêteur privé VERIF-ARRÊT">Téléphone : <span
-                            itemprop="telephone">06 07 25 74 27</span></span><br>
-                    <span title="Email contact detective privé VERIF-ARRÊT">Email : <span
-                            itemprop="email">verifarret@gmail.fr</span></span><br>
-                    <span title="SIREN enquêteur privé VERIF-ARRÊT">SIREN : <span itemprop="taxID">991 192
-                            519</span></span><br>
-                    <span title="SIRET detective privé VERIF-ARRÊT Niort">SIRET : 991 192 519 00015</span><br>
-                    <span title="CODE APE enquêteur privé VERIF-ARRÊT">CODE APE : 8030Z</span><br>
-
+                    <span [attr.title]="'legal.modal.publisher.telephone.title' | translate">
+                        {{ 'legal.modal.publisher.telephone.label' | translate }}
+                        <span itemprop="telephone">06 07 25 74 27</span>
+                    </span><br>
+                    <span [attr.title]="'legal.modal.publisher.email.title' | translate">
+                        {{ 'legal.modal.publisher.email.label' | translate }}
+                        <span itemprop="email">verifarret@gmail.com</span>
+                    </span><br>
+                    <span [attr.title]="'legal.modal.publisher.siren.title' | translate">
+                        {{ 'legal.modal.publisher.siren.label' | translate }}
+                        <span itemprop="taxID">991 192 519</span>
+                    </span><br>
+                    <span [attr.title]="'legal.modal.publisher.siret.title' | translate">
+                        {{ 'legal.modal.publisher.siret.label' | translate }}
+                        991 192 519 00015
+                    </span><br>
+                    <span [attr.title]="'legal.modal.publisher.codeApe.title' | translate">
+                        {{ 'legal.modal.publisher.codeApe.label' | translate }}
+                        8030Z
+                    </span><br>
                 </p>
 
-                <h3 title="Hébergement site enquêteur privé VERIF-ARRÊT">Hébergement</h3>
-                <p itemscope itemtype="https://schema.org/Organization" title="Hébergeur IONOS site detective privé">
-                    <span title="Nom hébergeur site enquêteur privé">Hébergeur : <span itemprop="name">IONOS
-                            SARL</span></span><br>
+                <h3 [attr.title]="'legal.modal.hosting.title' | translate">
+                    {{ 'legal.modal.hosting.title' | translate }}
+                </h3>
+                <p itemscope itemtype="https://schema.org/Organization"
+                    [attr.title]="'legal.modal.hosting.orgTitle' | translate">
+                    <span [attr.title]="'legal.modal.hosting.provider.label' | translate">
+                        {{ 'legal.modal.hosting.provider.label' | translate }}
+                        <span itemprop="name">IONOS SARL</span>
+                    </span><br>
                     <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"
-                        title="Adresse hébergeur IONOS">
-                        Adresse : <span itemprop="streetAddress">7 place de la Gare, BP 70109</span>,
+                        [attr.title]="'legal.modal.hosting.address.title' | translate">
+                        {{ 'legal.modal.hosting.address.label' | translate }}
+                        <span itemprop="streetAddress">7 place de la Gare, BP 70109</span>,
                         <span itemprop="postalCode">57200</span>
-                        <span itemprop="addressLocality">Sarreguemines Cedex</span>,
+                        <span itemprop="addressLocality"> Sarreguemines Cedex</span>,
                         <span itemprop="addressCountry">France</span>
                     </span><br>
-                    <span title="Téléphone hébergeur IONOS">Téléphone : <span itemprop="telephone">0970 808 911</span>
-                        (appel non surtaxé)</span><br>
-                    <span title="Email hébergeur IONOS">Email : <span itemprop="email">info@ionos.fr</span></span>
+                    <span [attr.title]="'legal.modal.hosting.phone.title' | translate">
+                        {{ 'legal.modal.hosting.phone.label' | translate }}
+                        <span itemprop="telephone">09 70 80 89 11</span>
+                        {{ 'legal.modal.hosting.phone.note' | translate }}
+                    </span><br>
+                    <span [attr.title]="'legal.modal.hosting.email.title' | translate">
+                        {{ 'legal.modal.hosting.email.label' | translate }}
+                        <span itemprop="email">info@ionos.fr</span>
+                    </span>
                 </p>
 
-                <h3 title="Propriété intellectuelle site enquêteur privé">Propriété intellectuelle</h3>
-                <p title="Droits auteur site VERIF-ARRÊT detective privé">L'ensemble de ce site relève de la législation
-                    française et internationale sur le droit d'auteur
-                    et la propriété intellectuelle.</p>
+                <h3 [attr.title]="'legal.modal.ip.titleAttr' | translate">
+                    {{ 'legal.modal.ip.title' | translate }}
+                </h3>
+                <p [attr.title]="'legal.modal.ip.titleAttr' | translate">
+                    {{ 'legal.modal.ip.text' | translate }}
+                </p>
             </div>
         </div>
         <div class="d-flex justify-content-end pt-3 px-5 pb-5 border-top">
-            <button class="ig-btn-secondary" (click)="onClose()" aria-label="Fermer mentions légales VERIF-ARRÊT"
-                title="Fermer informations légales enquêteur privé">
-                Fermer
+            <button class="ig-btn-secondary" (click)="onClose()"
+                [attr.aria-label]="'legal.modal.footer.close.ariaLabel' | translate"
+                [attr.title]="'legal.modal.footer.close.title' | translate">
+                {{ 'legal.modal.footer.close.label' | translate }}
             </button>
         </div>
     </div>
@@ -94,7 +120,7 @@
       "addressCountry": "FR"
     },
     "telephone": "06 07 25 74 27",
-    "email": "verifarret@gmail.fr",
+    "email": "verifarret@gmail.com",
     "description": "Enquêteur privé agréé CNAPS spécialisé en vérification d'arrêt de travail et investigation professionnelle",
     "serviceType": ["Investigation privée", "Vérification arrêt maladie", "Contrôle terrain", "Enquête professionnelle"]
   }

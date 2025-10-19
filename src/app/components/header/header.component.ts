@@ -1,21 +1,25 @@
 import { Component, signal } from '@angular/core';
 import { CallbackModalService } from '../../services/callback-modal.service';
 import { ControlModalService } from '../../services/control-modal.service';
+import { TranslationService, Language } from '../../services/translation.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
   // État du menu mobile
   protected readonly isMobileMenuOpen = signal(false);
-
+  
   constructor(
     private callbackModalService: CallbackModalService,
-    private controlModalService: ControlModalService
+    private controlModalService: ControlModalService,
+    public translationService: TranslationService
   ) {}
 
   // Gestionnaire pour le menu hamburger
@@ -34,5 +38,14 @@ export class HeaderComponent {
 
   onControlClick(): void {
     this.controlModalService.openModal();
+  }
+  
+  // Gestionnaire pour le changement de langue
+  toggleLanguage(): void {
+    this.translationService.toggleLanguage();
+  }
+  
+  getCurrentLanguage(): Language {
+    return this.translationService.getCurrentLanguage();
   }
 }

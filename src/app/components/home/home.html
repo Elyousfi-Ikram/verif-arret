@@ -7,16 +7,14 @@
                 <div class="hero-text flex-fill">
                     <header class="hero-header">
                         <h1 class="mb-4 text-white" itemprop="name">
-                            Enquêteur privé agréé pour vérification d'arrêts maladie et accidents du travail - VERIF-ARRÊT
+                            {{ 'home.hero.title' | translate }} - <strong class="verif-arret-brand"
+                                itemprop="brand">VERIF-ARRÊT</strong>
                         </h1>
                     </header>
                     <div class="hero-description d-flex justify-content-center">
                         <p class="text-description text-center text-white m-0" itemprop="description">
-                            En choisissant <strong class="verif-arret-brand" itemprop="brand">VERIF-ARRÊT</strong>, vous
-                            bénéficiez d'un partenaire reconnu et certifié dans le domaine de l'investigation,
-                            afin d'effectuer des contrôles légaux sur l'arrêt de travail (arrêt maladie ou accident de travail)
-                            sur votre employé(e). Notre procédure respecte totalement la vie privée de votre salarié(e)
-                            et nous intervenons dans les délais prescrits par le médecin.
+                            {{ 'home.hero.description1' | translate }} <strong class="verif-arret-brand"
+                                itemprop="brand">VERIF-ARRÊT</strong>, {{ 'home.hero.description2' | translate }}
                         </p>
                     </div>
                 </div>
@@ -25,43 +23,34 @@
     </section>
 
     <!-- Absenteeism Section -->
-    <section class="absenteeism-section position-relative py-5" aria-labelledby="absenteeism-title"
-        itemscope itemtype="https://schema.org/Service">
+    <section class="absenteeism-section position-relative py-5" aria-labelledby="absenteeism-title" itemscope
+        itemtype="https://schema.org/Service">
         <div class="position-absolute top-0 start-50 translate-middle-x"
             style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;">
         </div>
         <div class="container">
             <h2 id="absenteeism-title" class="mb-4 text-center position-relative" itemprop="name">
-                Absentéisme abusif : Comment réagir efficacement ?
+                {{ 'home.absenteeism.title' | translate }}
             </h2>
-            <div class="absenteeism-content d-flex my-5 align-items-center justify-content-center flex-column flex-md-row">
+            <div
+                class="absenteeism-content d-flex my-5 align-items-center justify-content-center flex-column flex-md-row">
                 <div class="absenteeism-image mb-4 mb-md-0">
-                    <img src="/assets/home/arret-travail.webp" 
-                         alt="Enquêteur privé vérifiant un arrêt de travail - Service VERIF-ARRÊT" 
-                         loading="lazy"
-                         class="img-fluid rounded" 
-                         width="400" 
-                         height="300"
-                         itemprop="image" />
+                    <img src="/assets/home/arret-travail.webp"
+                        alt="Enquêteur privé vérifiant un arrêt de travail - Service VERIF-ARRÊT" loading="lazy"
+                        class="img-fluid rounded" width="400" height="300" itemprop="image" />
                 </div>
                 <div class="absenteeism-text flex-fill ms-md-4">
                     <div itemprop="description">
                         <p class="m-0 text-justify">
-                            Face à un doute légitime concernant le respect d'un arrêt de travail,
-                            l'employeur a le droit de faire appel à un enquêteur professionnel agréé CNAPS.
-                            Notre mission consiste à vérifier discrètement et en toute confidentialité si votre
-                            salarié(e) en arrêt maladie ou accident de travail respecte bien les
-                            prescriptions médicales et les restrictions d'activité imposées.
-                            Cette démarche légale protège votre entreprise contre la fraude aux arrêts de travail.
+                            {{ 'home.absenteeism.description' | translate }}
                         </p>
                     </div>
                 </div>
             </div>
             <button type="button"
                 class="cta-button d-block mx-auto position-relative btn btn-primary rounded-pill px-4 py-3 text-uppercase fw-bold"
-                (click)="onNavigateToServices(); trackUserInteraction('cta_services', 'button_click')"
-                aria-label="Découvrir nos services de vérification d'arrêts de travail">
-                Découvrir nos services
+                (click)="onNavigateToServices(); trackUserInteraction('cta_services', 'button_click')">
+                {{ 'home.absenteeism.btn' | translate }}
             </button>
         </div>
     </section>
@@ -72,23 +61,15 @@
         </div>
         <div class="container">
             <div class="prevention-content mx-auto">
-                <h2 id="prevention-title" class="text-center position-relative">La prévention par le contrôle sur le
-                    terrain</h2>
+                <h2 id="prevention-title" class="text-center position-relative">
+                    {{ 'home.prevention.title' | translate }}
+                </h2>
                 <div class="prevention-text my-5 p-3 bg-light rounded border-start border-danger border-4">
                     <p class="text-justify mb-3">
-                        Vous avez des interrogations ou des doutes sur la veracité d'un arrêt maladie ou de travail ?
-                        Vous souhaitez protéger votre entreprise ?
-                        Alors vous avez besoin d'un enquêteur professionnel agréé C.N.A.P.S pour vos vérifications.
+                        {{ 'home.prevention.description1' | translate }}
                     </p>
                     <p class="text-justify mb-0">
-                        Nous vous proposons un service d'investigation professionnel avec des interventions rapides et
-                        des
-                        rapports détaillés (écrits et photographiques) et circontanciés, utilisables devant les
-                        tribunaux et
-                        transmissibles auprès de la Sécurité Sociale et l'U.R.S.S.A.F.
-                        Notre réseau d'enquêteurs expérimentés nous permet d'opérer sur tout le territoire national avec
-                        une
-                        extrême rigueur.
+                        {{ 'home.prevention.description2' | translate }}
                     </p>
                 </div>
             </div>
@@ -102,146 +83,112 @@
         <div class="container">
             <header class="decouvrir-hero mb-5 text-center">
                 <h2 id="decouvrir-title" class="mb-4 text-center position-relative">
-                    Arrêt maladie ou accident du travail :
+                    {{ 'home.intro.title' | translate }}
                     <br>
-                    <span class="highlight-text d-block mt-3"> vérifiez la légitimité avec un enquêteur privé</span>
+                    <span class="highlight-text d-block mt-3">
+                        {{ 'home.intro.subtitle' | translate }}
+                    </span>
                 </h2>
-                <h3 class="hero-subtitle mb-0 text-center position-relative">Notre objectif: lutter contre les arrêts de
-                    travail abusifs</h3>
+                <h3 class="hero-subtitle mb-0 text-center position-relative">
+                    {{ 'home.intro.objective' | translate }}
+                </h3>
             </header>
-            <p class="mb-4 p-4 text-justify bg-light rounded border-start border-danger border-4"> A l'heure où les
-                arrêts de travail explosent en France (plus de 59%), un arrêt de travail
-                injustifié, voir douteux, peut avoir des conséquences sérieuses pour votre entreprise telles que :
-                la
-                désorganisation de vos équipes, la surcharge de tavail pour vos collaborateurs,
-                la perte de productivité, ou les encore coûts supplémentaires liés au remplacement du salarié(e)
-                absent ou à son complément salaire.
+            <p class="mb-4 p-4 text-justify bg-light rounded border-start border-danger border-4">
+                {{ 'home.intro.description1' | translate }}
             </p>
             <p class="mb-4 p-4 text-justify bg-light rounded border-start border-danger border-4">
-                Face à ces abus potentiels qui engendrent un stress supplémentaire, le recours à un enquêteur privé
-                agréé permet de vérifier
-                objectivement la situation réelle du salarié(e) sur le terrain, dans le respect du cadre légal.
+                {{ 'home.intro.description2' | translate }}
             </p>
         </div>
     </section>
 
     <!-- Section Quand un arrêt devient suspect -->
     <section class="suspect-section position-relative py-5"
-             title="Arrêt travail suspect enquêteur privé investigation vérification surveillance contrôle absentéisme fraude">
+        title="Arrêt travail suspect enquêteur privé investigation vérification surveillance contrôle absentéisme fraude">
         <div class="position-absolute top-0 start-50 translate-middle-x"
             style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;">
         </div>
         <div class="container px-3">
             <h2 class="text-center position-relative"
                 title="Arrêt travail suspect maladie accident enquêteur privé investigation vérification surveillance contrôle">
-                Quand un arrêt de travail devient suspect
+                {{ 'home.suspect.title' | translate }}
             </h2>
             <p class="my-3 text-justify"
-               title="Arrêt travail maladie accident droit élément médical justifié prescription médecin">
-                Un arrêt de travail - qu'il s'agisse d'un arrêt maladie ou d'un accident du travail -
-                est un droit, sous réserve qu'il repose sur des éléments médicaux justifiés.
+                title="Arrêt travail maladie accident droit élément médical justifié prescription médecin">
+                {{ 'home.suspect.intro' | translate }}
             </p>
 
             <div class="medecin-prescriptions d-flex flex-column align-items-center p-3 my-3 position-relative bg-white rounded"
-                 title="Médecin prescripteur autorisation restriction sortie salarié horaire présence obligatoire domicile déplacement département étranger accord CPAM">
+                title="Médecin prescripteur autorisation restriction sortie salarié horaire présence obligatoire domicile déplacement département étranger accord CPAM">
                 <h3 class="mb-3"
                     title="Médecin prescripteur pouvoir autorisation restriction contrôle arrêt maladie accident travail">
-                    Le médecin prescripteur peut :
+                    {{ 'home.suspect.doctor.title' | translate }}
                 </h3>
                 <ul class="my-4 ps-0 d-flex flex-column align-items-start justify-content-start list-unstyled">
                     <li class="ps-4 py-1 mb-2 position-relative"
                         title="Autorisation restriction sortie salarié arrêt maladie accident travail médecin prescripteur">
-                        autoriser ou restreindre les sorties du salarié,
+                        {{ 'home.suspect.doctor.item1' | translate }}
                     </li>
                     <li class="ps-4 py-1 mb-2 position-relative"
                         title="Horaire présence obligatoire domicile 9h-11h 14h-16h arrêt maladie accident travail contrôle">
-                        fixer les horaires de présence obligatoire à domicile (souvent 9h-11h et 14h-16h),
+                        {{ 'home.suspect.doctor.item2' | translate }}
                     </li>
                     <li class="ps-4 py-1 mb-2 position-relative"
                         title="Interdiction déplacement département étranger accord préalable CPAM arrêt maladie accident travail">
-                        interdire les déplacements hors département ou à l'étranger sans accord préalable de la CPAM.
+                        {{ 'home.suspect.doctor.item3' | translate }}
                     </li>
                 </ul>
             </div>
 
             <p class="my-3 text-justify"
-               title="Salarié abus droit activité professionnelle travail dissimulé condamnable pénal tribunal Article L8221-1 L8221-5 Code travail">
-                Cependant, certain(e)s salarié(e)s abusent de ce droit en exerçant une autre activité
-                professionnelle qui s'avère être un travail dissimulé, condanable sur le plan pénal devant les
-                tribunaux,
-                <em> <span class="clickable-article position-relative" (click)="toggleCodeTravailArticles()"
-                           title="Article L8221-1 L8221-5 Code travail travail dissimulé interdiction sanction pénal">
-                        Article L8221-1 à L8221-5 du Code du travail
-                    </span> </em> .
+                title="Salarié abus droit activité professionnelle travail dissimulé condamnable pénal tribunal Article L8221-1 L8221-5 Code travail">
+                {{ 'home.suspect.abuse' | translate }}
+                <em>
+                    <span class="clickable-article position-relative" (click)="toggleCodeTravailArticles()"
+                        title="Article L8221-1 L8221-5 Code travail travail dissimulé interdiction sanction pénal">
+                        {{ 'home.suspect.article' | translate }}
+                    </span>
+                </em>.
             </p>
 
             @if (showCodeTravailArticles)
             { <div
                 class="article-content p-4 my-3 position-relative bg-white rounded border-start border-danger border-4 shadow-sm"
                 title="Code travail Article L8221-1 L8221-5 travail dissimulé interdiction définition sanction pénal">
-                <strong>Article L8221-1</strong><br />
-                Sont interdits :<br />
-                1 - Le travail totalement ou partiellement dissimulé, défini et exercé dans les conditions prévues
-                aux articles L. 8221-3 et L8221-5 ;<br />
-                2 - La publicité, par quelque moyen que ce soit, tendant à favoriser, en toute connaissance de
-                cause, le travail dissimulé ;<br />
-                3 - Le fait de recourir sciemment, directement ou par personne interposée, aux services de celui qui
-                exerce un travail dissimulé.<br /><br />
+                <strong>{{ 'home.detective.article_l8221_1_title' | translate }}</strong><br />
+                {{ 'home.detective.article_l8221_1_subtitle' | translate }}<br />
+                1 - {{ 'home.detective.article_l8221_1_item1' | translate }};<br />
+                2 - {{ 'home.detective.article_l8221_1_item2' | translate }};<br />
+                3 - {{ 'home.detective.article_l8221_1_item3' | translate }}.<br /><br />
 
-                <strong>Article L8221-2</strong><br />
-                Sont exclus des interdictions prévues au présent chapitre, les travaux d'urgence dont l'exécution
-                immédiate est nécessaire pour prévenir les accidents imminents ou organiser les mesures de
-                sauvetage.<br /><br />
+                <strong>{{ 'home.detective.article_l8221_2_title' | translate }}</strong><br />
+                {{ 'home.detective.article_l8221_2_content' | translate }}<br /><br />
 
-                <strong>Article L8221-3</strong><br />
-                Est réputé travail dissimulé par dissimulation d'activité, l'exercice à but lucratif d'une activité
-                de production, de transformation, de réparation ou de prestation de services ou l'accomplissement
-                d'actes de commerce par toute personne qui, se soustrayant intentionnellement à ses obligations
-                :<br />
-                1 - Soit n'a pas demandé son immatriculation au registre national des entreprises en tant
-                qu'entreprise du secteur des métiers et de l'artisanat ou au registre du commerce et des sociétés,
-                lorsque celle-ci est obligatoire, ou a poursuivi son activité après refus d'immatriculation, ou
-                postérieurement à une radiation ;<br />
-                2 - Soit n'a pas procédé aux déclarations qui doivent être faites aux organismes de protection
-                sociale ou à l'administration fiscale en vertu des dispositions légales en vigueur. Cette situation
-                peut notamment résulter de la non-déclaration d'une partie de son chiffre d'affaires ou de ses
-                revenus ou de la continuation d'activité après avoir été radié par les organismes de protection
-                sociale en application de l'article L. 613-4 du code de la sécurité sociale ;<br />
-                3 - Soit s'est prévalue des dispositions applicables au détachement de salariés lorsque l'employeur
-                de ces derniers exerce dans l'Etat sur le territoire duquel il est établi des activités relevant
-                uniquement de la gestion interne ou administrative, ou lorsque son activité est réalisée sur le
-                territoire national de façon habituelle, stable et continue.<br /><br />
+                <strong>{{ 'home.detective.article_l8221_3_title' | translate }}</strong><br />
+                {{ 'home.detective.article_l8221_3_content' | translate }}<br />
+                {{ 'home.detective.article_l8221_3_item1' | translate }}<br />
+                {{ 'home.detective.article_l8221_3_item2' | translate }}<br />
+                {{ 'home.detective.article_l8221_3_item3' | translate }}<br /><br />
 
-                <strong>Article L8221-4</strong><br />
-                Les activités mentionnées à l'article L. 8221-3 sont présumées, sauf preuve contreaire, accomplies à
-                titre lucratif :<br />
-                1 - Soit lorsque leur réalisation a lieu avec recours à la publicité sous une forme quelconque en
-                vue de la recherche de la clientèle ;<br />
-                2 - Soit lorsque leur fréquence ou leur importance est établie ;<br />
-                3 - Soit lorsque la facturation est absente ou frauduleuse ;<br />
-                4 - Soit lorsque, pour des activités artisanales, elles sont réalisées avec un matériel ou un
-                outillage présentant par sa nature ou son importance un caractère professionnel.<br /><br />
+                <strong>{{ 'home.detective.article_l8221_4_title' | translate }}</strong><br />
+                {{ 'home.detective.article_l8221_4_content' | translate }}<br />
+                {{ 'home.detective.article_l8221_4_item1' | translate }}<br />
+                {{ 'home.detective.article_l8221_4_item2' | translate }}<br />
+                {{ 'home.detective.article_l8221_4_item3' | translate }}<br />
+                {{ 'home.detective.article_l8221_4_item4' | translate }}<br /><br />
 
-                <strong>Article L8221-5</strong><br />
-                Est réputé travail dissimulé par dissimulation d'emploi salarié le fait pour tout employeur :<br />
-                1 - Soit de se soustraire intentionnellement à l'accomplissement de la formalité prévue à l'article
-                L. 1221-10, relatif à la déclaration préalable à l'embauche ;<br />
-                2 - Soit de se soustraire intentionnellement à la délivrance d'un bulletin de paie ou d'un document
-                équivalent défini par voie réglementaire, ou de mentionner sur le bulletin de paie ou le document
-                équivalent un nombre d'heures de travail inférieur à celui réellement accompli, si cette mention ne
-                résulte pas d'une convention ou d'un accord collectif d'aménagement du temps de travail conclu en
-                application du titre II du livre Ier de la troisième partie ;<br />
-                3 - Soit de se soustraire intentionnellement aux déclarations relatives aux salaires ou aux
-                cotisations sociales assises sur ceux-ci auprès des organismes de recouvrement des contributions et
-                cotisations sociales ou de l'administration fiscale en vertu des dispositions légales.
+                <strong>{{ 'home.detective.article_l8221_5_title' | translate }}</strong><br />
+                {{ 'home.detective.article_l8221_5_content' | translate }}<br />
+                {{ 'home.detective.article_l8221_5_item1' | translate }}<br />
+                {{ 'home.detective.article_l8221_5_item2' | translate }}<br />
+                {{ 'home.detective.article_l8221_5_item3' | translate }}
             </div>}
         </div>
     </section>
 
     <!-- Section Limites CPAM -->
-    <section class="cpam-section position-relative py-5"
-             itemscope itemtype="https://schema.org/Article"
-             title="Limite contrôle CPAM Caisse Primaire Assurance Maladie enquêteur privé investigation vérification arrêt">
+    <section class="cpam-section position-relative py-5" itemscope itemtype="https://schema.org/Article"
+        title="Limite contrôle CPAM Caisse Primaire Assurance Maladie enquêteur privé investigation vérification arrêt">
         <div class="position-absolute top-0 start-50 translate-middle-x"
             style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;">
         </div>
@@ -249,36 +196,33 @@
             <div class="cpam-container">
                 <h2 class="mb-5 text-center position-relative" itemprop="headline"
                     title="Limite contrôle CPAM Caisse Primaire Assurance Maladie arrêt maladie accident travail enquêteur privé">
-                    Les limites du contrôle par la CPAM <br>(Caisse Primaire d'Assurance Maladie)
+                    {{ 'home.cpam.title' | translate }}<br>
+                    <em>
+                        {{ 'home.cpam.subtitle' | translate }}
+                    </em>
                 </h2>
-                <div class="cpam-content d-flex align-items-center justify-content-between flex-column flex-md-row gap-md-4 gap-sm-4">
+                <div
+                    class="cpam-content d-flex align-items-center justify-content-between flex-column flex-md-row gap-md-4 gap-sm-4">
                     <div class="cpam-text flex-fill mb-4 mb-md-0" itemprop="articleBody">
                         <p class="p-3 mb-3 text-justify bg-white rounded shadow-sm"
-                           title="CPAM contrôle médical rare arrêt courte durée limitation efficacité">
-                            La Caisse Primaire d'Assurance Maladie (CPAM) peut effectuer un contrôle médical,
-                            mais cela reste rare, notamment pour les arrêts de courte durée.
+                            title="CPAM contrôle médical rare arrêt courte durée limitation efficacité">
+                            {{ 'home.cpam.description1' | translate }}
                         </p>
                         <p class="p-3 mb-3 text-justify bg-white rounded shadow-sm"
-                           title="Salarié prévenu contrôle avance condition conforme évaluation inefficace">
-                            De plus, lorsque le salarié est prévenu du contrôle à l'avance, il peut facilement
-                            se "mettre en condition" pour paraître conforme, rendant l'évaluation inefficace.
+                            title="Salarié prévenu contrôle avance condition conforme évaluation inefficace">
+                            {{ 'home.cpam.description2' | translate }}
                         </p>
                         <p class="highlight p-3 text-justify bg-danger bg-opacity-10 rounded border-start border-danger border-4 fw-semibold"
-                           title="Surveillance discrète enquêteur privé agréé solution fiable identifier abus réel objectif prioritaire preuve irréfutable">
-                            C'est pourquoi une surveillance discrète par un enquêteur privé agréé s'impose souvent
-                            comme la solution la plus fiable pour identifier un abus réel. Notre objectif
-                            prioritaire est de vous apporter des preuves irréfutables.
+                            title="Surveillance discrète enquêteur privé agréé solution fiable identifier abus réel objectif prioritaire preuve irréfutable">
+                            {{ 'home.cpam.solution' | translate }}
                         </p>
                     </div>
                     <div class="cpam-image ms-md-4">
-                        <img src="/assets/home/arret-maladie.webp" 
-                             alt="Contrôle arrêt maladie accident travail enquêteur privé agréé CNAPS investigation surveillance discrète vérification absentéisme fraude VERIF-ARRÊT"
-                             class="detective-img img-fluid rounded shadow" 
-                             width="350" 
-                             height="350"
-                             loading="lazy"
-                             itemprop="image"
-                             title="Investigation professionnelle contrôle arrêt maladie accident travail enquêteur privé surveillance vérification" />
+                        <img src="/assets/home/arret-maladie.webp"
+                            alt="Contrôle arrêt maladie accident travail enquêteur privé agréé CNAPS investigation surveillance discrète vérification absentéisme fraude VERIF-ARRÊT"
+                            class="detective-img img-fluid rounded shadow" width="350" height="350" loading="lazy"
+                            itemprop="image"
+                            title="Investigation professionnelle contrôle arrêt maladie accident travail enquêteur privé surveillance vérification" />
                     </div>
                 </div>
             </div>
@@ -287,7 +231,7 @@
 
     <!-- Section Ce que permet un enquêteur -->
     <section class="detective-section position-relative py-5"
-             title="Enquêteur privé agréé certifié habilitation surveillance discrète investigation vérification arrêt travail">
+        title="Enquêteur privé agréé certifié habilitation surveillance discrète investigation vérification arrêt travail">
         <div class="position-absolute top-0 start-50 translate-middle-x"
             style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;">
         </div>
@@ -295,7 +239,7 @@
             <div class="detective-container">
                 <h2 class="mb-5 text-center position-relative"
                     title="Enquêteur privé agréé CNAPS habilitation surveillance investigation vérification contrôle arrêt travail">
-                    Ce que permet un Enquêteur Privé
+                    {{ 'home.detective.title' | translate }}
                 </h2>
                 <div
                     class="detective-content d-flex align-items-center justify-content-between flex-column flex-md-row gap-md-4 gap-sm-4">
@@ -303,68 +247,72 @@
                         <div class="detective-capabilities mb-4">
                             <h3 class="mb-3"
                                 title="Enquêteur privé agréé certifié habilitation surveillance investigation vérification contrôle">
-                                Un enquêteur privé agréé & certifié est habilité à :
+                                {{ 'home.detective.intro' | translate }}
                             </h3>
                             <ul
                                 class="m-0 ps-0 d-flex flex-column align-items-start justify-content-start text-start list-unstyled">
                                 <li class="ps-4 py-1 mb-2 position-relative"
                                     title="Surveillance discrète déplacement salarié vie privée Article 9 Code civil Article 368 Code pénal">
-                                    surveiller discrètement les déplacements du salarié(e) sans porter atteinte à sa vie privée,
+                                    {{ 'home.detective.capabilities.item1' | translate }}
                                     <br />
                                     <em>
                                         <span class="clickable-article position-relative" (click)="toggleArticle9()"
-                                              title="Article 9 Code civil respect vie privée droit protection">
-                                            Article 9 du Code civile
+                                            title="Article 9 Code civil respect vie privée droit protection">
+                                            {{ 'home.detective.article_9_civil_title' | translate }}
                                         </span>
 
-                                        {{ " et " }}
+                                        {{ 'home.detective.conjunction' | translate }}
                                         <span class="clickable-article position-relative" (click)="toggleArticle368()"
-                                              title="Article 368 Code pénal violation domicile atteinte intimité sanction">
-                                            Article 368 du Code pénal
+                                            title="Article 368 Code pénal violation domicile atteinte intimité sanction">
+                                            {{ 'home.detective.article_368_penal_title' | translate }}
                                         </span>
                                         @if (showArticle9)
                                         { <div
                                             class="article-content p-4 my-3 position-relative bg-white rounded border-start border-danger border-4 shadow-sm"
                                             title="Article 9 Code civil respect vie privée protection juge mesure instruction">
-                                            "Chacun a droit au respect de sa vie privée. Les juges peuvent, sans préjudice de la réparation du dommage subi, prescrire toutes mesures, telles que séquestre, saisie et autres, propres à empêcher ou faire cesser une atteinte à l'intimité de la vie privée : ces mesures peuvent, s'il y a urgence, être ordonnées en référé."
+                                            {{ 'home.detective.article_9_civil_content' | translate }}
                                         </div>}
                                         @if (showArticle368)
                                         { <div
                                             class="article-content p-4 my-3 position-relative bg-white rounded border-start border-danger border-4 shadow-sm"
                                             title="Article 368 Code pénal violation domicile atteinte intimité peine emprisonnement amende">
-                                            "Le fait, au moyen d'un procédé quelconque, de porter atteinte à l'intimité de la vie privée d'autrui en captant, enregistrant ou transmettant, sans le consentement de leur auteur, des paroles prononcées à titre privé ou confidentiel, en fixant, enregistrant ou transmettant, sans le consentement de celle-ci, l'image d'une personne se trouvant dans un lieu privé, est puni d'un an d'emprisonnement et de 45 000 euros d'amende."
+                                            {{ 'home.detective.article_368_penal_content' | translate }}
                                         </div>}
                                     </em>
                                 </li>
-                                <li class="ps-4 py-1 mb-2 position-relative">constater des activités incompatibles
-                                    (sport intensif, etc) avec son état de
-                                    santé déclaré à son médecin,</li>
-                                <li class="ps-4 py-1 mb-2 position-relative">documenter par écrit et en images toute
-                                    situation suspecte ou frauduleuse,</li>
-                                <li class="ps-4 py-1 mb-2 position-relative">fournir un rapport détaillé utilisable
-                                    devant les tribunaux.</li>
+                                <li class="ps-4 py-1 mb-2 position-relative">
+                                    {{ 'home.detective.capabilities.item2' | translate }}
+                                </li>
+                                <li class="ps-4 py-1 mb-2 position-relative">
+                                    {{ 'home.detective.capabilities.item3' | translate }}
+                                </li>
+                                <li class="ps-4 py-1 mb-2 position-relative">
+                                    {{ 'home.detective.capabilities.item4' | translate }}
+                                </li>
                             </ul>
                         </div>
 
                         <div class="detective-legal mb-4">
-                            <h3 class="mb-3">Cadre légal de l'intervention :</h3>
+                            <h3 class="mb-3">
+                                {{ 'home.detective.legal.title' | translate }}
+                            </h3>
                             <p class="mb-3">
-                                Nos enquêteurs sont agréés par le C.N.A.P.S (Conseil National des Activités Privées de
-                                Sécurité) et respectent scrupuleusement le cadre légal en vigueur.
-                                Toutes nos investigations se déroulent dans l'espace public, sans intrusion dans la vie
-                                privée du salarié.
+                                {{ 'home.detective.legal.subtitle' | translate }}
                             </p>
                             <ul
                                 class="m-0 ps-0 d-flex flex-column align-items-start justify-content-start list-unstyled">
-                                <li class="ps-4 py-1 mb-2 position-relative">Respect de la vie privée et de la dignité
-                                    humaine</li>
-                                <li class="ps-4 py-1 mb-2 position-relative">Surveillance uniquement dans l'espace
-                                    public
+                                <li class="ps-4 py-1 mb-2 position-relative">
+                                    {{ 'home.detective.legal.item1' | translate }}
                                 </li>
-                                <li class="ps-4 py-1 mb-2 position-relative">Rapports conformes aux exigences
-                                    judiciaires
+                                <li class="ps-4 py-1 mb-2 position-relative">
+                                    {{ 'home.detective.legal.item2' | translate }}
                                 </li>
-                                <li class="ps-4 py-1 mb-2 position-relative">Confidentialité absolue garantie</li>
+                                <li class="ps-4 py-1 mb-2 position-relative">
+                                    {{ 'home.detective.legal.item3' | translate }}
+                                </li>
+                                <li class="ps-4 py-1 mb-2 position-relative">
+                                    {{ 'home.detective.legal.item4' | translate }}
+                                </li>
                             </ul>
                         </div>
                     </div>

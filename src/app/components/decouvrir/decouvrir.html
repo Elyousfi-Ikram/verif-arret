@@ -1,89 +1,111 @@
 <main class="decouvrir-page" role="main" itemscope itemtype="https://schema.org/AboutPage">
   <!-- Hero Section optimisée -->
-  <header class="decouvrir-hero py-5 d-flex align-items-center min-vh-75 position-relative" role="banner" aria-labelledby="hero-title" itemscope itemtype="https://schema.org/Organization">
+  <header class="decouvrir-hero py-5 d-flex align-items-center min-vh-75 position-relative" role="banner"
+    aria-labelledby="hero-title" itemscope itemtype="https://schema.org/Organization">
     <div class="container text-center py-5">
-      <h1 id="hero-title" class="mb-4 display-5 fw-bold text-white" itemprop="name" 
-          title="Olivier Lagarde - Enquêteur Privé Agréé CNAPS spécialisé vérification arrêts maladie"
-          aria-label="Groupe de Lagarde, enquêteur privé agréé CNAPS dirigé par Olivier Lagarde">
-        GROUPE DE LAGARDE : Enquêteur Privé Agréé CNAPS - Olivier Lagarde<br>
-        <span class="fs-4 text-light">Société d'investigations nationale spécialisée en vérification arrêts maladie et contrôle fraude</span>
+      <h1 id="hero-title" class="mb-4 display-5 fw-bold text-white" itemprop="name"
+        title="Olivier Lagarde - Enquêteur Privé Agréé CNAPS spécialisé vérification arrêts maladie"
+        aria-label="Groupe de Lagarde, enquêteur privé agréé CNAPS dirigé par Olivier Lagarde">
+        {{ 'discover.hero.title' | translate }}<br>
+        <span class="fs-4 text-light">
+          {{ 'discover.hero.subtitle' | translate }}
+        </span>
       </h1>
-      <div class="hero-highlight mx-auto" itemprop="description" 
-           aria-label="Présentation d'Olivier Lagarde et de son expertise en investigation privée">
+      <div class="hero-highlight mx-auto" itemprop="description"
+        aria-label="Présentation d'Olivier Lagarde et de son expertise en investigation privée">
         <strong itemprop="founder" itemscope itemtype="https://schema.org/Person">
           <span itemprop="name">OLIVIER LAGARDE</span>
-        </strong>, Fondateur et directeur d'enquête au sein de l'entreprise
+        </strong>
+        <span itemprop="description" aria-label="Description de l'entreprise">
+          {{ 'discover.hero.description1' | translate }}
+        </span>
         <strong class="verif-arret-brand" itemprop="brand">VERIF-ARRÊT</strong>,
-        met à votre disposition ses <strong>30 ans d'expérience</strong> en investigation privée pour la résolution de vos missions d'enquêtes
-        et d'apport de preuves légales. Expert en vérification d'arrêts maladie, accidents du travail et surveillance médicale discrète.
+        {{ 'discover.hero.description2' | translate }} <strong>{{ 'discover.hero.description3' | translate }}</strong>
+        {{ 'discover.hero.description4' | translate }}
       </div>
     </div>
   </header>
 
   <!-- Parcours Section -->
-  <section class="parcours-section py-5 bg-light position-relative" aria-labelledby="parcours-title" itemscope itemtype="https://schema.org/Person">
-    <div class="position-absolute top-0 start-50 translate-middle-x" 
-         style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;" 
-         aria-hidden="true">
+  <section class="parcours-section py-5 bg-light position-relative" aria-labelledby="parcours-title" itemscope
+    itemtype="https://schema.org/Person">
+    <div class="position-absolute top-0 start-50 translate-middle-x"
+      style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;"
+      aria-hidden="true">
     </div>
     <div class="container">
       <h2 id="parcours-title" class="mb-5 text-center display-5 fw-bold text-primary position-relative"
-          title="Formation et expérience professionnelle d'Olivier Lagarde en investigation privée"
-          aria-label="Parcours professionnel détaillé d'Olivier Lagarde">
-        Parcours professionnel d'Olivier Lagarde - Expert Investigation Privée CNAPS<br>
-        <span class="fs-4 text-secondary">Formation Forces Spéciales Marine - École Normill Paris - 30 ans d'expérience</span>
+        title="Formation et expérience professionnelle d'Olivier Lagarde en investigation privée"
+        aria-label="Parcours professionnel détaillé d'Olivier Lagarde">
+        {{ 'discover.career.title' | translate }}<br>
+        <span class="fs-4 text-secondary">{{ 'discover.career.subtitle' | translate }}</span>
+
       </h2>
-      <div class="parcours-timeline position-relative mx-auto" style="max-width: 90%;" role="list" aria-label="Chronologie du parcours professionnel">
-        <article class="parcours-item d-flex flex-column flex-md-row mb-4 position-relative" role="listitem" itemscope itemtype="https://schema.org/EducationEvent">
-          <div class="parcours-periode fw-bold text-primary ps-5 mx-3 mb-3" style="min-width: 140px;" itemprop="startDate" title="Période de formation militaire">
-            Après ses études
+      <div class="parcours-timeline position-relative mx-auto" style="max-width: 90%;" role="list"
+        aria-label="Chronologie du parcours professionnel">
+        <article class="parcours-item d-flex flex-column flex-md-row mb-4 position-relative" role="listitem" itemscope
+          itemtype="https://schema.org/EducationEvent">
+          <div class="parcours-periode fw-bold text-primary ps-5 mx-3 mb-3" style="min-width: 140px;"
+            itemprop="startDate" title="Période de formation militaire">
+            {{ 'discover.career.period1' | translate }}
           </div>
           <div class="parcours-content flex-fill bg-white p-3 rounded-4 shadow-sm border-start border-danger border-4">
             <p class="mb-0 text-justify" itemprop="description">
-              Olivier LAGARDE s'engage au sein de l'unité des <strong>Forces Spéciales de la Marine
-              Nationale</strong> et intègre le groupement des <strong>FUMACO à Lorient</strong> puis le
-              <strong>Commando de Penfentenyo</strong>.
-              Formation militaire d'élite en techniques de surveillance, investigation, filature discrète et collecte de renseignements.
+              {{ 'discover.career.content2' | translate }}
+              <strong>{{ 'discover.career.content1_forces_speciales' | translate }}</strong>
+              {{ 'discover.career.content1_part2' | translate }}
+              <strong>{{ 'discover.career.content1_fumaco' | translate }}</strong>
+              {{ 'discover.career.content1_part3' | translate }}
+              <strong>{{ 'discover.career.content1_commando' | translate }}</strong>.
+              {{ 'discover.career.content1_part4' | translate }}
             </p>
           </div>
         </article>
 
-        <article class="parcours-item d-flex flex-column flex-md-row mb-4 position-relative" role="listitem" itemscope itemtype="https://schema.org/EducationEvent">
-          <div class="parcours-periode fw-bold text-primary ps-5 fs-6 mx-3 mb-3" style="min-width: 140px;" itemprop="startDate" title="Année d'obtention du diplôme">
+        <article class="parcours-item d-flex flex-column flex-md-row mb-4 position-relative" role="listitem" itemscope
+          itemtype="https://schema.org/EducationEvent">
+          <div class="parcours-periode fw-bold text-primary ps-5 fs-6 mx-3 mb-3" style="min-width: 140px;"
+            itemprop="startDate" title="Année d'obtention du diplôme">
             1989
           </div>
           <div class="parcours-content flex-fill bg-white p-3 rounded-4 shadow-sm border-start border-danger border-4">
             <p class="mb-0 text-justify" itemprop="description">
-              Fort de cette expérience militaire, il obtient ensuite un <strong>diplôme d'enquêteur
-              de Droit Privé à l'École Normill de Paris en 1989</strong> et travaille en collaboration avec l'ancien patron du
-              <strong>GIGN</strong>. Certification professionnelle en investigation privée, surveillance médicale et contrôle fraude.
+              {{ 'discover.career.content2' | translate }}<strong>{{ 'discover.career.content2_diplome' | translate
+                }}</strong>{{ 'discover.career.content2_part2' | translate }}
+              <strong>{{ 'discover.career.content2_gign' | translate }}</strong>{{ 'discover.career.content2_part3' |
+              translate }}
             </p>
           </div>
         </article>
 
-        <article class="parcours-item d-flex flex-column flex-md-row mb-4 position-relative" role="listitem" itemscope itemtype="https://schema.org/Event">
-          <div class="parcours-periode fw-bold text-primary ps-5 fs-6 mx-3 mb-3" style="min-width: 140px;" itemprop="startDate" title="Création de la première entreprise">
+        <article class="parcours-item d-flex flex-column flex-md-row mb-4 position-relative" role="listitem" itemscope
+          itemtype="https://schema.org/Event">
+          <div class="parcours-periode fw-bold text-primary ps-5 fs-6 mx-3 mb-3" style="min-width: 140px;"
+            itemprop="startDate" title="Création de la première entreprise">
             1990
           </div>
           <div class="parcours-content flex-fill bg-white p-3 rounded-4 shadow-sm border-start border-danger border-4">
             <p class="mb-0 text-justify" itemprop="description">
-              Il crée ensuite sa <strong>première entreprise d'investigation en 1990</strong> et se développe
-              sur l'ensemble de l'hexagone en exerçant pour les particuliers, les entreprises, les cabinets d'avocats ou
-              bien les compagnies d'assurances via l'<strong>Agence Européenne d'Investigation</strong>.
-              Spécialisation en vérification d'arrêts maladie et accidents du travail.
+              {{ 'discover.career.content3_part1' | translate }}<strong>{{ 'discover.career.content3_entreprise' |
+                translate }}</strong>{{ 'discover.career.content3_part2' | translate }}<strong>{{
+                'discover.career.content3_agence' | translate }}</strong>{{ 'discover.career.content3_part3' | translate
+              }}
             </p>
           </div>
         </article>
 
-        <article class="parcours-item d-flex flex-column flex-md-row mb-4 position-relative" role="listitem" itemscope itemtype="https://schema.org/Event">
-          <div class="parcours-periode fw-bold text-primary ps-5 fs-6 mx-3 mb-3" style="min-width: 140px;" itemprop="startDate" title="Extension géographique des activités">
+        <article class="parcours-item d-flex flex-column flex-md-row mb-4 position-relative" role="listitem" itemscope
+          itemtype="https://schema.org/Event">
+          <div class="parcours-periode fw-bold text-primary ps-5 fs-6 mx-3 mb-3" style="min-width: 140px;"
+            itemprop="startDate" title="Extension géographique des activités">
             2007
           </div>
           <div class="parcours-content flex-fill bg-white p-3 rounded-4 shadow-sm border-start border-danger border-4">
             <p class="mb-0 text-justify" itemprop="description">
-              L'<strong>Agence Nationale d'Investigation</strong> s'établit également en Corse et crée la
-              société <strong>Infiltra-France</strong>. Extension géographique des services d'investigation privée,
-              surveillance médicale et contrôle fraude sociale sur tout le territoire français.
+              {{ 'discover.career.content4_part1' | translate }}<strong>{{ 'discover.career.content4_agence_nationale' |
+                translate }}</strong>{{ 'discover.career.content4_part2' | translate }}
+              <strong>{{ 'discover.career.content4_infiltra' | translate }}</strong>{{ 'discover.career.content4_part3'
+              | translate }}
             </p>
           </div>
         </article>
@@ -92,55 +114,88 @@
   </section>
 
   <!-- Agence Section -->
-  <section class="agence-section py-5 bg-white position-relative" aria-labelledby="agence-title" itemscope itemtype="https://schema.org/Organization">
-    <div class="position-absolute top-0 start-50 translate-middle-x" 
-         style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;" 
-         aria-hidden="true">
+  <section class="agence-section py-5 bg-white position-relative" aria-labelledby="agence-title" itemscope
+    itemtype="https://schema.org/Organization">
+    <div class="position-absolute top-0 start-50 translate-middle-x"
+      style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;"
+      aria-hidden="true">
     </div>
     <div class="container">
       <h2 id="agence-title" class="mb-5 text-center display-5 fw-bold text-primary position-relative" itemprop="name"
-          title="Présentation de l'agence VERIF-ARRÊT dirigée par Olivier Lagarde"
-          aria-label="VERIF-ARRÊT, agence d'enquête privée agréée CNAPS">
-        <strong class="verif-arret-brand">VERIF-ARRÊT</strong> : Agence d'enquête privée agréée CNAPS en France<br>
-        <span class="fs-4 text-secondary">Spécialiste vérification arrêts maladie et contrôle fraude sociale</span>
+        title="Présentation de l'agence VERIF-ARRÊT dirigée par Olivier Lagarde"
+        aria-label="VERIF-ARRÊT, agence d'enquête privée agréée CNAPS">
+        <strong class="verif-arret-brand">VERIF-ARRÊT</strong> : {{ 'discover.agency.title' | translate }}<br>
+        <span class="fs-4 text-secondary">{{ 'discover.agency.subtitle' | translate }}</span>
       </h2>
       <div class="agence-content mx-auto" style="max-width: 90%;" itemprop="description">
-        <article class="bg-white p-4 mb-3 rounded-4 shadow-sm border-start border-danger border-4 text-justify" role="article" aria-label="Présentation générale de VERIF-ARRÊT">
+        <article class="bg-white p-4 mb-3 rounded-4 shadow-sm border-start border-danger border-4 text-justify"
+          role="article" aria-label="Présentation générale de VERIF-ARRÊT">
           <p class="mb-0">
-            Aujourd'hui, fort de <strong>18 implantations</strong> sur le territoire métropolitain,
-            <strong>OLIVIER LAGARDE</strong>, fondateur et directeur d'enquête au sein de l'entreprise
+            {{ 'discover.agency.content1_part1' | translate }} <strong>{{ 'discover.agency.content1_implantations' |
+              translate }}</strong> {{ 'discover.agency.content1_part2' | translate }}
+            <strong>OLIVIER LAGARDE</strong> {{ 'discover.agency.content1_part3' | translate }}
             <strong class="verif-arret-brand">VERIF-ARRÊT</strong>,
-            résout des affaires qui le mènent aux quatre coins de l'hexagone et parfois en dehors de nos frontières pour
-            des clients issus de la sphère privée comme de l'univers professionnel. Expert en <strong>vérification d'arrêts maladie</strong>, 
-            <strong>accidents du travail</strong>, <strong>surveillance médicale</strong> et <strong>contrôle fraude sociale</strong>.
+            {{ 'discover.agency.content1_part4' | translate }}
+            <strong>
+              {{ 'discover.agency.content1_verification'|translate }}
+            </strong>,
+            <strong>
+              {{ 'discover.agency.content1_accidents' | translate }}
+            </strong>,
+            <strong>
+              {{ 'discover.agency.content1_surveillance' | translate }}
+            </strong>
+            {{ 'discover.agency.content1_part6' | translate }}
+            <strong>
+              {{ 'discover.agency.content1_controle' | translate }}
+            </strong>.
           </p>
         </article>
 
-        <article class="bg-white p-4 mb-3 rounded-4 shadow-sm border-start border-danger border-4 text-justify" role="article" aria-label="Services proposés par VERIF-ARRÊT">
+        <article class="bg-white p-4 mb-3 rounded-4 shadow-sm border-start border-danger border-4 text-justify"
+          role="article" aria-label="Services proposés par VERIF-ARRÊT">
           <p class="mb-0">
-            Vous souhaitez en apprendre plus sur notre agence de recherches et d'investigations ?
-            <strong class="verif-arret-brand">VERIF-ARRÊT</strong>, représentée par Olivier Lagarde, est une société
-            d'investigations proposant des services aux professionnels et parfois aux particuliers.
-            Spécialisée dans la <strong>vérification d'arrêts maladie</strong>, <strong>accidents du travail</strong>, 
-            <strong>surveillance discrète</strong>, <strong>filature médicale</strong> et <strong>contrôle fraude assurance</strong>.
+            {{ 'discover.agency.content2_part1' | translate }}
+            <strong class="verif-arret-brand">VERIF-ARRÊT</strong>,
+            {{ 'discover.agency.content2_part2' | translate }}
+            <strong>{{ 'discover.agency.content2_verification' | translate }}</strong>,
+            <strong>{{ 'discover.agency.content2_accidents' | translate }}</strong>,
+            <strong>{{ 'discover.agency.content2_surveillance' | translate }}</strong>,
+            <strong>{{ 'discover.agency.content2_filature' | translate }}</strong> {{ 'discover.agency.content1_part6' |
+            translate }}
+            <strong>{{ 'discover.agency.content2_controle' | translate }}</strong>.
           </p>
         </article>
 
-        <article class="bg-white p-4 mb-3 rounded-4 shadow-sm border-start border-danger border-4 text-justify" role="article" aria-label="Expertise et déontologie">
+        <article class="bg-white p-4 mb-3 rounded-4 shadow-sm border-start border-danger border-4 text-justify"
+          role="article" aria-label="Expertise et déontologie">
           <p class="mb-0">
-            Avec une forte expertise de plus de <strong>30 années</strong> dans le domaine des enquêtes professionnelles
-            et privées, notre agence intervient en respectant le <strong>code de déontologie</strong> relatif à notre
-            métier et assure la <strong>confidentialité</strong> totale des informations et coordonnées fournies par nos clients.
-            Services d'<strong>investigation légale</strong>, <strong>expertise judiciaire</strong> et <strong>contre-enquête</strong>.
+            {{ 'discover.agency.content3_part1' | translate }}
+            <strong>{{ 'discover.agency.content3_annees' | translate }}</strong>
+            {{ 'discover.agency.content3_part2' | translate }}
+            <strong>{{ 'discover.agency.content3_deontologie' | translate }}</strong>
+            {{ 'discover.agency.content3_part3' | translate }}
+            <strong>{{ 'discover.agency.content3_confidentialite' | translate }}</strong>
+            {{ 'discover.agency.content3_part4' | translate }}
+            <strong>{{ 'discover.agency.content3_investigation' | translate }}</strong>,
+            <strong>{{ 'discover.agency.content3_expertise' | translate }}</strong> {{ 'discover.agency.content1_part6'
+            | translate }}
+            <strong>{{ 'discover.agency.content3_contre_enquete' | translate }}</strong>.
           </p>
         </article>
 
-        <article class="bg-white p-4 mb-3 rounded-4 shadow-sm border-start border-danger border-4 text-justify" role="article" aria-label="Types de missions d'investigation">
+        <article class="bg-white p-4 mb-3 rounded-4 shadow-sm border-start border-danger border-4 text-justify"
+          role="article" aria-label="Types de missions d'investigation">
           <p class="mb-0">
-            Nous intervenons aussi dans d'autres types de missions nécessitant <strong>des surveillances et des
-            filatures</strong>, notamment pour toutes enquêtes et <strong>recherches de preuves</strong> (concurrence
-            déloyale, enquêtes financières, affaires prud'homales, fraude aux arrêts de travail). 
-            Spécialistes en <strong>investigation médicale</strong>, <strong>surveillance thérapeutique</strong> et <strong>contrôle pathologie</strong>.
+            {{ 'discover.agency.content4_part1' | translate }}
+            <strong>{{ 'discover.agency.content4_surveillances' | translate }}</strong>,
+            {{ 'discover.agency.content4_part2' | translate }}
+            <strong>{{ 'discover.agency.content4_preuves' | translate }}</strong>
+            {{ 'discover.agency.content4_part3' | translate }}
+            <strong>{{ 'discover.agency.content4_investigation' | translate }}</strong>,
+            <strong>{{ 'discover.agency.content4_surveillance' | translate }}</strong> {{
+            'discover.agency.content1_part6' | translate }}
+            <strong>{{ 'discover.agency.content4_controle' | translate }}</strong>.
           </p>
         </article>
       </div>
@@ -148,47 +203,58 @@
   </section>
 
   <!-- Métier Section -->
-  <section class="metier-section py-5 bg-light position-relative" aria-labelledby="metier-title" itemscope itemtype="https://schema.org/Service">
-    <div class="position-absolute top-0 start-50 translate-middle-x" 
-         style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;" 
-         aria-hidden="true">
+  <section class="metier-section py-5 bg-light position-relative" aria-labelledby="metier-title" itemscope
+    itemtype="https://schema.org/Service">
+    <div class="position-absolute top-0 start-50 translate-middle-x"
+      style="width: 100px; height: 4px; background: linear-gradient(90deg, transparent, #e74c3c, transparent); border-radius: 2px; z-index: 2;"
+      aria-hidden="true">
     </div>
     <div class="container position-relative">
       <h2 id="metier-title" class="mb-5 text-center display-5 fw-bold text-primary position-relative" itemprop="name"
-          title="Définition et rôle d'un enquêteur privé agréé CNAPS"
-          aria-label="Explication du métier d'agent de recherches privées">
-        Quel est le rôle d'un agent de recherches privées et d'investigations agréé CNAPS ?<br>
-        <span class="fs-4 text-secondary">Enquêteur privé spécialisé vérification arrêts maladie et surveillance médicale</span>
+        title="Définition et rôle d'un enquêteur privé agréé CNAPS"
+        aria-label="Explication du métier d'agent de recherches privées">
+        {{ 'discover.profession.title' | translate }} <br>
+        <span class="fs-4 text-secondary">{{ 'discover.profession.subtitle' | translate }}</span>
       </h2>
 
-      <div class="metier-intro d-flex flex-column flex-lg-row align-items-center gap-4 mb-5 mx-auto" style="max-width: 90%;">
+      <div class="metier-intro d-flex flex-column flex-lg-row align-items-center gap-4 mb-5 mx-auto"
+        style="max-width: 90%;">
         <figure class="metier-image position-relative overflow-hidden rounded-4 shadow-lg m-0">
-          <img src="/assets/decouvrir/agent-decouvrir.jpeg" 
-               alt="Agent de recherche privé agréé CNAPS en action - Enquêteur professionnel VERIF-ARRÊT spécialisé vérification arrêts maladie" 
-               class="img-fluid rounded-4" 
-               width="400" 
-               height="300"
-               loading="lazy"
-               decoding="async"
-               itemprop="image"
-               title="Enquêteur privé CNAPS en mission de surveillance - Olivier Lagarde VERIF-ARRÊT" />
-          <figcaption class="visually-hidden">Olivier Lagarde, enquêteur privé agréé CNAPS, en mission d'investigation</figcaption>
+          <img src="/assets/decouvrir/agent-decouvrir.jpeg"
+            alt="Agent de recherche privé agréé CNAPS en action - Enquêteur professionnel VERIF-ARRÊT spécialisé vérification arrêts maladie"
+            class="img-fluid rounded-4" width="400" height="300" loading="lazy" decoding="async" itemprop="image"
+            title="Enquêteur privé CNAPS en mission de surveillance - Olivier Lagarde VERIF-ARRÊT" />
+          <figcaption class="visually-hidden">Olivier Lagarde, enquêteur privé agréé CNAPS, en mission d'investigation
+          </figcaption>
         </figure>
 
         <div class="metier-text flex-fill" itemprop="description">
-          <article class="bg-white p-4 mb-3 rounded-4 shadow-sm border-start border-danger border-4 text-justify" role="article" aria-label="Définition de l'enquêteur privé">
+          <article class="bg-white p-4 mb-3 rounded-4 shadow-sm border-start border-danger border-4 text-justify"
+            role="article" aria-label="Définition de l'enquêteur privé">
             <p class="mb-0">
-              Un <strong>agent de recherche privé</strong> est un <strong>enquêteur de droit privé agréé CNAPS</strong> qui a la capacité d'effectuer des recherches,
-              des investigations et des surveillances pour le compte de particuliers, d'entreprises ou d'institutions.
-              Expert en <strong>vérification d'arrêts maladie</strong> et <strong>contrôle sur d'éventuelles fraudes</strong>.
+              {{ 'discover.profession.definition_part1' | translate }} <strong>{{ 'discover.profession.definition_agent'
+                | translate }}</strong> {{ 'discover.profession.definition_part2' | translate }} <strong>{{
+                'discover.profession.definition_enqueteur' | translate }}</strong> {{
+              'discover.profession.definition_part3' | translate }} <strong>{{
+                'discover.profession.definition_verification' | translate }}</strong> {{
+              'discover.profession.definition_part4' | translate }} <strong>{{ 'discover.profession.definition_controle'
+                | translate }}</strong>{{ 'discover.profession.definition_part5' | translate }}
             </p>
           </article>
 
-          <article class="bg-white p-4 mb-3 rounded-4 shadow-sm border-start border-danger border-4 text-justify" role="article" aria-label="Missions de l'enquêteur privé">
-            <p class="mb-0">
-              Ses missions incluent la <strong>collecte de preuves légales</strong>, la <strong>filature discrète</strong>, l'<strong>investigation judiciaire</strong>,
-              la <strong>surveillance thérapeutique</strong> et le <strong>contrôle pathologie</strong>. Il intervient dans le respect strict du code de déontologie
-              et de la législation en vigueur, garantissant la <strong>confidentialité</strong> et la <strong>légalité</strong> de ses actions.
+          <article class="bg-white p-4 mb-3 rounded-4 shadow-sm border-start border-danger border-4 text-justify"
+            role="article" aria-label="Missions de l'enquêteur privé">
+            <p class="mb-0 text-justify" itemprop="description">
+              {{ 'discover.profession.missions_part1' | translate }} <strong>{{ 'discover.profession.missions_collecte'
+                | translate }}</strong>{{ 'discover.profession.missions_part2' | translate }} <strong>{{
+                'discover.profession.missions_filature' | translate }}</strong>{{ 'discover.profession.missions_part3' |
+              translate }}<strong>{{ 'discover.profession.missions_investigation' | translate }}</strong>{{
+              'discover.profession.missions_part4' | translate }} <strong>{{ 'discover.profession.missions_surveillance'
+                | translate }}</strong> {{ 'discover.profession.missions_part5' | translate }} <strong>{{
+                'discover.profession.missions_controle' | translate }}</strong>{{ 'discover.profession.missions_part6' |
+              translate }} <strong>{{ 'discover.profession.missions_confidentialite' | translate }}</strong> {{
+              'discover.profession.missions_part7' | translate }} <strong>{{ 'discover.profession.missions_legalite' |
+                translate }}</strong> {{ 'discover.profession.missions_part8' | translate }}
             </p>
           </article>
         </div>
@@ -196,61 +262,38 @@
 
       <!-- FAQ Section avec Schema.org -->
       <div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
-        <h3 class="mb-4 text-center fw-bold text-primary">Questions fréquentes sur l'investigation privée</h3>
-        
+        <h3 class="mb-4 text-center fw-bold text-primary">{{ translationService.translate('discover.faq.title') }}</h3>
         <div class="faq-item mb-3" itemscope itemtype="https://schema.org/Question">
-          <h4 class="fw-bold text-dark" itemprop="name">Qu'est-ce que l'agrément CNAPS ?</h4>
+          <h4 class="fw-bold text-dark" itemprop="name">{{ translationService.translate('discover.faq.question1') }}</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <div itemprop="text" class="text-muted">
-              L'agrément CNAPS (Conseil National des Activités Privées de Sécurité) est une autorisation obligatoire pour exercer en tant qu'enquêteur privé en France. Il garantit la formation, l'expérience et la déontologie du professionnel.
+              {{ translationService.translate('discover.faq.answer1') }}
             </div>
           </div>
         </div>
 
         <div class="faq-item mb-3" itemscope itemtype="https://schema.org/Question">
-          <h4 class="fw-bold text-dark" itemprop="name">Comment se déroule une vérification d'arrêt maladie ?</h4>
+          <h4 class="fw-bold text-dark" itemprop="name">{{ translationService.translate('discover.faq.question2') }}</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <div itemprop="text" class="text-muted">
-              La vérification d'arrêt maladie s'effectue par surveillance discrète et légale, dans le respect de la vie privée. L'enquêteur collecte des preuves objectives sur les activités du salarié en arrêt.
+              {{ translationService.translate('discover.faq.answer2') }}
             </div>
           </div>
         </div>
 
         <div class="faq-item mb-3" itemscope itemtype="https://schema.org/Question">
-          <h4 class="fw-bold text-dark" itemprop="name">Quelles sont les zones d'intervention de VERIF-ARRÊT ?</h4>
+          <h4 class="fw-bold text-dark" itemprop="name">{{ translationService.translate('discover.faq.question3') }}</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <div itemprop="text" class="text-muted">
-              VERIF-ARRÊT intervient sur tout le territoire français avec 18 implantations : Marseille, Nice, Cannes, Aix-en-Provence, Monaco, Ajaccio, Bastia, Nantes, Rennes, Tours, Le Havre, Biarritz, Reims, Manosque, Saint-Tropez et autres villes.
+              {{ translationService.translate('discover.faq.answer3') }}
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact CTA Section -->
-  <section class="contact-cta py-5 bg-primary text-white text-center" aria-labelledby="contact-title">
-    <div class="container">
-      <h2 id="contact-title" class="mb-4 display-6 fw-bold">Besoin d'une investigation professionnelle ?</h2>
-      <p class="lead mb-4">Contactez Olivier Lagarde, enquêteur privé agréé CNAPS avec 30 ans d'expérience</p>
-      <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
-        <button (click)="navigateToContact()" class="btn btn-light btn-lg px-4 py-2 fw-bold"
-                title="Contacter VERIF-ARRÊT pour une investigation" 
-                aria-label="Bouton pour contacter l'agence VERIF-ARRÊT">
-          📞 Demander un devis gratuit
-        </button>
-        <button (click)="navigateToServices()" class="btn btn-outline-light btn-lg px-4 py-2 fw-bold"
-                title="Découvrir les services d'investigation de VERIF-ARRÊT"
-                aria-label="Bouton pour découvrir les services d'investigation">
-          🔍 Nos services d'investigation
-        </button>
       </div>
     </div>
   </section>
 
   <!-- Modal de callback -->
-  <app-callback-modal 
-    [isOpen]="isCallbackModalOpen" 
-    (close)="onCallbackModalClose()">
+  <app-callback-modal [isOpen]="isCallbackModalOpen" (close)="onCallbackModalClose()">
   </app-callback-modal>
 </main>

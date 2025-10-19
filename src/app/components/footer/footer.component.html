@@ -30,13 +30,9 @@
         <div class="cards-header">
           <h4 class="cards-title" itemprop="name">
             <span class="title-icon">📍</span>
-            Nos Implantations VERIF-ARRÊT
-
+            {{ 'footer.locations.title' | translate }}
             <div class="title-underline"></div>
           </h4>
-          <p class="implantations-description">
-            Réseau national de détectives professionnels pour vos investigations d'arrêts maladie
-          </p>
         </div>
 
         <div class="address-cards-grid" itemscope itemtype="https://schema.org/ItemList">
@@ -75,9 +71,6 @@
                   <span class="phone-icon">📞</span>
                   <span class="phone-text">{{ address.displayPhone }}</span>
                 </a>
-                <div class="service-description">
-                  <small class="text-muted">Enquêtes arrêts maladie • Surveillance discrète • Rapport juridique</small>
-                </div>
               </div>
             </div>
           </div>
@@ -112,7 +105,9 @@
                 itemprop="logo" title="VERIF-ARRÊT - Cabinet d'enquêteur privé professionnel agréé" />
               <div class="logo-text">
                 <h3 itemprop="name">VERIF-ARRÊT</h3>
-                <span class="tagline" itemprop="slogan">Expertise Investigation & Discrétion Professionnelle</span>
+                <span class="tagline" itemprop="slogan">
+                  {{ 'footer.tagline' | translate }}
+                </span>
               </div>
             </div>
 
@@ -120,11 +115,12 @@
             <div class="footer-reviews-section" itemscope itemtype="https://schema.org/AggregateRating">
               <div class="reviews-header">
                 <div class="d-flex justify-content-between align-items-center gap-3">
-                  <h4>Avis Clients</h4>
+                  <h4>{{ 'footer.reviews.title' | translate }}</h4>
+
                   <button class="btn-view-all-reviews" (click)="openReviewsModal()"
                     title="Consulter tous les avis clients VERIF-ARRÊT - Enquêteur privé"
                     aria-label="Voir tous les témoignages clients investigation arrêt maladie">
-                    Voir tous les avis →
+                    {{ 'footer.reviews.button' | translate }}
                   </button>
                 </div>
                 <div class="p-4 text-center reviews-summary">
@@ -152,17 +148,16 @@
       <!-- Description principale enrichie -->
       <div class="footer-description-section">
         <p class="footer-description text-center" itemprop="description">
-          <em>Votre partenaire de confiance pour la vérification d'arrêts de travail et maladie. Enquêtes
-            professionnelles et discrètes d'enquêteur privé agréé CNAPS sur tout le territoire français.
-            Investigation légale contre l'absentéisme abusif, surveillance professionnelle et rapport juridique
-            exploitable.</em>
+          <em>
+            {{ 'footer.description' | translate }}
+          </em>
         </p>
 
       </div>
 
       <!-- Section Contact enrichie -->
       <div class="footer-section footer-contact" itemscope itemtype="https://schema.org/ContactPoint">
-        <h4><span class="icon-contact"></span>Contact Enquêteur Privé VERIF-ARRÊT</h4>
+        <h4><span class="icon-contact"></span>{{ 'footer.contact.title' | translate }} VERIF-ARRÊT</h4>
         <div class="contact-info">
           <div class="contact-item">
             <a href="tel:+33607257427" class="contact-link" itemprop="telephone"
@@ -175,7 +170,7 @@
           <div class="contact-item">
             <span class="contact-link">
               <span class="contact-icon">✉️</span>
-              <span class="contact-text" itemprop="email">verifarret@gmail.fr</span>
+              <span class="contact-text" itemprop="email">verifarret@gmail.com</span>
             </span>
           </div>
           <div class="contact-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
@@ -192,7 +187,7 @@
           <div class="contact-item">
             <span class="contact-link">
               <span class="contact-icon">🕒</span>
-              <span class="contact-text" itemprop="hoursAvailable">Lundi au Samedi : 9h-21h</span>
+              <span class="contact-text" itemprop="hoursAvailable">{{ 'footer.contact.hours' | translate }}</span>
             </span>
           </div>
         </div>
@@ -207,10 +202,9 @@
     <div class="footer-bottom">
       <div class="footer-copyright">
         <div class="copyright-content">
-          <p>&copy; {{ currentYear }} VERIF-ARRÊT. Tous droits réservés.</p>
+          <p>&copy; {{ currentYear }} VERIF-ARRÊT. {{ 'footer.copyright' | translate }}</p>
           <p class="footer-subtitle">
-            Enquêteur privé agréé CNAPS - Respect de la vie privée - Interventions légales d'investigation
-            - Spécialiste vérification arrêt maladie - Surveillance professionnelle discrète
+            {{ 'footer.subtitle' | translate }}
           </p>
         </div>
         <div class="footer-section footer-legal">
@@ -218,30 +212,30 @@
             <button type="button" class="legal-btn" (click)="onLegalClick('mentions')"
               title="Mentions Légales VERIF-ARRÊT - Enquêteur privé agréé CNAPS investigation arrêt maladie"
               aria-label="Mentions Légales cabinet enquêteur privé VERIF-ARRÊT">
-              Mentions Légales
+              {{ 'footer.legal.mentions' | translate }}
             </button>
             <span class="separator" aria-hidden="true">|</span>
             <button type="button" class="legal-btn" (click)="onLegalClick('confidentialite')"
               title="Politique de Confidentialité VERIF-ARRÊT - Protection données enquête privée"
               aria-label="Politique de Confidentialité enquêteur privé professionnel">
-              Politique de Confidentialité
+              {{ 'footer.legal.privacy' | translate }}
             </button>
             <span class="separator" aria-hidden="true">|</span>
             <button type="button" class="legal-btn" (click)="onLegalClick('cookies')"
               title="Politique de Cookies VERIF-ARRÊT - Site enquêteur privé agréé"
               aria-label="Politique de Cookies cabinet investigation privée">
-              Politique de Cookies
+              {{ 'footer.legal.cookies' | translate }}
             </button>
           </div>
         </div>
       </div>
       <div class="footer-certifications" itemscope itemtype="https://schema.org/Organization">
         <span class="certification-badge" itemscope itemtype="https://schema.org/Certification">
-          <span class="badge-icon" itemprop="name">Agrément C.N.A.P.S (France Métropolitaine)</span>
+          <span class="badge-icon" itemprop="name"> {{ 'footer.certification.cnaps.france' | translate }}</span>
           <span class="badge-number" itemprop="identifier">NUM : AGD – 013 – 2112 – 10 – 10 – 20130336981</span>
         </span>
         <span class="certification-badge" itemscope itemtype="https://schema.org/Certification">
-          <span class="badge-icon" itemprop="name">Agrément C.N.A.P.S (Corse)</span>
+          <span class="badge-icon" itemprop="name">{{ 'footer.certification.cnaps.corsica' | translate }}</span>
           <span class="badge-number" itemprop="identifier">NUM : AUT – 02A – 2112 – 12 – 01 – 20130349120</span>
         </span>
       </div>
@@ -278,7 +272,7 @@
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+33607257427",
-      "email": "verifarret@gmail.fr",
+      "email": "verifarret@gmail.com",
       "contactType": "customer service",
       "areaServed": "France",
       "hoursAvailable": "Mo-Sa 09:00-21:00"

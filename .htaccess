@@ -7,11 +7,7 @@ RewriteRule ^.*$ - [L]
 RewriteCond %{REQUEST_URI} ^/sitemap\.xml$ [NC]
 RewriteRule ^.*$ - [L]
 
-# Redirections pour les variantes de recherche (AVANT Angular Router)
-RewriteCond %{QUERY_STRING} ^q=(verif[._-]?arret|verifarret|verification[._-]?arret)$ [NC]
-RewriteRule ^$ /? [R=301,L]
-
-# Handle Angular Router (APRÈS les redirections)
+# Handle Angular Router
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
@@ -55,3 +51,7 @@ Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains
     ExpiresByType image/webp "access plus 1 year"
     ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
+# Redirections pour les variantes de recherche
+RewriteEngine On
+RewriteCond %{QUERY_STRING} ^q=(verif.arret|verifarret|verification.arret)$ [NC]
+RewriteRule ^$ https://verifarret.com? [R=301,L]

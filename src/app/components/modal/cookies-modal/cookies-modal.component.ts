@@ -1,19 +1,24 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CookiesModalService } from '../../../services/cookies-modal.service';
+import { TranslationService } from '../../../services/translation.service';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-cookies-modal',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
+
   templateUrl: './cookies-modal.component.html'
-  // styleUrls supprimé - les styles sont maintenant dans modal.component.scss
 })
 export class CookiesModalComponent {
   @Input() isOpen = false;
   @Output() closeModal = new EventEmitter<void>();
 
-  constructor(private cookiesModalService: CookiesModalService) {}
+  constructor(
+    private cookiesModalService: CookiesModalService,
+    private translationService: TranslationService
+  ) {}
 
   onClose() {
     this.cookiesModalService.closeModal();

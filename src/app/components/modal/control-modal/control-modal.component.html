@@ -15,10 +15,12 @@
         <div class="d-flex justify-content-between align-items-center p-4 border-bottom ig-modal-header">
             <h3 class="mb-0" id="modal-title" 
                 itemprop="name"
-                title="Demande de contrôle terrain arrêt maladie - Investigation professionnelle">Demande de contrôle terrain</h3>
+                title="Demande de contrôle terrain arrêt maladie - Investigation professionnelle">
+                {{ 'control.modal.title' | translate }}
+            </h3>
             <button class="ig-modal-close-btn" (click)="onClose()" 
-                    aria-label="Fermer la modal de contrôle terrain arrêt maladie" 
-                    title="Fermer le formulaire de demande d'investigation"
+                    [attr.aria-label]="'control.modal.close.aria' | translate" 
+                    [attr.title]="'control.modal.close.title' | translate"
                     type="button">×</button>
         </div>
         
@@ -29,7 +31,9 @@
                          itemscope itemtype="https://schema.org/ContactForm"
                          aria-label="Formulaire de demande contrôle terrain professionnel">
                         <p class="mb-4" 
-                           title="Vérification arrêt travail par enquêteur privé agréé CNAPS">Remplissez ce formulaire pour demander une vérification d'arrêt de travail</p>
+                           title="Vérification arrêt travail par enquêteur privé agréé CNAPS">
+                           {{ 'control.form.intro' | translate }}
+                        </p>
 
                         <form [formGroup]="controlForm" (ngSubmit)="onSubmit()" 
                               aria-label="Formulaire contrôle terrain arrêt maladie">
@@ -37,59 +41,60 @@
                             <fieldset class="form-section" 
                                       itemscope itemtype="https://schema.org/Person"
                                       aria-label="Informations du demandeur enquête privée">
-                                <legend title="Coordonnées du demandeur pour investigation arrêt maladie">Vos informations</legend>
+                                <legend title="Coordonnées du demandeur pour investigation arrêt maladie">{{ 'control.form.section.requester' | translate }}</legend>
                                 <div class="form-row">
                                     <div class="mb-4 ig-form-group">
                                         <label for="nom" 
                                                itemprop="familyName"
-                                               title="Nom du demandeur contrôle terrain">Nom *</label>
+                                               title="Nom du demandeur contrôle terrain">{{ 'control.form.labels.nom' | translate }} *</label>
                                         <input type="text" id="nom" formControlName="nom" 
                                                [class.error]="hasFieldError('nom')"
                                                aria-label="Nom du demandeur pour enquête arrêt maladie"
                                                title="Saisir nom pour demande contrôle terrain professionnel"
                                                required />
-                                        <span *ngIf="hasFieldError('nom')" class="error-message">{{ getFieldError('nom') }}</span>
+                                        <span *ngIf="hasFieldError('nom')" class="error-message">{{ getFieldError('nom') | translate }}</span>
                                     </div>
 
                                     <div class="mb-4 ig-form-group">
                                         <label for="prenom" 
                                                itemprop="givenName"
-                                               title="Prénom du demandeur investigation arrêt travail">Prénom *</label>
+                                               title="Prénom du demandeur investigation arrêt travail">{{ 'control.form.labels.prenom' | translate }} *</label>
                                         <input type="text" id="prenom" formControlName="prenom"
                                                [class.error]="hasFieldError('prenom')" 
                                                aria-label="Prénom du demandeur pour vérification arrêt maladie"
                                                title="Saisir prénom pour enquête professionnelle"
                                                required />
-                                        <span *ngIf="hasFieldError('prenom')" class="error-message">{{ getFieldError('prenom') }}</span>
+                                        <span *ngIf="hasFieldError('prenom')" class="error-message">{{ getFieldError('prenom') | translate }}</span>
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="mb-4 ig-form-group">
+                                        <!-- Champ téléphone -->
                                         <label for="telephone" 
                                                itemprop="telephone"
-                                               title="Téléphone pour contact contrôle terrain">Téléphone *</label>
+                                               title="Téléphone pour contact contrôle terrain">{{ 'control.form.labels.telephone' | translate }} *</label>
                                         <input type="tel" id="telephone" formControlName="telephone"
                                                (input)="formatPhoneNumber($event)" 
                                                [class.error]="hasFieldError('telephone')"
-                                               placeholder="01 23 45 67 89" maxlength="14" 
+                                               [placeholder]="'control.form.placeholders.telephone' | translate" maxlength="14" 
                                                aria-label="Numéro téléphone pour enquête arrêt maladie"
                                                title="Contact téléphonique pour investigation professionnelle"
                                                required />
-                                        <span *ngIf="hasFieldError('telephone')" class="error-message">{{ getFieldError('telephone') }}</span>
+                                        <span *ngIf="hasFieldError('telephone')" class="error-message">{{ getFieldError('telephone') | translate }}</span>
                                     </div>
 
                                     <div class="mb-4 ig-form-group">
                                         <label for="email" 
                                                itemprop="email"
-                                               title="Email pour suivi contrôle terrain arrêt maladie">Email *</label>
+                                               title="Email pour suivi contrôle terrain arrêt maladie">{{ 'control.form.labels.email' | translate }} *</label>
                                         <input type="email" id="email" formControlName="email"
                                                [class.error]="hasFieldError('email')" 
-                                               placeholder="votre@email.com" 
+                                               [placeholder]="'control.form.placeholders.email' | translate"
                                                aria-label="Adresse email pour enquête arrêt travail"
                                                title="Email pour communication investigation professionnelle"
                                                required />
-                                        <span *ngIf="hasFieldError('email')" class="error-message">{{ getFieldError('email') }}</span>
+                                        <span *ngIf="hasFieldError('email')" class="error-message">{{ getFieldError('email') | translate }}</span>
                                     </div>
                                 </div>
 
@@ -97,19 +102,19 @@
                                     <div class="mb-4 ig-form-group">
                                         <label for="entreprise" 
                                                itemprop="worksFor"
-                                               title="Entreprise demandant contrôle terrain arrêt maladie">Entreprise *</label>
+                                               title="Entreprise demandant contrôle terrain arrêt maladie">{{ 'control.form.labels.entreprise' | translate }} *</label>
                                         <input type="text" id="entreprise" formControlName="entreprise"
                                                [class.error]="hasFieldError('entreprise')" 
-                                               placeholder="Nom de votre entreprise" 
+                                               [placeholder]="'control.form.placeholders.entreprise' | translate" 
                                                aria-label="Nom entreprise pour enquête arrêt travail"
                                                title="Société demandant vérification arrêt maladie"
                                                required />
-                                        <span *ngIf="hasFieldError('entreprise')" class="error-message">{{ getFieldError('entreprise') }}</span>
+                                        <span *ngIf="hasFieldError('entreprise')" class="error-message">{{ getFieldError('entreprise') | translate }}</span>
                                     </div>
 
                                     <div class="mb-4 ig-form-group">
                                         <label for="posteEntreprise" 
-                                               title="Localisation entreprise pour contrôle terrain">Ville et administration</label>
+                                               title="Localisation entreprise pour contrôle terrain">{{ 'control.form.labels.posteEntreprise' | translate }}</label>
                                         <input type="text" id="posteEntreprise" formControlName="posteEntreprise" 
                                                aria-label="Ville et administration pour enquête professionnelle"
                                                title="Localisation géographique pour investigation arrêt maladie" />
@@ -121,13 +126,13 @@
                             <fieldset class="form-section" 
                                       itemscope itemtype="https://schema.org/Person"
                                       aria-label="Informations salarié pour contrôle terrain">
-                                <legend title="Données du salarié en arrêt maladie à vérifier">Informations du salarié concerné</legend>
+                                <legend title="Données du salarié en arrêt maladie à vérifier">{{ 'control.form.section.employee' | translate }}</legend>
                                 <div class="mb-4 ig-form-group">
                                     <label for="posteSalarie" 
                                            itemprop="jobTitle"
-                                           title="Fonction du salarié en arrêt maladie">Poste du salarié</label>
+                                           title="Fonction du salarié en arrêt maladie">{{ 'control.form.labels.posteSalarie' | translate }}</label>
                                     <input type="text" id="posteSalarie" formControlName="posteSalarie"
-                                           placeholder="Fonction occupée dans l'entreprise" 
+                                           [placeholder]="'control.form.placeholders.posteSalarie' | translate" 
                                            aria-label="Poste du salarié pour enquête arrêt travail"
                                            title="Fonction professionnelle du salarié à contrôler" />
                                 </div>
@@ -135,28 +140,28 @@
                                 <div class="form-row">
                                     <div class="mb-4 ig-form-group">
                                         <label for="codePostalSalarie" 
-                                               title="Code postal pour contrôle terrain arrêt maladie">Code postal *</label>
+                                               title="Code postal pour contrôle terrain arrêt maladie">{{ 'control.form.labels.codePostalSalarie' | translate }} *</label>
                                         <input type="text" id="codePostalSalarie" formControlName="codePostalSalarie"
                                                (input)="formatCodePostal($event)" 
                                                [class.error]="hasFieldError('codePostalSalarie')"
-                                               placeholder="75001" maxlength="5" 
+                                               [placeholder]="'control.form.placeholders.codePostalSalarie' | translate" maxlength="5" 
                                                aria-label="Code postal salarié pour investigation terrain"
                                                title="Zone géographique pour contrôle arrêt maladie"
                                                required />
-                                        <span *ngIf="hasFieldError('codePostalSalarie')" class="error-message">{{ getFieldError('codePostalSalarie') }}</span>
+                                        <span *ngIf="hasFieldError('codePostalSalarie')" class="error-message">{{ getFieldError('codePostalSalarie') | translate }}</span>
                                     </div>
 
                                     <div class="mb-4 ig-form-group">
                                         <label for="villeSalarie" 
                                                itemprop="address"
-                                               title="Ville du salarié pour contrôle terrain">Ville *</label>
+                                               title="Ville du salarié pour contrôle terrain">{{ 'control.form.labels.villeSalarie' | translate }} *</label>
                                         <input type="text" id="villeSalarie" formControlName="villeSalarie"
                                                [class.error]="hasFieldError('villeSalarie')" 
-                                               placeholder="Paris" 
+                                               [placeholder]="'control.form.placeholders.villeSalarie' | translate" 
                                                aria-label="Ville du salarié pour enquête arrêt maladie"
                                                title="Localisation pour investigation terrain arrêt travail"
                                                required />
-                                        <span *ngIf="hasFieldError('villeSalarie')" class="error-message">{{ getFieldError('villeSalarie') }}</span>
+                                        <span *ngIf="hasFieldError('villeSalarie')" class="error-message">{{ getFieldError('villeSalarie') | translate }}</span>
                                     </div>
                                 </div>
                             </fieldset>
@@ -165,21 +170,21 @@
                             <fieldset class="form-section" 
                                       itemscope itemtype="https://schema.org/MedicalCondition"
                                       aria-label="Détails arrêt maladie à contrôler">
-                                <legend title="Caractéristiques de l'arrêt de travail à vérifier">Informations sur l'arrêt de travail</legend>
+                                <legend title="Caractéristiques de l'arrêt de travail à vérifier">{{ 'control.form.section.arret' | translate }}</legend>
                                 <div class="form-row">
                                     <div class="mb-4 ig-form-group">
                                         <label for="typeArret" 
                                                itemprop="code"
-                                               title="Type d'arrêt de travail pour contrôle terrain">Type d'arrêt</label>
+                                               title="Type d'arrêt de travail pour contrôle terrain">{{ 'control.form.labels.typeArret' | translate }}</label>
                                         <select id="typeArret" formControlName="typeArret" 
                                                 aria-label="Sélection type arrêt pour enquête médicale"
                                                 title="Catégorie arrêt de travail à investiguer">
-                                            <option value="maladie">Maladie</option>
-                                            <option value="accident-travail">Accident du travail</option>
-                                            <option value="accident-trajet">Accident de trajet</option>
-                                            <option value="maladie-professionnelle">Maladie professionnelle</option>
-                                            <option value="maternite">Maternité</option>
-                                            <option value="paternite">Paternité</option>
+                                            <option value="maladie">{{ 'control.form.type.options.maladie' | translate }}</option>
+                                            <option value="accident-travail">{{ 'control.form.type.options.accident_travail' | translate }}</option>
+                                            <option value="accident-trajet">{{ 'control.form.type.options.accident_trajet' | translate }}</option>
+                                            <option value="maladie-professionnelle">{{ 'control.form.type.options.maladie_professionnelle' | translate }}</option>
+                                            <option value="maternite">{{ 'control.form.type.options.maternite' | translate }}</option>
+                                            <option value="paternite">{{ 'control.form.type.options.paternite' | translate }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -187,18 +192,18 @@
                                 <div class="form-row">
                                     <div class="mb-4 ig-form-group">
                                         <label for="dateDebutArret" 
-                                               title="Date début arrêt maladie pour contrôle terrain">Date de début d'arrêt *</label>
+                                               title="Date début arrêt maladie pour contrôle terrain">{{ 'control.form.labels.dateDebutArret' | translate }} *</label>
                                         <input type="date" id="dateDebutArret" formControlName="dateDebutArret"
                                                [class.error]="hasFieldError('dateDebutArret')" 
                                                aria-label="Date début arrêt travail pour investigation"
                                                title="Commencement arrêt maladie à vérifier"
                                                required />
-                                        <span *ngIf="hasFieldError('dateDebutArret')" class="error-message">{{ getFieldError('dateDebutArret') }}</span>
+                                        <span *ngIf="hasFieldError('dateDebutArret')" class="error-message">{{ getFieldError('dateDebutArret') | translate }}</span>
                                     </div>
 
                                     <div class="mb-4 ig-form-group">
                                         <label for="dateFinArret" 
-                                               title="Date fin arrêt maladie pour contrôle terrain">Date de fin d'arrêt</label>
+                                               title="Date fin arrêt maladie pour contrôle terrain">{{ 'control.form.labels.dateFinArret' | translate }}</label>
                                         <input type="date" id="dateFinArret" formControlName="dateFinArret" 
                                                aria-label="Date fin arrêt travail pour investigation"
                                                title="Terme prévu arrêt maladie à contrôler" />
@@ -207,14 +212,14 @@
 
                                 <div class="mb-4 ig-form-group">
                                     <label for="restrictionsSorties" 
-                                           title="Restrictions sorties arrêt maladie pour contrôle">Restrictions de sorties</label>
+                                           title="Restrictions sorties arrêt maladie pour contrôle">{{ 'control.form.labels.restrictionsSorties' | translate }}</label>
                                     <select id="restrictionsSorties" formControlName="restrictionsSorties" 
                                             aria-label="Restrictions sorties pour enquête arrêt maladie"
                                             title="Limitations déplacements salarié en arrêt">
-                                        <option value="non-precise">Non précisé</option>
-                                        <option value="autorisees">Sorties autorisées</option>
-                                        <option value="interdites">Sorties interdites</option>
-                                        <option value="limitees">Sorties limitées</option>
+                                        <option value="non-precise">{{ 'control.form.restrictions.options.non_precise' | translate }}</option>
+                                        <option value="autorisees">{{ 'control.form.restrictions.options.autorisees' | translate }}</option>
+                                        <option value="interdites">{{ 'control.form.restrictions.options.interdites' | translate }}</option>
+                                        <option value="limitees">{{ 'control.form.restrictions.options.limitees' | translate }}</option>
                                     </select>
                                 </div>
                             </fieldset>
@@ -222,12 +227,12 @@
                             <!-- Informations complémentaires -->
                             <fieldset class="form-section" 
                                       aria-label="Informations complémentaires enquête arrêt maladie">
-                                <legend title="Détails supplémentaires pour investigation arrêt travail">Informations complémentaires</legend>
+                                <legend title="Détails supplémentaires pour investigation arrêt travail">{{ 'control.form.section.additional' | translate }}</legend>
                                 <div class="mb-4 ig-form-group">
                                     <label for="suspicions" 
-                                           title="Suspicions particulières arrêt maladie frauduleux">Suspicions particulières</label>
+                                           title="Suspicions particulières arrêt maladie frauduleux">{{ 'control.form.labels.suspicions' | translate }}</label>
                                     <textarea id="suspicions" formControlName="suspicions"
-                                              placeholder="Décrivez vos suspicions ou observations particulières..." 
+                                              [placeholder]="'control.form.placeholders.suspicions' | translate" 
                                               rows="3"
                                               aria-label="Suspicions fraude arrêt maladie pour enquête"
                                               title="Éléments suspects concernant l'arrêt de travail"></textarea>
@@ -235,32 +240,32 @@
 
                                 <div class="mb-4 ig-form-group">
                                     <label for="message" 
-                                           title="Message complémentaire contrôle terrain arrêt maladie">Message complémentaire</label>
-                                    <textarea id="message" formControlName="message" 
-                                              placeholder="Informations complémentaires..."
-                                              rows="4"
-                                              aria-label="Informations supplémentaires enquête arrêt travail"
-                                              title="Détails additionnels pour investigation professionnelle"></textarea>
+                                           title="Message complémentaire contrôle terrain arrêt maladie">{{ 'control.form.labels.message' | translate }}</label>
+                                    <textarea id="message" formControlName="message"
+                                              [placeholder]="'control.form.placeholders.message' | translate"
+                                              rows="3"
+                                              aria-label="Informations complémentaires contrôle terrain"
+                                              title="Message additionnel pour investigation arrêt travail"></textarea>
                                 </div>
                             </fieldset>
 
                             <div *ngIf="submitError" class="error-message submit-error">
-                                {{ submitError }}
+                                {{ submitError | translate }}
                             </div>
 
                             <div class="d-flex flex-column-reverse flex-md-row align-items-end gap-3 mt-5 pt-3 border-top">
                                 <button type="button" class="ig-btn-secondary" (click)="onClose()" 
                                         [disabled]="isSubmitting"
-                                        aria-label="Annuler demande contrôle terrain arrêt maladie"
-                                        title="Fermer sans envoyer la demande d'investigation">
-                                    Annuler
+                                        [attr.aria-label]="'control.form.buttons.cancel_aria' | translate"
+                                        [attr.title]="'control.form.buttons.cancel_title' | translate">
+                                    {{ 'control.form.buttons.cancel' | translate }}
                                 </button>
                                 <button type="submit" class="ig-btn-primary" 
                                         [class.btn-disabled]="!isFormValid"
                                         [disabled]="isSubmitting || !isFormValid"
                                         aria-label="Envoyer demande contrôle terrain arrêt maladie"
                                         title="Confirmer demande investigation arrêt travail">
-                                    {{ isSubmitting ? 'Envoi en cours...' : 'Envoyer la demande' }}
+                                    {{ isSubmitting ? ('control.form.buttons.submitting' | translate) : ('control.form.buttons.submit' | translate) }}
                                 </button>
                             </div>
                         </form>
@@ -272,10 +277,12 @@
                         <div class="success-icon" 
                              aria-label="Succès envoi demande investigation arrêt maladie"
                              title="Demande contrôle terrain envoyée avec succès">✓</div>
-                        <h3 itemprop="name" 
-                            title="Confirmation demande contrôle terrain arrêt maladie">Demande envoyée avec succès !</h3>
-                        <p itemprop="description" 
-                           title="Confirmation email investigation arrêt travail">Votre demande de contrôle terrain a été transmise. Vous recevrez une confirmation par email.</p>
+                        <h3 itemprop="name">
+                            {{ 'control.success.title' | translate }}
+                        </h3>
+                        <p itemprop="description">
+                           {{ 'control.success.message' | translate }}
+                        </p>
                     </div>
                 }
             </div>
