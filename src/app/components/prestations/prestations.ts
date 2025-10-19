@@ -9,7 +9,6 @@ import { TranslationService } from '../../services/translation.service';
   selector: 'app-prestations',
   standalone: true,
   imports: [TranslatePipe],
-
   templateUrl: './prestations.html',
   styleUrls: ['./prestations.scss']
 })
@@ -25,6 +24,11 @@ export class PrestationsComponent implements OnInit {
   ngOnInit(): void {
     this.setSEOMetadata();
     this.addLocalSEOData();
+    
+    // Ajout de balises Twitter Card
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.meta.updateTag({ name: 'twitter:title', content: 'Contrôle d\'arrêt maladie professionnel - VERIF-ARRÊT' });
+    this.meta.updateTag({ name: 'twitter:description', content: 'Services d\'investigation sur arrêts maladie abusifs et accidents de travail suspects. Enquêteurs privés experts en contre-visite médicale.' });
   }
 
   private setSEOMetadata(): void {

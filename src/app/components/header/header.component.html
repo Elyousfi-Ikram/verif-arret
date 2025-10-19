@@ -1,22 +1,30 @@
 <header class="header" role="banner">
   <!-- Boutons d'action - cachés sur mobile avec mots-clés enrichis -->
   <div class="header-actions">
-    <button class="action-btn" type="button" [attr.aria-label]="'btn.callback' | translate"
-      [title]="'btn.callback' | translate" (click)="onCallbackClick()">
+    <button class="action-btn" type="button" 
+      aria-label="Être rappelé par un enquêteur privé spécialiste en vérification d'arrêt maladie"
+      title="Demander un rappel gratuit pour un contrôle d'arrêt maladie ou accident de travail" 
+      (click)="onCallbackClick()">
       {{ 'btn.callback' | translate }}
     </button>
-    <button class="action-btn" type="button" [attr.aria-label]="'btn.control' | translate"
-      [title]="'btn.control' | translate" (click)="onControlClick()">
+    <button class="action-btn" type="button" 
+      aria-label="Demander un contrôle terrain pour vérifier un arrêt maladie suspect"
+      title="Solliciter une investigation professionnelle pour un arrêt de travail ou accident suspect" 
+      (click)="onControlClick()">
       {{ 'btn.control' | translate }}
     </button>
   </div>
 
   <div class="header-container">
     <!-- Logo avec optimisation SEO complète et mots-clés enrichis -->
-    <div class="header-logo-container">
-      <a href="/" class="header-logo" [title]="'company.name' | translate" [attr.aria-label]="'aria.logo' | translate">
-        <img src="assets/header/logo-verif.webp" [alt]="'company.description' | translate" class="logo-img"
-          loading="eager" width="200" height="75" decoding="async" fetchpriority="high" tabindex="0" role="img" />
+    <div class="header-logo-container" itemscope itemtype="https://schema.org/Organization">
+      <a href="/" class="header-logo" 
+         title="VERIF-ARRÊT - Cabinet d'enquêteurs privés agréés CNAPS spécialisés en contrôle d'arrêts maladie" 
+         aria-label="Accueil VERIF-ARRÊT - Experts en vérification d'arrêts maladie et accidents de travail">
+        <img src="assets/header/logo-verif.webp" 
+             alt="VERIF-ARRÊT - Expert en contrôle médical professionnel, expertise arrêt maladie et contre-expertise médicale" 
+             class="logo-img" itemprop="logo"
+             loading="eager" width="200" height="75" decoding="async" fetchpriority="high" tabindex="0" role="img" />
       </a>
       <div class="d-flex flex-column flex-md-row align-items-start mt-2">
         <div class="d-flex flex-column flex-md-row align-items-center">
@@ -58,23 +66,29 @@
 
       <!-- Navigation avec structure SEO optimisée et mots-clés enrichis -->
       <nav class="header-nav" role="navigation" [class.mobile-open]="isMobileMenuOpen()"
-        aria-label="Navigation principale VERIF-ARRET" id="main-navigation">
-        <ul class="nav-list" role="menubar">
-          <li class="nav-item" role="none">
-            <a href="/decouvrir" class="nav-link" role="menuitem" [title]="'nav.discover' | translate"
-              [attr.aria-label]="'nav.discover' | translate">
+        aria-label="Navigation principale VERIF-ARRET - Enquêteur privé agréé CNAPS - Contrôle arrêt maladie" id="main-navigation">
+        <ul class="nav-list" role="menubar" itemscope itemtype="https://schema.org/SiteNavigationElement">
+          <li class="nav-item" role="none" itemprop="name">
+            <a href="/decouvrir" class="nav-link" role="menuitem" 
+              title="Découvrez notre cabinet d'enquêteurs privés agréés CNAPS spécialisés en vérification d'arrêts maladie"
+              aria-label="Découvrez notre expertise en investigation d'arrêts maladie et notre équipe d'enquêteurs privés"
+              itemprop="url">
               <span>{{ 'nav.discover' | translate }}</span>
             </a>
           </li>
-          <li class="nav-item" role="none">
-            <a href="/prestations" class="nav-link" role="menuitem" [title]="'nav.services' | translate"
-              [attr.aria-label]="'nav.services' | translate">
+          <li class="nav-item" role="none" itemprop="name">
+            <a href="/prestations" class="nav-link" role="menuitem" 
+              title="Services de contrôle d'arrêt maladie, vérification d'accident de travail et investigation professionnelle"
+              aria-label="Nos prestations d'enquête et de contrôle d'arrêts maladie par des détectives privés agréés"
+              itemprop="url">
               <span>{{ 'nav.services' | translate }}</span>
             </a>
           </li>
-          <li class="nav-item" role="none">
-            <a href="/engagements" class="nav-link" role="menuitem" [title]="'nav.commitments' | translate"
-              [attr.aria-label]="'nav.commitments' | translate">
+          <li class="nav-item" role="none" itemprop="name">
+            <a href="/engagements" class="nav-link" role="menuitem" 
+              title="Nos engagements de qualité, confidentialité et professionnalisme en matière d'investigation d'arrêts maladie"
+              aria-label="Engagements éthiques et légaux de notre cabinet d'enquêteurs privés pour le contrôle d'arrêts de travail"
+              itemprop="url">
               <span>{{ 'nav.commitments' | translate }}</span>
             </a>
           </li>
@@ -107,9 +121,9 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["MedicalBusiness", "ProfessionalService", "Organization"],
+  "@type": ["MedicalBusiness", "ProfessionalService", "Organization", "LegalService"],
   "name": "VERIF-ARRET",
-  "alternateName": ["Verif Arrêt", "Vérif-Arrêt", "VERIF ARRET"],
+  "alternateName": ["Verif Arrêt", "Vérif-Arrêt", "VERIF ARRET", "Cabinet Enquêteur Privé Arrêt Maladie", "Détective Privé Contrôle Médical"],
   "description": "Expert en contrôle médical professionnel, expertise arrêt maladie et contre-expertise médicale. Services de contrôle médical pour entreprises et particuliers. Enquêteur privé spécialisé dans les investigations médicales, contre-visites médicales et expertises arrêt de travail.",
   "url": "https://verifarret.com",
   "logo": "https://verifarret.com/assets/header/logo-verif.webp",

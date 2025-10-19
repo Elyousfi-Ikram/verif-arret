@@ -24,6 +24,11 @@ export class EngagementComponent implements OnInit {
   ngOnInit(): void {
     this.setSEOMetadata();
     this.addReviewSchema();
+    
+    // Ajout de balises Twitter Card
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.meta.updateTag({ name: 'twitter:title', content: 'Éthique et légalité en contrôle médical - VERIF-ARRÊT' });
+    this.meta.updateTag({ name: 'twitter:description', content: 'Cabinet d\'enquêteurs privés agréés CNAPS engagé dans le respect des normes légales et éthiques pour la vérification d\'arrêts maladie et accidents de travail.' });
   }
 
   private setSEOMetadata(): void {

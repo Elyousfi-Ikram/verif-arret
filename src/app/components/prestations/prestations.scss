@@ -111,7 +111,7 @@
   }
 }
 
-// Hero section
+// Hero section - Optimisé pour mobile et performance
 .prestations-hero {
   background-image: url('/assets/prestation/header-prestations.png');
   background-size: cover;
@@ -119,21 +119,28 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 70vh;
+  // Optimisation LCP (Largest Contentful Paint)
+  contain: layout;
 
   &::before {
     content: '';
     position: absolute;
     inset: 0;
     background: rgba(5, 16, 57, 0.5);
+    // Optimisation GPU
+    will-change: opacity;
   }
 
   .container {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); // Support Safari
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     position: relative;
     z-index: 2;
+    // Optimisation CLS
+    min-height: 200px;
   }
 
   .hero-highlight {
@@ -145,5 +152,35 @@
     strong {
       color: #ec7063;
     }
+  }
+}
+
+// Optimisations pour mobile
+@media (max-width: 768px) {
+  .prestations-hero {
+    background-attachment: scroll; // Meilleure performance sur mobile
+    min-height: 50vh;
+  }
+  
+  // Amélioration de la lisibilité sur petit écran
+  .hero-highlight {
+    font-size: 1rem !important;
+    padding: 15px !important;
+  }
+}
+
+// Optimisations de performance
+.transition-hover {
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// Optimisation pour les écrans haute densité
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .prestations-hero {
+    background-image: url('/assets/prestation/header-prestations@2x.png');
   }
 }

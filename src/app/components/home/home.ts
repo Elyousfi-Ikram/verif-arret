@@ -31,6 +31,11 @@ export class HomeComponent implements OnInit {
     this.setSEOMetadata();
     this.addStructuredData();
     this.preloadCriticalResources();
+    
+    // Ajout de balises Twitter Card
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.meta.updateTag({ name: 'twitter:title', content: 'VERIF-ARRÊT - Détectives privés spécialistes arrêts maladie' });
+    this.meta.updateTag({ name: 'twitter:description', content: 'Contrôle professionnel d\'arrêts maladie et accidents de travail par des enquêteurs agréés. Service confidentiel pour employeurs.' });
   }
 
   private setSEOMetadata(): void {
