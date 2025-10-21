@@ -1,8 +1,10 @@
-import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReviewsModalService, Review } from '../../../services/reviews-modal.service';
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { getActionCache } from '@angular/core/primitives/event-dispatch';
 
 @Component({
   selector: 'app-reviews-modal',
@@ -11,38 +13,39 @@ import { Subscription } from 'rxjs';
   templateUrl: './reviews-modal.component.html',
   styleUrls: ['../modal.scss']
 })
-export class ReviewsModalComponent implements OnInit, OnDestroy {
+export class ReviewsModalComponent implements OnInit {
   @Input() isOpen = false;
   @Output() closeModal = new EventEmitter<void>();
 
-  reviews: Review[] = [];
-  averageRating = 0;
+  reviews$!: Observable<Review[]>;
+  averageRating$!: Observable<number>;
   showAddReviewForm = false;
 
   newReview = {
     name: '',
-    service: '',
     rating: 0, // Changez la valeur par défaut à 0 pour qu'aucune étoile ne soit sélectionnée au départ
     comment: ''
   };
 
-  // Supprimez la propriété hoverRating et les méthodes onStarHover et onStarLeave
-
-  private reviewsSubscription!: Subscription;
-
-  constructor(private reviewsModalService: ReviewsModalService) { }
-
-  ngOnInit() {
-    this.reviewsSubscription = this.reviewsModalService.reviews$.subscribe(reviews => {
-      this.reviews = reviews;
-      this.averageRating = this.reviewsModalService.getAverageRating();
-    });
+  constructor(private reviewsModalService: ReviewsModalService) {
   }
 
-  ngOnDestroy() {
-    if (this.reviewsSubscription) {
-      this.reviewsSubscription.unsubscribe();
-    }
+  ngOnInit() {
+    this.getReviewsAndRating();
+    console.log('reviews$', this.reviews$);
+  }
+
+  getReviewsAndRating() {
+    this.reviews$ = this.reviewsModalService.reviews$;
+    this.averageRating$ = this.reviews$.pipe(
+      map((reviews) => {
+        if (!reviews || reviews.length === 0) return 0;
+        const total = reviews.reduce((sum, r) => sum + r.rating, 0);
+        let averageRating = Math.round((total / reviews.length) * 100) / 100;
+        this.getStarFillPercentage(0, averageRating);
+        return averageRating;
+      })
+    );
   }
 
   onClose() {
@@ -62,6 +65,10 @@ export class ReviewsModalComponent implements OnInit, OnDestroy {
     const fillPercentage = this.getStarFillPercentage(starIndex, rating);
     const primaryColor = '#fff';
     const lightColor = 'rgba(5, 16, 57, 0.25)';
+
+    console.log('starIndex', starIndex);
+    console.log('rating', rating);
+    console.log('fillPercentage', fillPercentage);
     
     if (fillPercentage === 100) {
       return { 'color': primaryColor, 'font-weight': 'bold' };
@@ -84,10 +91,6 @@ export class ReviewsModalComponent implements OnInit, OnDestroy {
     return Math.round((rating - (starPosition - 1)) * 100);
   }
 
-  getFormattedRating(): string {
-    return this.averageRating.toFixed(2);
-  }
-
   onAddReview() {
     this.showAddReviewForm = true;
   }
@@ -101,14 +104,13 @@ export class ReviewsModalComponent implements OnInit, OnDestroy {
     if (this.isFormValid()) {
       this.reviewsModalService.addReview({
         name: this.newReview.name,
-        service: this.newReview.service,
         rating: this.newReview.rating,
         comment: this.newReview.comment
       });
 
+      this.getReviewsAndRating();
       this.resetForm();
       this.showAddReviewForm = false;
-      alert('Votre avis a été ajouté avec succès !');
     }
   }
 
@@ -117,12 +119,12 @@ export class ReviewsModalComponent implements OnInit, OnDestroy {
   }
 
   private resetForm() {
-    this.newReview = { name: '', service: '', rating: 0, comment: '' }; // Rating à 0 par défaut
+    this.newReview = { name: '', rating: 0, comment: '' }; // Rating à 0 par défaut
   }
 
   private isFormValid(): boolean {
     return this.newReview.name.trim() !== '' &&
-      this.newReview.service.trim() !== '' &&
+      this.newReview.rating !== 0 &&
       this.newReview.comment.trim() !== '';
   }
 }

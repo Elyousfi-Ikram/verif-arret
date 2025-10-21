@@ -1,3 +1,5 @@
+import { environment } from "../../environments/environment";
+
 export interface CallbackEmailData {
   nom: string;
   prenom: string;
@@ -28,10 +30,16 @@ export interface ControlEmailData {
 }
 
 export const EmailJSConfig = {
-  serviceId: 'service_8fegsgj',
-  publicKey: '_2Vv-V-TWVqz-O-Lf',
-  templates: {
-    callback: 'template_k6eflye',
-    control: 'template_oq1s7vi'
-  }
+    serviceId: environment.emailjs.serviceId,
+    templates: {
+      callback: environment.emailjs.templates.callback,
+      control: environment.emailjs.templates.control
+    },
+    publicKey: environment.emailjs.publicKey,
+  // serviceId: 'service_8fegsgj',
+  // publicKey: '_2Vv-V-TWVqz-O-Lf',
+  // templates: {
+  //   callback: 'template_k6eflye',
+  //   control: 'template_oq1s7vi'
+  // }
 } as const;
