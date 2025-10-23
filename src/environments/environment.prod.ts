@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   staging: false,
-  apiUrl: 'https://verifarret-backend-production.up.railway.app/api',
+  apiUrl: 'https://verifarret.up.railway.app/api',
   
   // Configuration de sécurité
   enableHttps: true,

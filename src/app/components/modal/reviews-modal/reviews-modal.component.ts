@@ -66,10 +66,6 @@ export class ReviewsModalComponent implements OnInit {
     const primaryColor = '#fff';
     const lightColor = 'rgba(5, 16, 57, 0.25)';
 
-    console.log('starIndex', starIndex);
-    console.log('rating', rating);
-    console.log('fillPercentage', fillPercentage);
-    
     if (fillPercentage === 100) {
       return { 'color': primaryColor, 'font-weight': 'bold' };
     } else if (fillPercentage === 0) {
