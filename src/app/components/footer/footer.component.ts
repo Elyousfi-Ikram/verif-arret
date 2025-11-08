@@ -1,8 +1,8 @@
-import { Component, signal, Inject, PLATFORM_ID, OnInit, OnDestroy } from '@angular/core';
+import { Component, signal, Inject, PLATFORM_ID, OnInit } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ModalComponent } from '../modal/modal';
-import { ReviewsModalService } from '../../services/reviews-modal.service';
-import { Subscription } from 'rxjs';
+import { Review, ReviewsModalService } from '../../services/reviews-modal.service';
+import { map, Observable } from 'rxjs';
 import { LegalModalService } from '../../services/legal-modal.service';
 import { PolicyModalService } from '../../services/policy-modal.service';
 import { CookiesModalService } from '../../services/cookies-modal.service';
@@ -29,11 +29,11 @@ export interface AddressItem {
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit, OnDestroy {
+export class FooterComponent implements OnInit {
   currentYear = new Date().getFullYear();
+  reviews$!: Observable<Review[]>;
   averageRating = 0;
-
-  private reviewsSubscription!: Subscription;
+  averageRating$!: Observable<number>;
 
   // Signaux pour la gestion d'état
   isContentVisible = signal(true);
@@ -50,15 +50,14 @@ export class FooterComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.reviewsSubscription = this.reviewsModalService.reviews$.subscribe(() => {
-      this.averageRating = this.reviewsModalService.getAverageRating();
-    });
-  }
-
-  ngOnDestroy() {
-    if (this.reviewsSubscription) {
-      this.reviewsSubscription.unsubscribe();
-    }
+    this.averageRating$ = this.reviewsModalService.reviews$.pipe(
+      map((reviews) => {
+        if (!reviews || reviews.length === 0) return 0;
+        const total = reviews.reduce((sum, r) => sum + r.rating, 0);
+        this.averageRating = Math.round((total / reviews.length) * 100) / 100;
+        return this.averageRating;
+      })
+    );
   }
 
   // Adresses organisées par région
@@ -255,10 +254,6 @@ export class FooterComponent implements OnInit, OnDestroy {
   openReviewsModal(): void {
     this.reviewsModalService.openModal();
     this.trackEvent('reviews_modal', 'engagement', 'footer_reviews_click');
-  }
-
-  getFormattedRating(): string {
-    return this.averageRating.toFixed(2);
   }
 
   getStarStyle(starIndex: number, rating: number): any {

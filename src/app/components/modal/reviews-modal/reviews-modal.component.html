@@ -28,15 +28,15 @@
         <div class="p-4 mb-5 text-center ig-reviews-summary">
           <div class="d-flex flex-row justify-content-between align-items-center gap-2">
             <div class="d-flex flex-row align-items-center gap-2">
-              <div class="ig-rating-number">{{ getFormattedRating() }}/5</div>
+              <div class="ig-rating-number">{{ (averageRating$ | async)?.toFixed(2) }}/5</div>
             </div>
             <div class="ig-stars-container">
               <div class="d-flex gap-1">
                 <span *ngFor="let star of [0,1,2,3,4]; let i = index" class="ig-star ig-star-enhanced ig-star-white"
-                  [ngStyle]="getStarStyle(i, averageRating)">★</span>
+                  [ngStyle]="getStarStyle(i, (averageRating$ | async) || 0)">★</span>
               </div>
               <div class="ig-rating-precision">
-                <small>Basé sur {{ reviews.length }} avis</small>
+                <small>Basé sur {{ (reviews$ | async)?.length || 0 }} avis</small>
               </div>
             </div>
           </div>
@@ -44,23 +44,25 @@
 
         <!-- Liste des avis -->
         <div class="d-flex flex-column gap-4 mb-5">
-          <div class="ig-review-item" *ngFor="let review of reviews">
+          @for (review of (reviews$ | async) || []; track review) {
+          <div class="ig-review-item">
             <div class="d-flex flex-column justify-content-between align-items-start mb-3">
               <div class="d-flex">
                 <h4 class="ig-reviewer-name">{{ review.name }}</h4>
               </div>
               <div class="d-flex flex-column align-items-end gap-2">
                 <div class="d-flex gap-1">
-                  <span *ngFor="let star of [0,1,2,3,4]; let i = index" class="ig-star ig-star-enhanced"
-                    [ngStyle]="getStarStyle(i, review.rating)">★</span>
+                  @for (star of [0,1,2,3,4]; track $index; let i = $index) {
+                  <span class="ig-star ig-star-enhanced" [ngStyle]="getStarStyle(i, review.rating)">★</span>
+                  }
                 </div>
               </div>
             </div>
-            <p class="ig-service-type mb-3">{{ review.service }}</p>
             <div class="ig-review-content">
               <p class="ig-review-comment">{{ review.comment }}</p>
             </div>
           </div>
+          }
         </div>
 
         <div class="text-center p-3 ig-reviews-footer">
@@ -75,7 +77,7 @@
       <!-- Formulaire d'ajout d'avis -->
       @if (showAddReviewForm) {
       <div class="ig-study-form">
-        <form (ngSubmit)="onSubmitReview()" #reviewForm="ngForm">
+        <form (submit)="onSubmitReview()" #reviewForm="ngForm">
           <div class="mb-4 ig-form-group">
             <label for="reviewerName">Nom *</label>
             <input type="text" id="reviewerName" name="name" [(ngModel)]="newReview.name" required

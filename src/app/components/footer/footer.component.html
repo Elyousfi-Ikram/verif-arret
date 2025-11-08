@@ -128,7 +128,7 @@
                 <div class="p-4 text-center reviews-summary">
                   <div class="d-flex flex-row justify-content-between align-items-center gap-4">
                     <div class="d-flex flex-row align-items-center gap-2">
-                      <div class="ig-rating-number" itemprop="ratingValue">{{ getFormattedRating() }}/5</div>
+                      <div class="ig-rating-number" itemprop="ratingValue">{{ (averageRating$ | async)?.toFixed(2) }}/5</div>
                       <meta itemprop="bestRating" content="5">
                       <meta itemprop="worstRating" content="1">
                     </div>

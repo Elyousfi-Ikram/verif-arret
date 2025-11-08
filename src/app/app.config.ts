@@ -3,6 +3,7 @@ import { provideRouter, withPreloading, PreloadAllModules } from '@angular/route
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { IMAGE_CONFIG } from '@angular/common';
 import { routes } from './app.routes';
+import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,3 +22,6 @@ export const appConfig: ApplicationConfig = {
     }
   ]
 };
+
+// Configuration API basée sur l'environnement
+export const apiUrl = environment.apiUrl;
